@@ -20,16 +20,19 @@ int main(int argc, char** argv)
   float windowWidth = 800.f;
   float windowHeight = 600.f;
   sf::RenderWindow App(sf::VideoMode(windowWidth, windowHeight,32), "COLLISION", sf::Style::Titlebar | sf::Style::Close);
-  sf::CircleShape bullet(7);
-  std::string togglestring = "primary";
   
-  sf::CircleShape weapontoggle(20);
-  weapontoggle.setPosition(30,500);
-
-
-
+  //instantiate bullet shape
+  sf::CircleShape bullet(7);
   bullet.setPosition(-100,-100);
   
+  //create toggle string/indicator for mouse wheel selection
+  std::string togglestring = "primary";
+  sf::CircleShape weapontoggle(20);
+  weapontoggle.setPosition(30,500);
+  
+  //resets bullet trajecory
+  float newshot = 0.0f;
+
   //set up default laser sound
   sf::SoundBuffer defaultgun;
   if(!defaultgun.loadFromFile("../resources/laser.wav"))
@@ -77,7 +80,7 @@ comp.setString("0");
   float compScore = 0;
   float playerScore = 0;
   
-  float newshot = 0.0f;
+  
 
 
   //Time
@@ -104,20 +107,27 @@ comp.setString("0");
       // Exit
       if(Event.type == sf::Event::Closed)
         App.close();
-      
+        
+        //manages 360 degree shooting
         if (Event.type == sf::Event::MouseButtonPressed)
         {
           
         bullet.setPosition(spaceship.position.x,spaceship.position.y);
+      
+        //atan2 vector formula found using tutorials
         sf::Vector2f mousePosition = App.mapPixelToCoords(sf::Mouse::getPosition(App));
                float cleanshot = atan2(sf::Mouse::getPosition(App).y - bullet.getPosition().y, 
                                  sf::Mouse::getPosition(App).x - bullet.getPosition().x);
          newshot = cleanshot; 
         //play sound
+         
+        //plays gun sound upon shooting a bullet 
         defaultgunsound.play();
         
         }
         
+        
+        //Mouse wheel toggles between weapons, for now just switches the bullet size/color
         if(Event.type == sf::Event::MouseWheelMoved){
                 if (togglestring == "primary"){
                         weapontoggle.setFillColor(sf::Color::Yellow);
@@ -160,7 +170,7 @@ comp.setString("0");
         
      
         
-        
+    //moves the bullet using accepted trajectory correction (used online tutorials)    
     bullet.move(cos(newshot) * 0.5f, 0);
     bullet.move(0, sin(newshot) * 0.5f);
 
