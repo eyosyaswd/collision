@@ -6,9 +6,13 @@
 #include <cmath>
 #include <math.h>
 #include "Player.hpp"
+#include <SFML/Audio.hpp>
 
 
 #include <cstring>
+#include <iostream>
+using namespace std;
+
 
 int main(int argc, char** argv)
 {
@@ -16,6 +20,28 @@ int main(int argc, char** argv)
   float windowWidth = 800.f;
   float windowHeight = 600.f;
   sf::RenderWindow App(sf::VideoMode(windowWidth, windowHeight,32), "COLLISION", sf::Style::Titlebar | sf::Style::Close);
+  sf::CircleShape bullet(7);
+  std::string togglestring = "primary";
+  
+  sf::CircleShape weapontoggle(20);
+  weapontoggle.setPosition(30,500);
+
+
+
+  bullet.setPosition(-100,-100);
+  
+  //set up default laser sound
+  sf::SoundBuffer defaultgun;
+  if(!defaultgun.loadFromFile("../resources/laser.wav"))
+  {
+      return EXIT_FAILURE;
+  }
+  
+  sf::Sound defaultgunsound;
+  defaultgunsound.setBuffer(defaultgun);
+  //
+  
+  
 
   //create background image
   sf::Texture backdrop;
@@ -50,6 +76,9 @@ comp.setString("0");
   //initate score to 0
   float compScore = 0;
   float playerScore = 0;
+  
+  float newshot = 0.0f;
+
 
   //Time
   sf::Clock clock;
@@ -65,6 +94,9 @@ comp.setString("0");
   // start main loop
   while(App.isOpen())
   {
+      
+      
+
     // process events
     sf::Event Event;
     while(App.pollEvent(Event))
@@ -72,6 +104,40 @@ comp.setString("0");
       // Exit
       if(Event.type == sf::Event::Closed)
         App.close();
+      
+        if (Event.type == sf::Event::MouseButtonPressed)
+        {
+          
+        bullet.setPosition(spaceship.position.x,spaceship.position.y);
+        sf::Vector2f mousePosition = App.mapPixelToCoords(sf::Mouse::getPosition(App));
+               float cleanshot = atan2(sf::Mouse::getPosition(App).y - bullet.getPosition().y, 
+                                 sf::Mouse::getPosition(App).x - bullet.getPosition().x);
+         newshot = cleanshot; 
+        //play sound
+        defaultgunsound.play();
+        
+        }
+        
+        if(Event.type == sf::Event::MouseWheelMoved){
+                if (togglestring == "primary"){
+                        weapontoggle.setFillColor(sf::Color::Yellow);
+                        togglestring = "secondary";
+                        bullet.setRadius(20);
+                        bullet.setFillColor(sf::Color::Yellow);
+                }
+                    
+                else{
+                    togglestring = "primary";
+                    weapontoggle.setFillColor(sf::Color::White);
+                    bullet.setRadius(7);
+                    bullet.setFillColor(sf::Color::White);
+                }
+            
+        }
+      
+      
+      
+      
       }
         float secs = clock.restart().asSeconds();
 
@@ -86,7 +152,17 @@ comp.setString("0");
         { spaceship.moveRight(secs);}
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
         { App.close();}
+        
 
+        
+        
+        
+        
+     
+        
+        
+    bullet.move(cos(newshot) * 0.5f, 0);
+    bullet.move(0, sin(newshot) * 0.5f);
 
     spaceship.update();
 
@@ -95,9 +171,11 @@ comp.setString("0");
     App.clear(sf::Color::Blue);
 
     //displays the game
+   
     App.draw(background);
     App.draw(spaceship.getShape());
-
+    App.draw(bullet);
+    App.draw(weapontoggle);
     App.display();
   }
 

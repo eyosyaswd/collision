@@ -16,10 +16,11 @@
 		void moveLeft(float secs);
 		void moveRight(float secs);
 		void update();
+        sf::Vector2f position;
 
 	private:
 		sf::RectangleShape spaceship;
 		float velocity = 300.f;
-		sf::Vector2f position;
+		
 
 	};
