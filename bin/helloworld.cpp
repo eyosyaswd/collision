@@ -20,12 +20,22 @@ int main(int argc, char** argv)
   // create main window
   float windowWidth = 800.f;
   float windowHeight = 600.f;
+  bool shieldfollow = false;
+  bool cangethit = true;
   sf::RenderWindow App(sf::VideoMode(windowWidth, windowHeight,32), "COLLISION", sf::Style::Titlebar | sf::Style::Close);
 
   //instantiate bullet shape
   sf::CircleShape bullet(7);
   bullet.setPosition(-100,-100);
 
+  
+  sf::CircleShape shieldpower(20);
+  shieldpower.setPosition(200,200);
+  
+  sf::CircleShape heartpower(20);
+  heartpower.setPosition(300,200);
+  heartpower.setFillColor(sf::Color::Red);
+  
   //create toggle string/indicator for mouse wheel selection
   std::string togglestring = "primary";
   sf::CircleShape weapontoggle(20);
@@ -44,6 +54,48 @@ int main(int argc, char** argv)
   sf::Sound defaultgunsound;
   defaultgunsound.setBuffer(defaultgun);
   //
+
+  //make hearts, temporary
+
+  sf::Texture heart;
+  if(!heart.loadFromFile("../res/images/heart.png"))
+  {
+    return EXIT_FAILURE;
+  }
+ 
+ 
+  sf::Sprite heart1sprite;
+  heart1sprite.setTexture(heart);
+  heart1sprite.setPosition(20,50);
+  heart1sprite.setScale(sf::Vector2f(0.1f, 0.1f));
+
+  sf::Sprite heart2sprite;
+  heart2sprite.setTexture(heart);
+  heart2sprite.setPosition(80,50);
+  heart2sprite.setScale(sf::Vector2f(0.1f, 0.1f));
+
+  sf::Sprite heart3sprite;
+  heart3sprite.setTexture(heart);
+  heart3sprite.setPosition(140,50);
+  heart3sprite.setScale(sf::Vector2f(0.1f, 0.1f));
+  
+//test shield following
+  sf::CircleShape shield(50);
+  shield.setPosition(-400,-400);
+  
+  //collision immunity
+  sf::Time immunity = sf::seconds(5.0f);
+
+  
+  
+  
+  
+  
+
+
+
+
+
 
 
 
@@ -92,8 +144,12 @@ comp.setString("0");
   //Create spaceship
   Player spaceship(windowWidth/2, windowHeight/2);
 
+ 
+
+
   // Create enemy spaceship
   Enemy enemy(1.0, 0.5);
+
 
   // in play boolean
   bool inPlay = false;
@@ -101,8 +157,33 @@ comp.setString("0");
   // start main loop
   while(App.isOpen())
   {
+    
+      
+    if (shieldpower.getGlobalBounds().intersects(spaceship.getPosition())){
+                shield.setPosition(spaceship.position.x - 35,spaceship.position.y - 25);
+                shield.setFillColor(sf::Color(255,255,255,128));
+                shieldpower.setPosition(-500,-500);
+                shieldfollow = true;
+                
+    }
+    
+    if (shieldfollow == true){
+        shield.setPosition(spaceship.position.x - 35,spaceship.position.y - 25);
+    }
+    
 
+    
 
+    
+    if ((enemy.getPosition().intersects(spaceship.getPosition()) ) == false){
+                cangethit = true;
+    }
+
+    
+    
+    
+    
+    
 
     // process events
     sf::Event Event;
@@ -116,6 +197,7 @@ comp.setString("0");
         if (Event.type == sf::Event::MouseButtonPressed)
         {
 
+        if(bullet.getPosition().x < 0 || bullet.getPosition().x > 800 || bullet.getPosition().y < 0 || bullet.getPosition().y > 600){
         bullet.setPosition(spaceship.position.x,spaceship.position.y);
 
         //atan2 vector formula found using tutorials
@@ -127,6 +209,7 @@ comp.setString("0");
 
         //plays gun sound upon shooting a bullet
         defaultgunsound.play();
+        }
 
         }
 
@@ -148,6 +231,41 @@ comp.setString("0");
                 }
 
         }
+        
+        if (enemy.getPosition().intersects(spaceship.getPosition()) && shieldfollow == true && cangethit == true){
+                    shield.setPosition(-480,-480);
+                    shieldfollow = false;
+                    cangethit = false;
+ 
+        }
+        
+        if (enemy.getPosition().intersects(spaceship.getPosition()) && shieldfollow == false && cangethit == true){
+                    if(heart3sprite.getPosition().x > 0){
+                        heart3sprite.setPosition(-400,-400);
+                    }
+                    
+                    else if(heart3sprite.getPosition().x < 0 && heart2sprite.getPosition().x > 0){
+                            heart2sprite.setPosition(-800,-800);
+                    }
+                    
+                    else{
+                            App.close();
+                    }
+                    cangethit = false;
+        }
+        
+        if (heartpower.getGlobalBounds().intersects(spaceship.getPosition())){
+            if(heart2sprite.getPosition().x < 0){
+                    heart2sprite.setPosition(80,50);
+                    heartpower.setPosition(-300,-300);
+            }
+            else{
+                    heart3sprite.setPosition(140,50);
+                    heartpower.setPosition(-300,-300);
+            }
+        }
+        
+        
 
 
 
@@ -193,6 +311,13 @@ comp.setString("0");
     App.draw(enemy.getShape());
     App.draw(bullet);
     App.draw(weapontoggle);
+    App.draw(heart1sprite);
+    App.draw(heart2sprite);
+    App.draw(heart3sprite);
+    App.draw(shield);
+    App.draw(shieldpower);
+    App.draw(heartpower);
+
     App.display();
   }
 
