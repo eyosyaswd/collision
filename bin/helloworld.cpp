@@ -28,6 +28,11 @@ int main(int argc, char** argv)
   sf::CircleShape bullet(7);
   bullet.setPosition(-100,-100);
 
+  //initiates the collision theme when game starts
+  sf::Music music;
+  if (!music.openFromFile("../res/sounds/collisionTheme.wav"))
+      return -1; // error
+  music.play();
   
   sf::CircleShape shieldpower(20);
   shieldpower.setPosition(200,200);
