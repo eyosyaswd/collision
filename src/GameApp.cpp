@@ -2,14 +2,15 @@
   * Filename: GameApp.cpp
   *
   * Game Application class.
+  * This class initiallizes the game and starts the main loop.
 **/
 
 #include "GameApp.hpp"
-
+#include "Global.hpp"
 
 // Constructor
 GameApp::GameApp() {
-  window = new sf::RenderWindow(sf::VideoMode(windowWidth, windowHeight, 32), "COLLISION", sf::Style::Titlebar | sf::Style::Close);
+  window = new RenderWindow(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT, BITS_PER_PIXEL), GAME_TITLE/*, Style::Titlebar | Style::Close*/);
 }
 
 
@@ -28,10 +29,10 @@ void GameApp::mainLoop() {
   // sf::Clock clock;
 
   while(window->isOpen()) {
-    sf::Event event;
+    Event event;
 
     while(window->pollEvent(event)) {
-      if (event.type == sf::Event::Closed)
+      if (event.type == Event::Closed)
         window->close();
     }
 

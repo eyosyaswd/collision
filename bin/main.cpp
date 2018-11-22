@@ -5,8 +5,8 @@
   *
 **/
 
-#include <SFML/Graphics.hpp>
 #include "GameApp.hpp"
+
 
 int main(int argc, char** argv) {
   GameApp game;

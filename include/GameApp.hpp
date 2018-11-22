@@ -9,20 +9,20 @@
 
 #include <SFML/Graphics.hpp>
 
+using namespace sf;
+
 
 class GameApp {
 
   public:
     GameApp();
-    ~GameApp();
+    virtual ~GameApp();
 
     void init();
     void mainLoop();
 
   private:
-    float windowWidth = 800.f;
-    float windowHeight = 600.f;
-    sf::RenderWindow *window;
+    RenderWindow *window;
 
 };
 
