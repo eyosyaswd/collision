@@ -3,6 +3,7 @@
   *
   * Game Application header file.
 **/
+//#pragma once
 
 #ifndef GAMEAPP_HPP
 #define GAMEAPP_HPP
@@ -16,7 +17,7 @@ class GameApp {
 
   public:
     GameApp();
-    virtual ~GameApp();
+    ~GameApp();
 
     void init();
     void mainLoop();
