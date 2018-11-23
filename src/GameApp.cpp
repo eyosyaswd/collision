@@ -10,7 +10,7 @@
 
 // Constructor
 GameApp::GameApp() {
-  window = new RenderWindow(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT, BITS_PER_PIXEL), GAME_TITLE/*, Style::Titlebar | Style::Close*/);
+  window.create(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT, BITS_PER_PIXEL), GAME_TITLE);
 }
 
 
@@ -19,7 +19,7 @@ GameApp::~GameApp() {}
 
 
 // Initiallizing function:
-// This is where we want to initiallize deltaTime,
+// This is where we want to initiallize our logic and views.
 void GameApp::init() {
 
 }
@@ -28,17 +28,17 @@ void GameApp::init() {
 void GameApp::mainLoop() {
   // sf::Clock clock;
 
-  while(window->isOpen()) {
+  while(window.isOpen()) {
     Event event;
 
-    while(window->pollEvent(event)) {
+    while(window.pollEvent(event)) {
       if (event.type == Event::Closed)
-        window->close();
+        window.close();
     }
 
     // no drawing should happen here but it's okay for now
-    window->clear(sf::Color::Blue);
-    window->display();
+    window.clear(sf::Color::Blue);
+    window.display();
 
   }
 

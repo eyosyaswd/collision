@@ -22,7 +22,7 @@ class GameApp {
     void mainLoop();
 
   private:
-    RenderWindow *window;
+    RenderWindow window;
 
 };
 
