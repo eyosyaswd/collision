@@ -1,44 +1,63 @@
 /**
   * Filename: GameApp.cpp
-  *
-  * Game Application class.
-  * This class initiallizes the game and starts the main loop.
 **/
 
 #include "GameApp.hpp"
 #include "Global.hpp"
+#include "SplashState.hpp"
+#include <iostream>
 
-// Constructor
+
 GameApp::GameApp() {
-  window.create(VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT, BITS_PER_PIXEL), GAME_TITLE);
+  gameData->window.create(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT, BITS_PER_PIXEL), GAME_TITLE, sf::Style::Titlebar | sf::Style::Close);
+  gameData->stateManager.pushState(StateRef(new SplashState(this->gameData)));
 }
 
 
-// Destructor
 GameApp::~GameApp() {}
 
 
-// Initiallizing function:
-// This is where we want to initiallize our logic and views.
 void GameApp::init() {
 
 }
 
 
 void GameApp::mainLoop() {
-  // sf::Clock clock;
+  float newTime, frameTime, interpolation;
+  float currentTime = this->clock.getElapsedTime().asSeconds();
+  float accumulator = 0.0f;
 
-  while(window.isOpen()) {
-    Event event;
+  while(this->gameData->window.isOpen()) {
+    // this->gameData->stateManager.updateStates();
+    //
+    // newTime = this->clock.getElapsedTime().asSeconds();
+    // frameTime = newTime - currentTime;
+    //
+    // if (frameTime > 0.25f) {
+    //   frameTime = 0.25f;
+    // }
+    // currentTime = newTime;
+    // accumulator += frameTime;
+    //
+    // while (accumulator >= dt) {
+    //   this->gameData->stateManager.getActiveState()->handleEvents();
+    //   this->gameData->stateManager.getActiveState()->update(dt);
+    //
+    //   accumulator -= dt;
+    // }
+    //
+    // interpolation = accumulator / dt;
+    // this->gameData->stateManager.getActiveState()->draw(interpolation);
 
-    while(window.pollEvent(event)) {
-      if (event.type == Event::Closed)
-        window.close();
+    sf::Event event;
+
+    while(this->gameData->window.pollEvent(event)) {
+      if (event.type == sf::Event::Closed)
+        this->gameData->window.close();
     }
 
-    // no drawing should happen here but it's okay for now
-    window.clear(sf::Color::Blue);
-    window.display();
+    this->gameData->window.clear(sf::Color::Blue);
+    this->gameData->window.display();
 
   }
 

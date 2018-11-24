@@ -1,15 +1,16 @@
 /**
   * Filename: StateManager.cpp
-  *
-  *
 **/
 
+#include <iostream>
 #include "StateManager.hpp"
 
 
 StateManager::StateManager() {}
 
+
 StateManager::~StateManager() {}
+
 
 void StateManager::pushState(StateRef newState, bool isReplacing) {
   this->isPushing = true;
@@ -17,9 +18,11 @@ void StateManager::pushState(StateRef newState, bool isReplacing) {
   this->newState = std::move(newState);
 }
 
+
 void StateManager::popState() {
   this->isPopping = true;
 }
+
 
 void StateManager::updateStates() {
   if (this->isPopping && !this->statesStack.empty()) {
@@ -43,6 +46,7 @@ void StateManager::updateStates() {
     this->isPushing = false;
   }
 }
+
 
 StateRef &StateManager::getActiveState() {
   return this->statesStack.top();

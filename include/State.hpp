@@ -11,14 +11,36 @@
 class State {
 
   public:
-    virtual void init();
+    /**
+      * Initiallizes the state.
+    **/
+    virtual void init() = 0;
 
+    /**
+      * Handles inputs (events).
+    **/
     virtual void handleEvents() = 0;
-    virtual void update() = 0;
+
+    /**
+      * Updates the game.
+    **/
+    virtual void update(float dt) = 0;
+
+    /**
+      * Draws the game onto the screen.
+    **/
     virtual void draw(float dt) = 0;
 
-    virtual void pause();
-    virtual void resume();
+
+    /**
+      * Pauses the state.
+    **/
+    virtual void pause() {}
+
+    /**
+      * Resumes the state.
+    **/
+    virtual void resume() {}
 
   private:
 
