@@ -18,7 +18,7 @@ class SplashState : public State {
     /**
       * Constructor
     **/
-    SplashState(GameDataRef gameData);
+    SplashState(GameDataRef data);
 
     /**
       * Initiallizes the state.

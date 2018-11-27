@@ -14,7 +14,7 @@ StateManager::~StateManager() {}
 
 void StateManager::pushState(StateRef newState, bool isReplacing) {
   this->isPushing = true;
-  this->isReplacing = isReplacing;
+  this->_isReplacing = isReplacing;
   this->newState = std::move(newState);
 }
 
@@ -35,7 +35,7 @@ void StateManager::updateStates() {
 
   if (this->isPushing) {
     if (!this->statesStack.empty()) {
-      if (this->isReplacing) {
+      if (this->_isReplacing) {
         this->statesStack.pop();
       } else {
         this->statesStack.top()->pause();

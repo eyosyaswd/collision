@@ -5,11 +5,12 @@
 // #include <sstream>
 #include <iostream>
 #include "SplashState.hpp"
+#include "MenuState.hpp"
 #include "Global.hpp"
 
 
-SplashState::SplashState(GameDataRef gameData) {
-  this->gameData = gameData;
+SplashState::SplashState(GameDataRef data): gameData(data) {
+  //this->gameData = gameData;
 }
 
 
@@ -30,9 +31,12 @@ void SplashState::handleEvents() {
 }
 
 
-void SplashState::update(float dt) {
-  if (clock.getElapsedTime().asSeconds() > SPLASH_STATE_TIME_LENGTH) {
-    std::cout << "Go to Main Menu" << std::endl;
+void SplashState::update(float dt)
+{
+  if (this->clock.getElapsedTime().asSeconds() > SPLASH_STATE_TIME_LENGTH)
+  {
+    //std::cout << "Go to Main Menu" << std::endl;
+    this -> gameData->stateManager.pushState(StateRef(new MenuState(gameData)), true);
   }
 }
 

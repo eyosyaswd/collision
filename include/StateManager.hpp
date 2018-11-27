@@ -54,7 +54,7 @@ class StateManager {
 
     // booleans to let the StateManager know what to do
     bool isPushing;
-    bool isReplacing;
+    bool _isReplacing;
     bool isPopping;
 
 };
