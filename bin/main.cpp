@@ -13,5 +13,5 @@ int main(int argc, char** argv) {
   game.init();
   game.mainLoop();
 
-  return 0;
+  return EXIT_SUCCESS;
 }

@@ -5,11 +5,8 @@
   * Used to define constants.
 **/
 
-
 #ifndef GLOBAL_HPP
 #define GLOBAL_HPP
-
-#include "Global.hpp"
 
 
 // constants

@@ -8,7 +8,7 @@
 #include "Global.hpp"
 
 
-SplashState::SplashState(GameDataRef gameDate) {
+SplashState::SplashState(GameDataRef gameData) {
   this->gameData = gameData;
 }
 

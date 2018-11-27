@@ -46,7 +46,7 @@ class StateManager {
       * Returns the state at the top of the stack.
     **/
     StateRef &getActiveState();
-    
+
 
   private:
     std::stack<StateRef> statesStack;   // Stack of the states

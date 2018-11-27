@@ -8,17 +8,15 @@
 #include <iostream>
 
 
-GameApp::GameApp() {
-  gameData->window.create(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT, BITS_PER_PIXEL), GAME_TITLE, sf::Style::Titlebar | sf::Style::Close);
-  gameData->stateManager.pushState(StateRef(new SplashState(this->gameData)));
-}
+GameApp::GameApp() {}
 
 
 GameApp::~GameApp() {}
 
 
 void GameApp::init() {
-
+  this->gameData->window.create(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT, BITS_PER_PIXEL), GAME_TITLE, sf::Style::Titlebar | sf::Style::Close);
+  this->gameData->stateManager.pushState(StateRef(new SplashState(this->gameData)));
 }
 
 
@@ -27,37 +25,27 @@ void GameApp::mainLoop() {
   float currentTime = this->clock.getElapsedTime().asSeconds();
   float accumulator = 0.0f;
 
-  while(this->gameData->window.isOpen()) {
-    // this->gameData->stateManager.updateStates();
-    //
-    // newTime = this->clock.getElapsedTime().asSeconds();
-    // frameTime = newTime - currentTime;
-    //
-    // if (frameTime > 0.25f) {
-    //   frameTime = 0.25f;
-    // }
-    // currentTime = newTime;
-    // accumulator += frameTime;
-    //
-    // while (accumulator >= dt) {
-    //   this->gameData->stateManager.getActiveState()->handleEvents();
-    //   this->gameData->stateManager.getActiveState()->update(dt);
-    //
-    //   accumulator -= dt;
-    // }
-    //
-    // interpolation = accumulator / dt;
-    // this->gameData->stateManager.getActiveState()->draw(interpolation);
+  while(this->gameData->window.isOpen()) {  // TODO: Needs to be simplified
+    this->gameData->stateManager.updateStates();
 
-    sf::Event event;
+    newTime = this->clock.getElapsedTime().asSeconds();
+    frameTime = newTime - currentTime;
 
-    while(this->gameData->window.pollEvent(event)) {
-      if (event.type == sf::Event::Closed)
-        this->gameData->window.close();
+    if (frameTime > 0.25f) {
+      frameTime = 0.25f;
+    }
+    currentTime = newTime;
+    accumulator += frameTime;
+
+    while (accumulator >= dt) {
+      this->gameData->stateManager.getActiveState()->handleEvents();
+      this->gameData->stateManager.getActiveState()->update(dt);
+
+      accumulator -= dt;
     }
 
-    this->gameData->window.clear(sf::Color::Blue);
-    this->gameData->window.display();
+    interpolation = accumulator / dt;
+    this->gameData->stateManager.getActiveState()->draw(interpolation);
 
   }
 

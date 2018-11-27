@@ -4,7 +4,6 @@
   * Game Application.
   * This class initiallizes the game and starts the main loop.
 **/
-//#pragma once
 
 #ifndef GAMEAPP_HPP
 #define GAMEAPP_HPP
