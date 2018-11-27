@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Enemy.hpp
+SFML/Graphics.hpp
+-
+
+../include/Player.hpp
+SFML/Graphics.hpp
+-
+
+/home/f85/blmonten/github/collision/collision/bin/helloworld.cpp
+SFML/Graphics.hpp
+-
+SFML/Audio.hpp
+-
+iostream
+-
+sstream
+-
+cstdlib
+-
+cmath
+-
+math.h
+-
+Player.hpp
+/home/f85/blmonten/github/collision/collision/bin/Player.hpp
+Enemy.hpp
+/home/f85/blmonten/github/collision/collision/bin/Enemy.hpp
+SFML/Audio.hpp
+-
+cstring
+-
+iostream
+-
+
