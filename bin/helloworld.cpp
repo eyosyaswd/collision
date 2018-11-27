@@ -22,11 +22,23 @@ int main(int argc, char** argv)
   float windowHeight = 600.f;
   bool shieldfollow = false;
   bool cangethit = true;
+
   sf::RenderWindow App(sf::VideoMode(windowWidth, windowHeight,32), "COLLISION", sf::Style::Titlebar | sf::Style::Close);
 
   //instantiate bullet shape
   sf::CircleShape bullet(7);
   bullet.setPosition(-100,-100);
+  
+  //Back Bullet
+  sf::CircleShape bullet2(7);
+  bullet2.setPosition(-100,-100);
+  
+    
+  //PowerUp Timer
+  sf::Time powertime;
+  sf::Time  elapsedpowertime;
+  sf::Clock powerclock;
+
 
   //initiates the collision theme when game starts
   sf::Music music;
@@ -35,12 +47,27 @@ int main(int argc, char** argv)
   music.play();
   
   sf::CircleShape shieldpower(20);
-  shieldpower.setPosition(200,200);
+  shieldpower.setPosition(-1100,-1100);
   
   sf::CircleShape heartpower(20);
-  heartpower.setPosition(300,200);
+  heartpower.setPosition(-1100,-1100);
   heartpower.setFillColor(sf::Color::Red);
   
+  sf::CircleShape bigpower(20);
+  bigpower.setPosition(-1100,-1100);
+  bigpower.setFillColor(sf::Color::Yellow);
+  bool bigstatus = false;
+  
+  sf::CircleShape piercepower(20);
+  piercepower.setPosition(-1100,-1100);
+  piercepower.setFillColor(sf::Color::Green);
+  
+  sf::CircleShape backpower(20);
+  backpower.setPosition(-1100,-1100);
+  backpower.setFillColor(sf::Color::Blue);
+  int doublecount = 0;
+  bool doublestatus = false;
+  bool toggledouble = false;
   //create toggle string/indicator for mouse wheel selection
   std::string togglestring = "primary";
   sf::CircleShape weapontoggle(20);
@@ -111,32 +138,7 @@ int main(int argc, char** argv)
     return EXIT_FAILURE;
   }
   sf::Sprite background(backdrop);
-/* Text. Font set up
-sf::Font font;
-if(!font.loadFromFile("../res/fonts/Harry.ttf"))
-{
-  return EXIT_FAILURE;
-}
 
-// create intro text
-sf::Text text;
-text.setFont(font);
-text.setCharacterSize(40);
-text.setPosition(150.f, 150.f);
-text.setFillColor(sf::Color::White);
-text.setString("Harry Ponger \n Press 'spacebar' to play \n Use arrows");
-
-sf::Text comp;
-comp.setFont(font);
-comp.setCharacterSize(25);
-comp.setPosition(220.f, 30.f);
-comp.setFillColor(sf::Color::White);
-comp.setString("0");
-*/
-
-  //initate score to 0
-  float compScore = 0;
-  float playerScore = 0;
 
 
 
@@ -183,6 +185,11 @@ comp.setString("0");
     if ((enemy.getPosition().intersects(spaceship.getPosition()) ) == false){
                 cangethit = true;
     }
+    
+    if(backpower.getGlobalBounds().intersects(spaceship.getPosition())){
+            doublestatus = true;
+            doublecount = 20;
+    }
 
     
     
@@ -202,8 +209,13 @@ comp.setString("0");
         if (Event.type == sf::Event::MouseButtonPressed)
         {
 
-        if(bullet.getPosition().x < 0 || bullet.getPosition().x > 800 || bullet.getPosition().y < 0 || bullet.getPosition().y > 600){
+        if(bullet.getPosition().x < 0 || bullet.getPosition().x > 800 || bullet.getPosition().y < 0 || bullet.getPosition().y > 600 && (bullet2.getPosition().x < 0 || bullet2.getPosition().x > 800 || bullet2.getPosition().y < 0 || bullet2.getPosition().y > 600)){
         bullet.setPosition(spaceship.position.x,spaceship.position.y);
+        
+        if(doublestatus == true && doublecount > 0 && togglestring == "secondary"){
+            bullet2.setPosition(spaceship.position.x-10,spaceship.position.y-10);
+            doublecount = doublecount - 1;
+        }
 
         //atan2 vector formula found using tutorials
         sf::Vector2f mousePosition = App.mapPixelToCoords(sf::Mouse::getPosition(App));
@@ -222,11 +234,21 @@ comp.setString("0");
         //Mouse wheel toggles between weapons, for now just switches the bullet size/color
         if(Event.type == sf::Event::MouseWheelMoved){
                 if (togglestring == "primary"){
-                        weapontoggle.setFillColor(sf::Color::Yellow);
+                        
+                        if(bigstatus == true){
                         togglestring = "secondary";
+                        weapontoggle.setFillColor(sf::Color::Yellow);
                         bullet.setRadius(20);
                         bullet.setFillColor(sf::Color::Yellow);
-                }
+                        }
+                        if(doublestatus == true){
+                        togglestring = "secondary";
+                        weapontoggle.setFillColor(sf::Color::Blue);
+                        bullet.setFillColor(sf::Color::Blue);
+                        toggledouble = true;
+                        }
+                            
+                    }
 
                 else{
                     togglestring = "primary";
@@ -271,6 +293,8 @@ comp.setString("0");
         }
         
         
+        
+        
 
 
 
@@ -293,15 +317,78 @@ comp.setString("0");
 
         //enemy starts moving randomly
         enemy.move(secs);
-
+        
+        elapsedpowertime += powerclock.getElapsedTime();
+        powertime = powerclock.getElapsedTime();
+        powerclock.restart();
+        
+        if (elapsedpowertime.asSeconds() > 5)
+        {
+          
+        //clears screen of any remaining powerups    
+        shieldpower.setPosition(-1000,-1000);
+        heartpower.setPosition(-1100,-1100);
+        bigpower.setPosition(-1100,-1100);
+        piercepower.setPosition(-1100,-1100);
+        backpower.setPosition(-1100,-1100);
+            
+        //randomly selects which powerup will be displayed, and where it will be placed    
+        int randompower = rand() % 5;
+        int randompowerlocation_x = rand() % 700;
+        int randompower_location_y = rand() % 500;
+        
+        if(randompower == 4){
+                shieldpower.setPosition(randompowerlocation_x,randompower_location_y);
+        }
+        
+        if(randompower == 0){
+                heartpower.setPosition(randompowerlocation_x,randompower_location_y);
+        }
+        
+        if(randompower == 2){
+                piercepower.setPosition(randompowerlocation_x,randompower_location_y);
+        }
+        
+        if(randompower == 3){
+                bigpower.setPosition(randompowerlocation_x,randompower_location_y);
+        }
+        
+        if(randompower == 1){
+                backpower.setPosition(randompowerlocation_x,randompower_location_y);
+        }
+        
+        elapsedpowertime = sf::milliseconds(0);
+        }
+        
 
 
 
 
 
     //moves the bullet using accepted trajectory correction (used online tutorials)
+    if(doublecount > 0 && doublestatus == true && togglestring == "secondary"){
+    
+        bullet2.move(-cos(newshot) * 0.5f, 0);
+        bullet2.move(0, -sin(newshot) * 0.5f);
+        bullet2.setFillColor(sf::Color::Blue);
+
+    }
+    
+        if(doublecount <= 0){ 
+        bullet2.setPosition(-3000,-3000);
+        bullet.setFillColor(sf::Color::White);
+        weapontoggle.setFillColor(sf::Color::White);
+        togglestring  = "primary";
+        }
+    
+
+    
     bullet.move(cos(newshot) * 0.5f, 0);
     bullet.move(0, sin(newshot) * 0.5f);
+    
+
+        
+
 
     spaceship.update();
 
@@ -315,6 +402,7 @@ comp.setString("0");
     App.draw(spaceship.getShape());
     App.draw(enemy.getShape());
     App.draw(bullet);
+    App.draw(bullet2);
     App.draw(weapontoggle);
     App.draw(heart1sprite);
     App.draw(heart2sprite);
@@ -322,6 +410,12 @@ comp.setString("0");
     App.draw(shield);
     App.draw(shieldpower);
     App.draw(heartpower);
+    
+    App.draw(bigpower);
+    App.draw(backpower);
+    App.draw(piercepower);
+    
+
 
     App.display();
   }
