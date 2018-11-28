@@ -14,7 +14,7 @@ MenuState::MenuState(GameDataRef data) : gameData(data)
 	void MenuState::init()
 	{
 		this->gameData->resourceManager.loadFont("font", MAIN_FONT_FILEPATH);
-        this->gameData->resourceManager.loadMusic(MAIN_THEME_FILEPATH);
+		this->gameData->resourceManager.loadMusic(MAIN_THEME_FILEPATH);
 
 
 

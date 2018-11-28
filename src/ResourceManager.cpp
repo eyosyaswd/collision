@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include "ResourceManager.hpp"
+#include <SFML/Audio.hpp>
 
 
 ResourceManager::ResourceManager() {}

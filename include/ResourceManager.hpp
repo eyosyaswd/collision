@@ -45,9 +45,11 @@ class ResourceManager {
     void loadMusic(std::string fileName);
 
 
+
 private:
     std::map<std::string, sf::Texture> texturesMap;  // map of textures
     std::map<std::string, sf::Font> fontsMap;  //map of fonts
+    std::map<std::string, sf::Music> musicMap; //map of music
     std::map<char,int> mymap;
 
 };
