@@ -9,6 +9,7 @@
 
 #include <map>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
 
 class ResourceManager {
@@ -38,8 +39,13 @@ class ResourceManager {
     **/
     sf::Font &getFont(std::string fontName);
 
+    /**
+      * Loads music.
+    **/
+    void loadMusic(std::string fileName);
 
-  private:
+
+private:
     std::map<std::string, sf::Texture> texturesMap;  // map of textures
     std::map<std::string, sf::Font> fontsMap;  //map of fonts
     std::map<char,int> mymap;

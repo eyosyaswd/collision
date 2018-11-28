@@ -42,9 +42,11 @@ int main(int argc, char** argv)
 
   //initiates the collision theme when game starts
   sf::Music music;
-  if (!music.openFromFile("../res/sounds/collisionTheme.wav"))
+  if (!music.openFromFile("../res/sounds/confrontation.wav"))
       return -1; // error
-  music.play();
+
+      music.setLoop(true);
+      music.play();
   
   sf::CircleShape shieldpower(20);
   shieldpower.setPosition(-1100,-1100);

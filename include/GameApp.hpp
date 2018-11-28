@@ -10,6 +10,7 @@
 
 #include <memory>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "StateManager.hpp"
 #include "ResourceManager.hpp"
 //#include "GameLogic.hpp"

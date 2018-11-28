@@ -5,6 +5,7 @@
 #include "Global.hpp"
 #include <iostream>
 
+
 MenuState::MenuState(GameDataRef data) : gameData(data)
 	{
 
@@ -13,6 +14,9 @@ MenuState::MenuState(GameDataRef data) : gameData(data)
 	void MenuState::init()
 	{
 		this->gameData->resourceManager.loadFont("font", MAIN_FONT_FILEPATH);
+        this->gameData->resourceManager.loadMusic(MAIN_THEME_FILEPATH);
+
+
 
     menu[0].setFont(this->gameData->resourceManager.getFont("font"));
     menu[0].setFillColor(sf::Color::Red);
@@ -41,6 +45,7 @@ MenuState::MenuState(GameDataRef data) : gameData(data)
 
 		while (this->gameData->window.pollEvent(event))
 		{
+
 
 			if (sf::Event::Closed == event.type)
 			{

@@ -30,7 +30,7 @@ sf::Texture &ResourceManager::getTexture(std::string textureName) {
 void ResourceManager::loadFont(std::string fontName, std::string fileName) {
   sf::Font font;
   if (!font.loadFromFile(fileName)) {
-    std::cout << "Error occued while loading font: " << fileName << std::endl;
+    std::cout << "Error occured while loading font: " << fileName << std::endl;
   } else {
     this->fontsMap[fontName] = font;
   }
@@ -39,4 +39,18 @@ void ResourceManager::loadFont(std::string fontName, std::string fileName) {
 
 sf::Font &ResourceManager::getFont(std::string fontName) {
   return this->fontsMap.at(fontName);
+}
+
+//initiates the collision theme when switched to th the menu screen state
+
+void ResourceManager::loadMusic(std::string fileName) {
+  sf::Music music;
+  if (!music.openFromFile(fileName))
+    std::cout << "Error occured while loading music: " << fileName << std::endl;
+  else {
+
+    std::cout << "Playing: " << fileName << std::endl;
+    music.setLoop(true);
+    music.play();
+  }
 }
