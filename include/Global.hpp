@@ -26,6 +26,7 @@
 
 // images
 #define SPLASH_STATE_BACKGROUND_FILEPATH "../res/images/collision_logo.jpg"
+#define GAME_STATE_BACKGROUND_FILEPATH "../res/images/pixelSpace.png"
 
 
 // sounds

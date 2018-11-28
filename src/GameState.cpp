@@ -17,8 +17,8 @@ GameState::GameState(GameDataRef data) : gameData(data)
 
 	void GameState::init()
 	{
-    this->gameData->resourceManager.loadTexture("SplashState Background", SPLASH_STATE_BACKGROUND_FILEPATH);
-    backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("SplashState Background"));
+    this->gameData->resourceManager.loadTexture("GameState Background", GAME_STATE_BACKGROUND_FILEPATH);
+    backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState Background"));
 	}
 
 	void GameState::handleEvents()
