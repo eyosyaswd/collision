@@ -203,6 +203,33 @@ bin/main.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/bin/main.cpp.s
 .PHONY : bin/main.cpp.s
 
+src/ControlsState.o: src/ControlsState.cpp.o
+
+.PHONY : src/ControlsState.o
+
+# target to build an object file
+src/ControlsState.cpp.o:
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/ControlsState.cpp.o
+.PHONY : src/ControlsState.cpp.o
+
+src/ControlsState.i: src/ControlsState.cpp.i
+
+.PHONY : src/ControlsState.i
+
+# target to preprocess a source file
+src/ControlsState.cpp.i:
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/ControlsState.cpp.i
+.PHONY : src/ControlsState.cpp.i
+
+src/ControlsState.s: src/ControlsState.cpp.s
+
+.PHONY : src/ControlsState.s
+
+# target to generate assembly for a file
+src/ControlsState.cpp.s:
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/ControlsState.cpp.s
+.PHONY : src/ControlsState.cpp.s
+
 src/Enemy.o: src/Enemy.cpp.o
 
 .PHONY : src/Enemy.o
@@ -257,6 +284,60 @@ src/GameApp.cpp.s:
 	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/GameApp.cpp.s
 .PHONY : src/GameApp.cpp.s
 
+src/GameState.o: src/GameState.cpp.o
+
+.PHONY : src/GameState.o
+
+# target to build an object file
+src/GameState.cpp.o:
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/GameState.cpp.o
+.PHONY : src/GameState.cpp.o
+
+src/GameState.i: src/GameState.cpp.i
+
+.PHONY : src/GameState.i
+
+# target to preprocess a source file
+src/GameState.cpp.i:
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/GameState.cpp.i
+.PHONY : src/GameState.cpp.i
+
+src/GameState.s: src/GameState.cpp.s
+
+.PHONY : src/GameState.s
+
+# target to generate assembly for a file
+src/GameState.cpp.s:
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/GameState.cpp.s
+.PHONY : src/GameState.cpp.s
+
+src/LoseState.o: src/LoseState.cpp.o
+
+.PHONY : src/LoseState.o
+
+# target to build an object file
+src/LoseState.cpp.o:
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/LoseState.cpp.o
+.PHONY : src/LoseState.cpp.o
+
+src/LoseState.i: src/LoseState.cpp.i
+
+.PHONY : src/LoseState.i
+
+# target to preprocess a source file
+src/LoseState.cpp.i:
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/LoseState.cpp.i
+.PHONY : src/LoseState.cpp.i
+
+src/LoseState.s: src/LoseState.cpp.s
+
+.PHONY : src/LoseState.s
+
+# target to generate assembly for a file
+src/LoseState.cpp.s:
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/LoseState.cpp.s
+.PHONY : src/LoseState.cpp.s
+
 src/MenuState.o: src/MenuState.cpp.o
 
 .PHONY : src/MenuState.o
@@ -283,6 +364,33 @@ src/MenuState.s: src/MenuState.cpp.s
 src/MenuState.cpp.s:
 	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/MenuState.cpp.s
 .PHONY : src/MenuState.cpp.s
+
+src/PauseState.o: src/PauseState.cpp.o
+
+.PHONY : src/PauseState.o
+
+# target to build an object file
+src/PauseState.cpp.o:
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/PauseState.cpp.o
+.PHONY : src/PauseState.cpp.o
+
+src/PauseState.i: src/PauseState.cpp.i
+
+.PHONY : src/PauseState.i
+
+# target to preprocess a source file
+src/PauseState.cpp.i:
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/PauseState.cpp.i
+.PHONY : src/PauseState.cpp.i
+
+src/PauseState.s: src/PauseState.cpp.s
+
+.PHONY : src/PauseState.s
+
+# target to generate assembly for a file
+src/PauseState.cpp.s:
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/PauseState.cpp.s
+.PHONY : src/PauseState.cpp.s
 
 src/Player.o: src/Player.cpp.o
 
@@ -392,6 +500,33 @@ src/StateManager.cpp.s:
 	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/StateManager.cpp.s
 .PHONY : src/StateManager.cpp.s
 
+src/WinState.o: src/WinState.cpp.o
+
+.PHONY : src/WinState.o
+
+# target to build an object file
+src/WinState.cpp.o:
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/WinState.cpp.o
+.PHONY : src/WinState.cpp.o
+
+src/WinState.i: src/WinState.cpp.i
+
+.PHONY : src/WinState.i
+
+# target to preprocess a source file
+src/WinState.cpp.i:
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/WinState.cpp.i
+.PHONY : src/WinState.cpp.i
+
+src/WinState.s: src/WinState.cpp.s
+
+.PHONY : src/WinState.s
+
+# target to generate assembly for a file
+src/WinState.cpp.s:
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/WinState.cpp.s
+.PHONY : src/WinState.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -409,15 +544,27 @@ help:
 	@echo "... bin/main.o"
 	@echo "... bin/main.i"
 	@echo "... bin/main.s"
+	@echo "... src/ControlsState.o"
+	@echo "... src/ControlsState.i"
+	@echo "... src/ControlsState.s"
 	@echo "... src/Enemy.o"
 	@echo "... src/Enemy.i"
 	@echo "... src/Enemy.s"
 	@echo "... src/GameApp.o"
 	@echo "... src/GameApp.i"
 	@echo "... src/GameApp.s"
+	@echo "... src/GameState.o"
+	@echo "... src/GameState.i"
+	@echo "... src/GameState.s"
+	@echo "... src/LoseState.o"
+	@echo "... src/LoseState.i"
+	@echo "... src/LoseState.s"
 	@echo "... src/MenuState.o"
 	@echo "... src/MenuState.i"
 	@echo "... src/MenuState.s"
+	@echo "... src/PauseState.o"
+	@echo "... src/PauseState.i"
+	@echo "... src/PauseState.s"
 	@echo "... src/Player.o"
 	@echo "... src/Player.i"
 	@echo "... src/Player.s"
@@ -430,6 +577,9 @@ help:
 	@echo "... src/StateManager.o"
 	@echo "... src/StateManager.i"
 	@echo "... src/StateManager.s"
+	@echo "... src/WinState.o"
+	@echo "... src/WinState.i"
+	@echo "... src/WinState.s"
 .PHONY : help
 
 

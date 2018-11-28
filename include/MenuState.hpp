@@ -19,14 +19,14 @@ class MenuState : public State
 		void handleEvents();
 		void update(float dt);
 		void draw(float dt);
-    void MoveUp();
-	  void MoveDown();
-    int GetPressedItem() { return selectedItemIndex; }
+    void moveUp();
+	  void moveDown();
+    int getPressedItem() { return selectedItem; }
 
 	private:
 		GameDataRef gameData;
 
-    int selectedItemIndex;
+    int selectedItem;
 	  sf::Font font;
 	  sf::Text menu[MAX_NUMBER_OF_ITEMS];
 

@@ -5,7 +5,12 @@ file(REMOVE_RECURSE
   "CMakeFiles/collision_core.dir/src/SplashState.cpp.o"
   "CMakeFiles/collision_core.dir/src/MenuState.cpp.o"
   "CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o"
+  "CMakeFiles/collision_core.dir/src/LoseState.cpp.o"
   "CMakeFiles/collision_core.dir/src/StateManager.cpp.o"
+  "CMakeFiles/collision_core.dir/src/WinState.cpp.o"
+  "CMakeFiles/collision_core.dir/src/GameState.cpp.o"
+  "CMakeFiles/collision_core.dir/src/PauseState.cpp.o"
+  "CMakeFiles/collision_core.dir/src/ControlsState.cpp.o"
   "libcollision_core.pdb"
   "libcollision_core.a"
 )

@@ -19,6 +19,9 @@
 
 
 // fonts
+#define MAIN_FONT_FILEPATH "../res/fonts/Ailerons.ttf"
+
+  // handle error
 
 
 // images
