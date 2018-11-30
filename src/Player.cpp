@@ -62,9 +62,9 @@ void Player::moveRight()
 { position.x += velocity; }
 
 void Player::set(){
-    position.x = spaceship.getPosition().x;
-	position.y = spaceship.getPosition().y;
-    std::cout << "sapceship" << position.x;  
+    //position.x = spaceship.getPosition().x;
+	//position.y = spaceship.getPosition().y;
+    //std::cout << "sapceship" << position.x;  
     spaceship.setPosition(position);
 }
 

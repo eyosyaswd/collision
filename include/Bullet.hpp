@@ -26,7 +26,7 @@
 		sf::CircleShape getShape();
 		void move(float shot);
         sf::Vector2f position;
-        void set();
+        void set(int x, int y);
         void update(float secs);
         void modify(std::string power);
 

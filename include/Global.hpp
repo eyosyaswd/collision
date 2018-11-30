@@ -15,7 +15,7 @@
 #define BITS_PER_PIXEL 16
 #define GAME_TITLE "COLLISION"
 
-#define SPLASH_STATE_TIME_LENGTH 1.0
+#define SPLASH_STATE_TIME_LENGTH 3.0
 
 
 // fonts
@@ -27,6 +27,7 @@
 // images
 #define SPLASH_STATE_BACKGROUND_FILEPATH "../res/images/collision_logo.jpg"
 #define GAME_STATE_BACKGROUND_FILEPATH "../res/images/pixelSpace.png"
+#define HEART_FILEPATH "../res/images/heart.png"
 
 
 // sounds

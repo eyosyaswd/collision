@@ -18,10 +18,10 @@
 Bullet::Bullet(GameDataRef data) : gameData(data)
 {
 
-    spaceship = new Player(gameData);
+    //spaceship = new Player(gameData);
     
-    position.x = -100;
-	position.y = -100;
+    position.x = -500;
+	position.y = -500;
 
 	bullet.setRadius(7);
 	bullet.setPosition(position);
@@ -36,14 +36,27 @@ void Bullet::draw(){
 }
 
 void Bullet::move(float shot){
-    bullet.move(cos(shot) * 0.5f, 0);
-    bullet.move(0, sin(shot) * 0.5f);
+    //if(position.x < 0 || position.x > 1100 || position.y > 850 || position.y < 0){
+    //bullet.move(cos(newshot) * 0.5f, 0);
+    //bullet.setPosition(x,y);
+    position.x = position.x + cos(shot) * 9.0;
+    position.y = position.y;
+    bullet.setPosition(position);
+    //bullet.move(0, sin(newshot) * 0.5f);
+    position.x = position.x;
+    position.y = position.y + sin(shot) * 9.0;
+    
+    //position.x = position.x + 20;
+    //position.y = position.y + 20;
+    bullet.setPosition(position);
+    
+    //}
+    
 }
 
-void Bullet::set(){
-    position.x = spaceship->position.x+500;
-	position.y = spaceship->position.y+500;
-    std::cout << "bullet" <<position.x;  
+void Bullet::set(int x, int y){
+    position.x = x;
+	position.y = y;
     bullet.setPosition(position);
 }
 
