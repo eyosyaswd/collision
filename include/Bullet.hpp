@@ -5,6 +5,7 @@
 #include "GameApp.hpp"
 #include "Player.hpp"
 #include <iostream>
+#include <math.h>
 #pragma once
 
 

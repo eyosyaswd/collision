@@ -30,7 +30,7 @@ GameState::GameState(GameDataRef data) : gameData(data)
     backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState Background"));
     
     spaceship = new Player(gameData);
-    
+    goomba = new Goomba(gameData);
     
     //sets up weapon toggle
     std::string weapontoggle = "selectsecondary";
@@ -179,6 +179,8 @@ GameState::GameState(GameDataRef data) : gameData(data)
         bullet->move(newshot);
         spaceship->update(dt);
         bullet->update(dt);
+        goomba->update(dt);
+
         
         elapsedpowertime += powerclock.getElapsedTime();
         powertime = powerclock.getElapsedTime();
@@ -220,6 +222,7 @@ GameState::GameState(GameDataRef data) : gameData(data)
 
     this->gameData->window.draw(backgroundSprite);
     spaceship->draw();
+    goomba->draw();
     bullet->draw();
     this->gameData->window.draw(defaultWeapon);
     this ->gameData ->window.draw(secondaryWeapon);
@@ -227,6 +230,8 @@ GameState::GameState(GameDataRef data) : gameData(data)
     this->gameData->window.draw(heart2);
     this->gameData->window.draw(heart3);
     this->gameData->window.draw(powerup);
+    this->gameData->window.draw(powerup);
+
 
 		this->gameData->window.display();
 	}

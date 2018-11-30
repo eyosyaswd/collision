@@ -7,6 +7,7 @@
 #include "GameApp.hpp"
 #include "Player.hpp"
 #include "Bullet.hpp"
+#include "Goomba.hpp"
 
 
 class GameState : public State
@@ -42,6 +43,7 @@ class GameState : public State
     
     Player *spaceship;
     Bullet *bullet;
+    Goomba *goomba;
     
     float newshot;
     float cleanshot;
