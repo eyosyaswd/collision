@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include "GameApp.hpp"
 #pragma once
 
 // This is the player class, it creates the paddle ojects that
@@ -8,19 +9,30 @@
 	class Player
 	{
 	public:
-		Player(float startX, float startY);
-		sf::FloatRect getPosition();
+        Player(GameDataRef data);
+        ~Player();
+        
+        void draw();
+        
+        void animate(float secs);
+        
+		//Player(float startX, float startY);
+		//sf::FloatRect getPosition();
 		sf::RectangleShape getShape();
-		void moveUp(float secs);
-		void moveDown(float secs);
-		void moveLeft(float secs);
-		void moveRight(float secs);
-		void update();
+		void moveUp();
+		void moveDown();
+		void moveLeft();
+		void moveRight();
+		void update(float secs);
+        void set();
         sf::Vector2f position;
 
 	private:
 		sf::RectangleShape spaceship;
-		float velocity = 300.f;
+		float velocity = 5.f;
+        GameDataRef gameData;
+        
+        sf::Clock clock;
 		
 
 	};

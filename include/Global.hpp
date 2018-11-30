@@ -10,12 +10,12 @@
 
 
 // constants
-#define WINDOW_WIDTH 1000
-#define WINDOW_HEIGHT 750
+#define WINDOW_WIDTH 1100
+#define WINDOW_HEIGHT 850
 #define BITS_PER_PIXEL 16
 #define GAME_TITLE "COLLISION"
 
-#define SPLASH_STATE_TIME_LENGTH 3.0
+#define SPLASH_STATE_TIME_LENGTH 1.0
 
 
 // fonts

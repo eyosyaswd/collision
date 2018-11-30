@@ -5,6 +5,8 @@
 #include <SFML/Graphics.hpp>
 #include "State.hpp"
 #include "GameApp.hpp"
+#include "Player.hpp"
+#include "Bullet.hpp"
 
 
 class GameState : public State
@@ -17,6 +19,7 @@ class GameState : public State
 		void handleEvents();
 		void update(float dt);
 		void draw(float dt);
+        
 
 
 	private:
@@ -24,6 +27,12 @@ class GameState : public State
 
     sf::Texture backgroundTexture;
     sf::Sprite backgroundSprite;
+    sf::CircleShape defaultWeapon;
+    sf::CircleShape secondaryWeapon;
+    std::string weapontoggle;
+    
+    Player *spaceship;
+    Bullet *bullet;
 
 	};
 
