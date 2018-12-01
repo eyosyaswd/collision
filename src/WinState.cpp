@@ -16,6 +16,12 @@ WinState::WinState(GameDataRef data) : gameData(data)
 	void WinState::init()
 	{
 		this->gameData->resourceManager.loadFont("font", MAIN_FONT_FILEPATH);
+        if (!victory_Theme.loadFromFile("../res/sounds/victoryTheme.wav"))
+            std::cout << "Error occured while loading music " << std::endl;
+        else {
+            victoryTheme.setBuffer(victory_Theme);
+            victoryTheme.play();
+        }
 
     menu[0].setFont(this->gameData->resourceManager.getFont("font"));
     menu[0].setFillColor(sf::Color::Red);

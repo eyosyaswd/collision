@@ -14,8 +14,14 @@ MenuState::MenuState(GameDataRef data) : gameData(data)
 	void MenuState::init()
 	{
 		this->gameData->resourceManager.loadFont("font", MAIN_FONT_FILEPATH);
-		this->gameData->resourceManager.loadMusic(MAIN_THEME_FILEPATH);
 
+        if (!menu_Theme.loadFromFile("../res/sounds/collisionTheme.wav"))
+            std::cout << "Error occured while loading music " << std::endl;
+        else {
+            menuTheme.setBuffer(menu_Theme);
+            menuTheme.setLoop(true);
+            menuTheme.play();
+        }
 
 
     menu[0].setFont(this->gameData->resourceManager.getFont("font"));
@@ -66,14 +72,18 @@ MenuState::MenuState(GameDataRef data) : gameData(data)
           case sf::Keyboard::Return:
           switch (getPressedItem() )
           {
-            case 0:
-            this->gameData->stateManager.pushState(StateRef(new GameState(gameData)), true);
+            case 0: {
+                menuTheme.stop();
+                this->gameData->stateManager.pushState(StateRef(new GameState(gameData)), true);
+            }
             break;
             case 1:
             this->gameData->stateManager.pushState(StateRef(new ControlsState(gameData)), true);
             break;
-            case 2:
-            this->gameData->window.close();
+            case 2: {
+                menuTheme.stop();
+                this->gameData->window.close();
+            }
             break;
           }
 

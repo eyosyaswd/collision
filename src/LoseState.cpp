@@ -16,7 +16,12 @@ LoseState::LoseState(GameDataRef data) : gameData(data)
 	void LoseState::init()
 	{
 		this->gameData->resourceManager.loadFont("font", MAIN_FONT_FILEPATH);
-
+        if (!defeat_Theme.loadFromFile("../res/sounds/collisionTheme.wav"))
+            std::cout << "Error occured while loading music " << std::endl;
+        else {
+            defeatTheme.setBuffer(defeat_Theme);
+            defeatTheme.play();
+        }
     menu[0].setFont(this->gameData->resourceManager.getFont("font"));
     menu[0].setFillColor(sf::Color::Red);
     menu[0].setCharacterSize(70);

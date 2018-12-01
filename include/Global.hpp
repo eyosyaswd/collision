@@ -30,13 +30,5 @@
 #define HEART_FILEPATH "../res/images/heart.png"
 
 
-// sounds
-#define MAIN_THEME_FILEPATH "../res/sounds/collisionTheme.wav"
-#define GAME_MUSIC_FILEPATH "../res/sounds/confrontation.wav"
-
-
-#define WIN_THEME_FILEPATH "../res/sounds/victoryTheme.wav"
-#define LOSE_THEME_FILEPATH "../res/sounds/defeatTheme.wav"
-
 
 #endif

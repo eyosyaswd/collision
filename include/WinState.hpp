@@ -29,7 +29,8 @@ class WinState : public State
     int selectedItem;
 	  sf::Font font;
 	  sf::Text menu[MAX_NUMBER_OF_ITEMS];
-
+	  sf::SoundBuffer victory_Theme;
+	  sf::Sound victoryTheme;
 	};
 
 #endif

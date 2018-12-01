@@ -8,6 +8,8 @@
 #include "Player.hpp"
 #include <iostream>
 #include "Bullet.hpp"
+#include <SFML/Audio.hpp>
+
 
 float newshot = 0.0f;
 
@@ -28,6 +30,14 @@ GameState::GameState(GameDataRef data) : gameData(data)
 	{
     this->gameData->resourceManager.loadTexture("GameState Background", GAME_STATE_BACKGROUND_FILEPATH);
     backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState Background"));
+
+    if (!play_Theme.loadFromFile("../res/sounds/confrontation.wav"))
+        std::cout << "Error occured while loading music " << std::endl;
+    else {
+        playTheme.setBuffer(play_Theme);
+        playTheme.setLoop(true);
+        playTheme.play();
+        }
     
     spaceship = new Player(gameData);
     goomba = new Goomba(gameData);
@@ -141,14 +151,15 @@ GameState::GameState(GameDataRef data) : gameData(data)
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
         { spaceship->moveRight();}
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-            if(bullet->position.y > 850 || bullet->position.y < 0 || bullet->position.x > 1100 || bullet->position.x < 0){ 
-            bullet->set(spaceship->position.x,spaceship->position.y);
 
-            sf::Vector2f mousePosition = this->gameData->window.mapPixelToCoords(sf::Mouse::getPosition(this->gameData->window));
-            std::cout << mousePosition.x;
-            std::cout << mousePosition.y;
-            float cleanshot = atan2(sf::Mouse::getPosition(this->gameData->window).y - bullet->position.y, sf::Mouse::getPosition(this->gameData->window).x - bullet->position.x);
-            newshot = cleanshot;
+            if(bullet->position.y > 850 || bullet->position.y < 0 || bullet->position.x > 1100 || bullet->position.x < 0){
+
+                bullet->set(spaceship->position.x,spaceship->position.y);
+                sf::Vector2f mousePosition = this->gameData->window.mapPixelToCoords(sf::Mouse::getPosition(this->gameData->window));
+                std::cout << mousePosition.x;
+                std::cout << mousePosition.y;
+                float cleanshot = atan2(sf::Mouse::getPosition(this->gameData->window).y - bullet->position.y, sf::Mouse::getPosition(this->gameData->window).x - bullet->position.x);
+                newshot = cleanshot;
             }
 
         }

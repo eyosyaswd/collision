@@ -29,6 +29,8 @@ class LoseState : public State
     int selectedItem;
 	  sf::Font font;
 	  sf::Text menu[MAX_NUMBER_OF_ITEMS];
+	  sf::SoundBuffer defeat_Theme;
+	  sf::Sound defeatTheme;
 
 	};
 

@@ -27,9 +27,11 @@ class MenuState : public State
 	private:
 		GameDataRef gameData;
 
-    int selectedItem;
+      int selectedItem;
 	  sf::Font font;
 	  sf::Text menu[MAX_NUMBER_OF_ITEMS];
+	  sf::SoundBuffer menu_Theme;
+	  sf::Sound menuTheme;
 
 	};
 
