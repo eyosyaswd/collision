@@ -1,6 +1,11 @@
-#include "Bullet.hpp"
+/**
+  * Filename: Bullet.cpp
+**/
+
 #include <iostream>
 #include <SFML/Graphics.hpp>
+
+#include "Bullet.hpp"
 #include "Player.hpp"
 
 
@@ -19,20 +24,20 @@ Bullet::Bullet(GameDataRef data) : gameData(data)
 {
 
     //spaceship = new Player(gameData);
-    
+
     position.x = -500;
 	position.y = -500;
 
 	bullet.setRadius(7);
 	bullet.setPosition(position);
 	bullet.setFillColor(sf::Color::White);
-    
+
 }
 
 void Bullet::draw(){
-    
+
         gameData->window.draw(bullet);
-        
+
 }
 
 void Bullet::move(float shot){
@@ -45,13 +50,13 @@ void Bullet::move(float shot){
     //bullet.move(0, sin(newshot) * 0.5f);
     position.x = position.x;
     position.y = position.y + sin(shot) * 9.0;
-    
+
     //position.x = position.x + 20;
     //position.y = position.y + 20;
     bullet.setPosition(position);
-    
+
     //}
-    
+
 }
 
 void Bullet::set(int x, int y){
@@ -86,5 +91,3 @@ void Bullet::update(float secs)
 {
 	bullet.setPosition(position);
 }
-
-

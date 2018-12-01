@@ -1,9 +1,9 @@
-//#include <sstream>
+#include <iostream>
+
+#include "Global.hpp"
 #include "MenuState.hpp"
 #include "GameState.hpp"
 #include "ControlsState.hpp"
-#include "Global.hpp"
-#include <iostream>
 
 
 MenuState::MenuState(GameDataRef data) : gameData(data)
@@ -13,6 +13,9 @@ MenuState::MenuState(GameDataRef data) : gameData(data)
 
 	void MenuState::init()
 	{
+		this->gameData->resourceManager.loadTexture("MenuState Background", MENU_STATE_BACKGROUND_FILEPATH);
+    backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("MenuState Background"));
+
 		this->gameData->resourceManager.loadFont("font", MAIN_FONT_FILEPATH);
 
         if (!menu_Theme.loadFromFile("../res/sounds/collisionTheme.wav"))
@@ -28,19 +31,19 @@ MenuState::MenuState(GameDataRef data) : gameData(data)
     menu[0].setFillColor(sf::Color::Red);
     menu[0].setCharacterSize(70);
     menu[0].setString("Play");
-    menu[0].setPosition(sf::Vector2f(WINDOW_WIDTH / 9.1,WINDOW_HEIGHT / (MAX_NUMBER_OF_ITEMS + 1) * 1));
+    menu[0].setPosition(sf::Vector2f((WINDOW_WIDTH / 2),WINDOW_HEIGHT / (MAX_NUMBER_OF_ITEMS + 1) * 1.2));
     	//width/2.1
     menu[1].setFont(this->gameData->resourceManager.getFont("font"));
     menu[1].setFillColor(sf::Color::White);
     menu[1].setCharacterSize(70);
     menu[1].setString("Controls");
-    menu[1].setPosition(sf::Vector2f(WINDOW_WIDTH / 9.1,WINDOW_HEIGHT / (MAX_NUMBER_OF_ITEMS + 1) * 2));
+    menu[1].setPosition(sf::Vector2f((WINDOW_WIDTH / 2),WINDOW_HEIGHT / (MAX_NUMBER_OF_ITEMS + 1) * 1.2 * 1.5));
 
     menu[2].setFont(this->gameData->resourceManager.getFont("font"));
     menu[2].setFillColor(sf::Color::White);
     menu[2].setCharacterSize(70);
     menu[2].setString("Exit");
-    menu[2].setPosition(sf::Vector2f(WINDOW_WIDTH / 9.1, WINDOW_HEIGHT / (MAX_NUMBER_OF_ITEMS + 1) * 3));
+    menu[2].setPosition(sf::Vector2f((WINDOW_WIDTH / 2), WINDOW_HEIGHT / (MAX_NUMBER_OF_ITEMS + 1) * 1.2 * 2));
 
     selectedItem = 0;
 	}
@@ -102,6 +105,8 @@ MenuState::MenuState(GameDataRef data) : gameData(data)
 	void MenuState::draw(float dt)
 	{
 		this->gameData->window.clear(sf::Color::Black);
+
+		this->gameData->window.draw(backgroundSprite);
 
 		//this->gameData->window.draw(this->_background);
 

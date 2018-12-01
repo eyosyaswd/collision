@@ -1,20 +1,19 @@
+#include <iostream>
 
-//#include <sstream>
-
-
+#include "Global.hpp"
 #include "WinState.hpp"
 #include "MenuState.hpp"
 #include "GameState.hpp"
-#include "Global.hpp"
-#include <iostream>
 
-WinState::WinState(GameDataRef data) : gameData(data)
-	{
 
-	}
+WinState::WinState(GameDataRef data) : gameData(data) {}
 
 	void WinState::init()
 	{
+		this->gameData->resourceManager.loadTexture("WinState Background", WIN_STATE_BACKGROUND_FILEPATH);
+    backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("WinState Background"));
+
+
 		this->gameData->resourceManager.loadFont("font", MAIN_FONT_FILEPATH);
         if (!victory_Theme.loadFromFile("../res/sounds/victoryTheme.wav"))
             std::cout << "Error occured while loading music " << std::endl;
@@ -27,19 +26,19 @@ WinState::WinState(GameDataRef data) : gameData(data)
     menu[0].setFillColor(sf::Color::Red);
     menu[0].setCharacterSize(70);
     menu[0].setString("Play Again");
-    menu[0].setPosition(sf::Vector2f(WINDOW_WIDTH / 9.1,WINDOW_HEIGHT / (MAX_NUMBER_OF_ITEMS + 1) * 1));
+    menu[0].setPosition(sf::Vector2f(WINDOW_WIDTH / 3,WINDOW_HEIGHT / (MAX_NUMBER_OF_ITEMS + 1) + 60));
     	//width/2.1
     menu[1].setFont(this->gameData->resourceManager.getFont("font"));
     menu[1].setFillColor(sf::Color::White);
     menu[1].setCharacterSize(70);
     menu[1].setString("Main Menu");
-    menu[1].setPosition(sf::Vector2f(WINDOW_WIDTH / 9.1,WINDOW_HEIGHT / (MAX_NUMBER_OF_ITEMS + 1) * 2));
+    menu[1].setPosition(sf::Vector2f(WINDOW_WIDTH / 3,WINDOW_HEIGHT / (MAX_NUMBER_OF_ITEMS + 1) + 140));
 
     menu[2].setFont(this->gameData->resourceManager.getFont("font"));
     menu[2].setFillColor(sf::Color::White);
     menu[2].setCharacterSize(70);
     menu[2].setString("Exit");
-    menu[2].setPosition(sf::Vector2f(WINDOW_WIDTH / 9.1, WINDOW_HEIGHT / (MAX_NUMBER_OF_ITEMS + 1) * 3));
+    menu[2].setPosition(sf::Vector2f(WINDOW_WIDTH / 3, WINDOW_HEIGHT / (MAX_NUMBER_OF_ITEMS + 1) + 220));
 
     selectedItem = 0;
 	}
@@ -97,7 +96,7 @@ WinState::WinState(GameDataRef data) : gameData(data)
 	{
 		this->gameData->window.clear(sf::Color::Black);
 
-		//this->gameData->window.draw(this->_background);
+		this->gameData->window.draw(backgroundSprite);
 
     for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
     	{

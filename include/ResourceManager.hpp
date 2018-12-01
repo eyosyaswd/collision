@@ -1,7 +1,7 @@
 /**
   * Filename: ResourceManager.hpp
   *
-  * Manges the resources/assets of the game.
+  * Manages the resources/assets of the game.
 **/
 
 #ifndef RESOURCEMANAGER_HPP

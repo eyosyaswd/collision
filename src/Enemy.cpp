@@ -1,6 +1,11 @@
-#include "Enemy.hpp"
+/**
+	* Filename: Enemy.cpp
+**/
+
 #include <iostream>
 #include <SFML/Graphics.hpp>
+
+#include "Enemy.hpp"
 
 // creates the player class, a RectangleShape with size, position and color
 Enemy::Enemy(float startX, float startY)

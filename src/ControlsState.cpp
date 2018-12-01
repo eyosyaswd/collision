@@ -1,8 +1,8 @@
-//#include <sstream>
+#include <iostream>
+
+#include "Global.hpp"
 #include "MenuState.hpp"
 #include "ControlsState.hpp"
-#include "Global.hpp"
-#include <iostream>
 
 ControlsState::ControlsState(GameDataRef data) : gameData(data)
 	{
@@ -11,6 +11,9 @@ ControlsState::ControlsState(GameDataRef data) : gameData(data)
 
 	void ControlsState::init()
 	{
+		this->gameData->resourceManager.loadTexture("GameState Background", GAME_STATE_BACKGROUND_FILEPATH);
+    backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState Background"));
+
 		this->gameData->resourceManager.loadFont("font", MAIN_FONT_FILEPATH);
 
     menu[0].setFont(this->gameData->resourceManager.getFont("font"));
@@ -87,7 +90,7 @@ ControlsState::ControlsState(GameDataRef data) : gameData(data)
 	{
 		this->gameData->window.clear(sf::Color::Black);
 
-		//this->gameData->window.draw(this->_background);
+		this->gameData->window.draw(backgroundSprite);
 
     for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
     	{

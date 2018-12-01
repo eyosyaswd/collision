@@ -1,9 +1,10 @@
-//#include <sstream>
+#include <iostream>
+
+#include "Global.hpp"
 #include "PauseState.hpp"
 #include "GameState.hpp"
 #include "MenuState.hpp"
-#include "Global.hpp"
-#include <iostream>
+
 
 PauseState::PauseState(GameDataRef data) : gameData(data)
 	{
@@ -12,6 +13,10 @@ PauseState::PauseState(GameDataRef data) : gameData(data)
 
 	void PauseState::init()
 	{
+
+		this->gameData->resourceManager.loadTexture("GameState Background", GAME_STATE_BACKGROUND_FILEPATH);
+    backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState Background"));
+
 		this->gameData->resourceManager.loadFont("font", MAIN_FONT_FILEPATH);
 
     menu[0].setFont(this->gameData->resourceManager.getFont("font"));
@@ -89,7 +94,7 @@ PauseState::PauseState(GameDataRef data) : gameData(data)
 	{
 		this->gameData->window.clear(sf::Color::Black);
 
-		//this->gameData->window.draw(this->_background);
+		this->gameData->window.draw(backgroundSprite);
 
     for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
     	{

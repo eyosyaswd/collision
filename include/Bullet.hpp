@@ -1,43 +1,40 @@
+/**
+	* Filename: Bullet.BULLET_HPP
+	*
+	* Represents a bullet.
+**/
+
 #ifndef BULLET_HPP
 #define BULLET_HPP
 
+
+#include <math.h>
+#include <iostream>
 #include <SFML/Graphics.hpp>
+
 #include "GameApp.hpp"
 #include "Player.hpp"
-#include <iostream>
-#include <math.h>
-#pragma once
 
 
-// This is the player class, it creates the paddle ojects that
-// the player can control with the keyboard.
-
-
-	class Bullet
-	{
+class Bullet {
 	public:
-        Bullet(GameDataRef data);
-        ~Bullet();
-        
-        void draw();
-        
-        
-        
-		
+    Bullet(GameDataRef data);
+    ~Bullet();
+
+    void draw();
 		sf::CircleShape getShape();
 		void move(float shot);
-        sf::Vector2f position;
-        void set(int x, int y);
-        void update(float secs);
-        void modify(std::string power);
+    sf::Vector2f position;
+    void set(int x, int y);
+    void update(float secs);
+    void modify(std::string power);
 
 	private:
 		sf::CircleShape bullet;
-        GameDataRef gameData;
-        
-        sf::Clock clock;
+    GameDataRef gameData;
+    sf::Clock clock;
 		Player *spaceship;
 
-	};
+};
 
 #endif

@@ -2,16 +2,15 @@
   * Filename: SplashState.cpp
 **/
 
-// #include <sstream>
 #include <iostream>
+
+#include "Global.hpp"
 #include "SplashState.hpp"
 #include "MenuState.hpp"
-#include "Global.hpp"
+#include "WinState.hpp"
+#include "LoseState.hpp"
 
-
-SplashState::SplashState(GameDataRef data): gameData(data) {
-  //this->gameData = gameData;
-}
+SplashState::SplashState(GameDataRef data): gameData(data) {}
 
 
 void SplashState::init() {
@@ -35,7 +34,7 @@ void SplashState::update(float dt)
 {
   if (this->clock.getElapsedTime().asSeconds() > SPLASH_STATE_TIME_LENGTH)
   {
-    //std::cout << "Go to Main Menu" << std::endl;
+    // goes to main menu after some seconds
     this -> gameData->stateManager.pushState(StateRef(new MenuState(gameData)), true);
   }
 }
