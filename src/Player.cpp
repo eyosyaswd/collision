@@ -15,13 +15,13 @@
 
 Player::Player(GameDataRef data) : gameData(data)
 {
-    position.x = spaceship.getPosition().x;
-    position.y = spaceship.getPosition().y;
-    
+  position.x = spaceship.getPosition().x;
+  position.y = spaceship.getPosition().y;
+
 	spaceship.setSize(sf::Vector2f(30,50));
 	spaceship.setPosition(position);
 	spaceship.setFillColor(sf::Color::Red);
-    
+
 }
 
 void Player::draw(){
@@ -29,7 +29,7 @@ void Player::draw(){
 }
 
 void Player::animate(float secs){
-    
+
 }
 
 // gets bounding box bounds
@@ -42,16 +42,16 @@ sf::RectangleShape Player::getShape()
 
 //keyboard input up arrow to move paddle
 void Player::moveUp()
-{ 
-    position.y -= velocity; 
-    
+{
+    position.y -= velocity;
+
 }
 
 //keyboard input down arrow to move paddle
 void Player::moveDown()
-{ 
+{
     position.y += velocity;
-    
+
 }
 
 void Player::moveLeft()
@@ -64,13 +64,13 @@ void Player::moveRight()
 void Player::set(){
     //position.x = spaceship.getPosition().x;
 	//position.y = spaceship.getPosition().y;
-    //std::cout << "sapceship" << position.x;  
+    //std::cout << "sapceship" << position.x;
     spaceship.setPosition(position);
 }
 
 //redraws the paddle
 void Player::update(float secs)
 {
-    
+
 	spaceship.setPosition(position);
 }

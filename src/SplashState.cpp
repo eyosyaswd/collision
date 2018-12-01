@@ -7,7 +7,8 @@
 #include "Global.hpp"
 #include "SplashState.hpp"
 #include "MenuState.hpp"
-
+#include "WinState.hpp"
+#include "LoseState.hpp"
 
 SplashState::SplashState(GameDataRef data): gameData(data) {}
 

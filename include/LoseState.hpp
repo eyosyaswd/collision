@@ -32,6 +32,9 @@ class LoseState : public State {
 	private:
 		GameDataRef gameData;
 
+		sf::Texture backgroundTexture;
+    sf::Sprite backgroundSprite;
+		
     int selectedItem;
 	  sf::Font font;
 	  sf::Text menu[MAX_NUMBER_OF_ITEMS];

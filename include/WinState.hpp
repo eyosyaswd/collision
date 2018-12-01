@@ -34,6 +34,10 @@ class WinState : public State {
 		GameDataRef gameData;
 
     int selectedItem;
+
+		sf::Texture backgroundTexture;
+		sf::Sprite backgroundSprite;
+
 	  sf::Font font;
 	  sf::Text menu[MAX_NUMBER_OF_ITEMS];
 

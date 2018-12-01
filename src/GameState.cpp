@@ -219,7 +219,7 @@ GameState::GameState(GameDataRef data) : gameData(data)
 
 	void GameState::draw(float dt)
 	{
-		this->gameData->window.clear(sf::Color::Red);
+		this->gameData->window.clear(sf::Color::White);
 
     this->gameData->window.draw(backgroundSprite);
     spaceship->draw();
