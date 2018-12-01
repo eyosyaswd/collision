@@ -33,14 +33,10 @@ class MenuState : public State {
 	private:
 		GameDataRef gameData;
 
-<<<<<<< HEAD
-      int selectedItem;
-=======
     int selectedItem;
 
 		sf::Texture backgroundTexture;
     sf::Sprite backgroundSprite;
->>>>>>> b632f3edbba2380383382c6b35e4ddbc7ea40726
 	  sf::Font font;
 	  sf::Text menu[MAX_NUMBER_OF_ITEMS];
 	  sf::SoundBuffer menu_Theme;

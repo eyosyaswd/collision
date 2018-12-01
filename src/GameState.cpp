@@ -32,7 +32,6 @@ GameState::GameState(GameDataRef data) : gameData(data)
     this->gameData->resourceManager.loadTexture("GameState Background", GAME_STATE_BACKGROUND_FILEPATH);
     backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState Background"));
 
-<<<<<<< HEAD
     if (!play_Theme.loadFromFile("../res/sounds/confrontation.wav"))
         std::cout << "Error occured while loading music " << std::endl;
     else {
@@ -40,9 +39,7 @@ GameState::GameState(GameDataRef data) : gameData(data)
         playTheme.setLoop(true);
         playTheme.play();
         }
-    
-=======
->>>>>>> b632f3edbba2380383382c6b35e4ddbc7ea40726
+
     spaceship = new Player(gameData);
     goomba = new Goomba(gameData);
 
@@ -91,173 +88,150 @@ GameState::GameState(GameDataRef data) : gameData(data)
 
 	}
 
-	void GameState::handleEvents()
-	{
-		sf::Event event;
+	void GameState::handleEvents() {
+        sf::Event event;
 
 
+        while (this->gameData->window.pollEvent(event)) {
+            if (sf::Event::Closed == event.type) {
+                this->gameData->window.close();
+            }
 
 
-		while (this->gameData->window.pollEvent(event))
-		{
-			if (sf::Event::Closed == event.type)
-			{
-				this->gameData->window.close();
-			}
+            if (event.type == sf::Event::KeyPressed) {
+                if (event.key.code == sf::Keyboard::Space) {
+
+                    this->gameData->stateManager.pushState(StateRef(new PauseState(gameData)), false);
+                } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) { this->gameData->window.close(); }
+            }
 
 
-
-      if (event.type == sf::Event::KeyPressed)
-      {
-        if (event.key.code == sf::Keyboard::Space)
-        {
-
-				this->gameData->stateManager.pushState(StateRef(new PauseState(gameData)), false);
-        }
+            //different weapon toggle system, switches between bullets, active bullet displays larger, need to calibrate sizes still
+            if (event.type == sf::Event::MouseWheelMoved) {
 
 
-
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-        { this->gameData->window.close();}
-	     }
-
-
-         //different weapon toggle system, switches between bullets, active bullet displays larger, need to calibrate sizes still
-         if(event.type == sf::Event::MouseWheelMoved){
-
-
-                if(weapontoggle == "selectsecondary"){
+                if (weapontoggle == "selectsecondary") {
                     defaultWeapon.setRadius(12);
                     secondaryWeapon.setRadius(24);
-                    secondaryWeapon.setPosition(80,750);
+                    secondaryWeapon.setPosition(80, 750);
                     weapontoggle = "selectprimary";
-                }
-                else{
+                } else {
                     defaultWeapon.setRadius(24);
                     secondaryWeapon.setRadius(12);
                     secondaryWeapon.setPosition(100, 750);
                     weapontoggle = "selectsecondary";
                 }
 
-         }
-
-
-     }
-
-
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-        { spaceship->moveDown();
-        }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)|| sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-        { spaceship->moveUp();}
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-        { spaceship->moveLeft();}
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-        { spaceship->moveRight();}
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
-<<<<<<< HEAD
-
-            if(bullet->position.y > 850 || bullet->position.y < 0 || bullet->position.x > 1100 || bullet->position.x < 0){
-
-                bullet->set(spaceship->position.x,spaceship->position.y);
-                sf::Vector2f mousePosition = this->gameData->window.mapPixelToCoords(sf::Mouse::getPosition(this->gameData->window));
-                std::cout << mousePosition.x;
-                std::cout << mousePosition.y;
-                float cleanshot = atan2(sf::Mouse::getPosition(this->gameData->window).y - bullet->position.y, sf::Mouse::getPosition(this->gameData->window).x - bullet->position.x);
-                newshot = cleanshot;
-=======
-            if(bullet->position.y > 850 || bullet->position.y < 0 || bullet->position.x > 1100 || bullet->position.x < 0){
-            bullet->set(spaceship->position.x,spaceship->position.y);
-
-            sf::Vector2f mousePosition = this->gameData->window.mapPixelToCoords(sf::Mouse::getPosition(this->gameData->window));
-            std::cout << mousePosition.x;
-            std::cout << mousePosition.y;
-            float cleanshot = atan2(sf::Mouse::getPosition(this->gameData->window).y - bullet->position.y, sf::Mouse::getPosition(this->gameData->window).x - bullet->position.x);
-            newshot = cleanshot;
->>>>>>> b632f3edbba2380383382c6b35e4ddbc7ea40726
             }
 
-        }
-
-
-        //testing cycling through the various kind of bullets - will depend on colliding with power-ups later, but for now just toggle through them with keys as a test
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::B) || sf::Keyboard::isKeyPressed(sf::Keyboard::B))
-        { bullet->modify("big");
 
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::P) || sf::Keyboard::isKeyPressed(sf::Keyboard::P))
-        { bullet->modify("pierce");
+
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+            spaceship->moveDown();
+        } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) ||
+                   sf::Keyboard::isKeyPressed(sf::Keyboard::W)) { spaceship->moveUp(); }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) ||
+            sf::Keyboard::isKeyPressed(sf::Keyboard::A)) { spaceship->moveLeft(); }
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) ||
+                 sf::Keyboard::isKeyPressed(sf::Keyboard::D)) { spaceship->moveRight(); }
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+
+
+            if (bullet->position.y > 850 || bullet->position.y < 0 || bullet->position.x > 1100 ||
+                bullet->position.x < 0) {
+
+                bullet->set(spaceship->position.x, spaceship->position.y);
+                sf::Vector2f mousePosition = this->gameData->window.mapPixelToCoords(
+                        sf::Mouse::getPosition(this->gameData->window));
+                std::cout << mousePosition.x;
+                std::cout << mousePosition.y;
+                float cleanshot = atan2(sf::Mouse::getPosition(this->gameData->window).y - bullet->position.y,
+                                        sf::Mouse::getPosition(this->gameData->window).x - bullet->position.x);
+                newshot = cleanshot;
+
+                if (bullet->position.y > 850 || bullet->position.y < 0 || bullet->position.x > 1100 ||
+                    bullet->position.x < 0) {
+                    bullet->set(spaceship->position.x, spaceship->position.y);
+
+                    sf::Vector2f mousePosition = this->gameData->window.mapPixelToCoords(
+                            sf::Mouse::getPosition(this->gameData->window));
+                    std::cout << mousePosition.x;
+                    std::cout << mousePosition.y;
+                    float cleanshot = atan2(sf::Mouse::getPosition(this->gameData->window).y - bullet->position.y,
+                                            sf::Mouse::getPosition(this->gameData->window).x - bullet->position.x);
+                    newshot = cleanshot;
+                }
+
+            }
+
+
+            //testing cycling through the various kind of bullets - will depend on colliding with power-ups later, but for now just toggle through them with keys as a test
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::B) || sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
+                bullet->modify("big");
+
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::P) || sf::Keyboard::isKeyPressed(sf::Keyboard::P)) {
+                bullet->modify("pierce");
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::O) || sf::Keyboard::isKeyPressed(sf::Keyboard::O)) {
+                bullet->modify("double");
+            }
+
+
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::O) || sf::Keyboard::isKeyPressed(sf::Keyboard::O))
-        { bullet->modify("double");
-        }
+    }
+
+        void GameState::update(float dt) {
+            bullet->move(newshot);
+            spaceship->update(dt);
+            bullet->update(dt);
+            goomba->update(dt);
 
 
+            elapsedpowertime += powerclock.getElapsedTime();
+            powertime = powerclock.getElapsedTime();
+            powerclock.restart();
 
-
-
-
-
-   }
-
-	void GameState::update(float dt)
-	{
-        bullet->move(newshot);
-        spaceship->update(dt);
-        bullet->update(dt);
-        goomba->update(dt);
-
-
-        elapsedpowertime += powerclock.getElapsedTime();
-        powertime = powerclock.getElapsedTime();
-        powerclock.restart();
-
-        if (elapsedpowertime.asSeconds() > 5)
-        {
+            if (elapsedpowertime.asSeconds() > 5) {
                 int powercolor = rand() % 5 + 1;
                 int powerx = rand() % 800 + 100;
                 int powery = rand() % 700 + 100;
-                if(powercolor == 1){
+                if (powercolor == 1) {
                     powerup.setFillColor(sf::Color::Red);
-                }
-                else if(powercolor == 2){
+                } else if (powercolor == 2) {
                     powerup.setFillColor(sf::Color::Magenta);
-                }
-                else if(powercolor == 3){
+                } else if (powercolor == 3) {
                     powerup.setFillColor(sf::Color::Blue);
-                }
-                else if(powercolor == 4)
-                {
+                } else if (powercolor == 4) {
                     powerup.setFillColor(sf::Color::Green);
-                }
-                else if(powercolor == 5)
-                {
+                } else if (powercolor == 5) {
                     powerup.setFillColor(sf::Color::Yellow);
                 }
-                powerup.setPosition(powerx,powery);
+                powerup.setPosition(powerx, powery);
 
                 elapsedpowertime = sf::milliseconds(0);
+            }
+
+
         }
 
+        void GameState::draw(float dt) {
+            this->gameData->window.clear(sf::Color::White);
 
-	}
-
-	void GameState::draw(float dt)
-	{
-		this->gameData->window.clear(sf::Color::White);
-
-    this->gameData->window.draw(backgroundSprite);
-    spaceship->draw();
-    goomba->draw();
-    bullet->draw();
-    this->gameData->window.draw(defaultWeapon);
-    this ->gameData ->window.draw(secondaryWeapon);
-    this ->gameData ->window.draw(heart1);
-    this->gameData->window.draw(heart2);
-    this->gameData->window.draw(heart3);
-    this->gameData->window.draw(powerup);
-    this->gameData->window.draw(powerup);
+            this->gameData->window.draw(backgroundSprite);
+            spaceship->draw();
+            goomba->draw();
+            bullet->draw();
+            this->gameData->window.draw(defaultWeapon);
+            this->gameData->window.draw(secondaryWeapon);
+            this->gameData->window.draw(heart1);
+            this->gameData->window.draw(heart2);
+            this->gameData->window.draw(heart3);
+            this->gameData->window.draw(powerup);
+            this->gameData->window.draw(powerup);
 
 
-		this->gameData->window.display();
-	}
+            this->gameData->window.display();
+        }

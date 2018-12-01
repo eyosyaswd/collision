@@ -40,14 +40,8 @@ class WinState : public State {
 
 	  sf::Font font;
 	  sf::Text menu[MAX_NUMBER_OF_ITEMS];
-<<<<<<< HEAD
 	  sf::SoundBuffer victory_Theme;
 	  sf::Sound victoryTheme;
 	};
-=======
-
-};
-
->>>>>>> b632f3edbba2380383382c6b35e4ddbc7ea40726
 
 #endif
