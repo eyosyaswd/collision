@@ -1,2 +1,0 @@
-/usr/bin/ar qc libcollision_core.a  CMakeFiles/collision_core.dir/src/GameApp.cpp.o CMakeFiles/collision_core.dir/src/GameLogic.cpp.o CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o CMakeFiles/collision_core.dir/src/StateManager.cpp.o
-/usr/bin/ranlib libcollision_core.a

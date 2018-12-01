@@ -11,7 +11,7 @@
 #include <memory>
 #include <stack>
 
-#include "States/State.hpp"
+#include "State.hpp"
 
 typedef std::unique_ptr<State> StateRef; // smart pointer that points at a state
 

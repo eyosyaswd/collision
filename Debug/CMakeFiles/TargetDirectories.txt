@@ -1,4 +1,0 @@
-/home/eyosyaswd/Documents/cs437/collision/collision/Debug/CMakeFiles/rebuild_cache.dir
-/home/eyosyaswd/Documents/cs437/collision/collision/Debug/CMakeFiles/collision_core.dir
-/home/eyosyaswd/Documents/cs437/collision/collision/Debug/CMakeFiles/edit_cache.dir
-/home/eyosyaswd/Documents/cs437/collision/collision/Debug/CMakeFiles/main.dir
