@@ -45,3 +45,4 @@ void SplashState::draw(float dt) {
   gameData->window.draw(backgroundSprite);
   gameData->window.display();
 }
+

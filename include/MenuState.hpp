@@ -39,6 +39,8 @@ class MenuState : public State {
     sf::Sprite backgroundSprite;
 	  sf::Font font;
 	  sf::Text menu[MAX_NUMBER_OF_ITEMS];
+	  sf::SoundBuffer menu_Theme;
+	  sf::Sound menuTheme;
 
 };
 

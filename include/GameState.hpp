@@ -53,7 +53,11 @@ class GameState : public State {
     int bulletstart_x;
     int bulletstart_y;
 
-};
 
+    //music
+    sf::SoundBuffer play_Theme;
+    sf::Sound playTheme;
+
+	};
 
 #endif

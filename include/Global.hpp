@@ -31,6 +31,7 @@
 #define HEART_FILEPATH "../res/images/heart.png"
 
 
+
 // Backgrounds
 #define SPLASH_STATE_BACKGROUND_FILEPATH "../res/images/collision_logo.jpg"
 #define MENU_STATE_BACKGROUND_FILEPATH "../res/images/menuBackground.png"
@@ -54,14 +55,6 @@
 //koopa spaceship
 
 //Goomba ship
-
-
-
-// sounds
-#define MAIN_THEME_FILEPATH "../res/sounds/collisionTheme.wav"
-#define GAME_MUSIC_FILEPATH "../res/sounds/confrontation.wav"
-#define WIN_THEME_FILEPATH "../res/sounds/victoryTheme.wav"
-#define LOSE_THEME_FILEPATH "../res/sounds/defeatTheme.wav"
 
 
 #endif
