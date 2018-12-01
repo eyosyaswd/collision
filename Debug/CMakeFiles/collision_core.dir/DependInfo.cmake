@@ -4,19 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/f85/crfred/Desktop/testboy/collision/src/Bullet.cpp" "/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles/collision_core.dir/src/Bullet.cpp.o"
-  "/home/f85/crfred/Desktop/testboy/collision/src/ControlsState.cpp" "/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles/collision_core.dir/src/ControlsState.cpp.o"
-  "/home/f85/crfred/Desktop/testboy/collision/src/Enemy.cpp" "/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles/collision_core.dir/src/Enemy.cpp.o"
-  "/home/f85/crfred/Desktop/testboy/collision/src/GameApp.cpp" "/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles/collision_core.dir/src/GameApp.cpp.o"
-  "/home/f85/crfred/Desktop/testboy/collision/src/GameState.cpp" "/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles/collision_core.dir/src/GameState.cpp.o"
-  "/home/f85/crfred/Desktop/testboy/collision/src/LoseState.cpp" "/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles/collision_core.dir/src/LoseState.cpp.o"
-  "/home/f85/crfred/Desktop/testboy/collision/src/MenuState.cpp" "/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles/collision_core.dir/src/MenuState.cpp.o"
-  "/home/f85/crfred/Desktop/testboy/collision/src/PauseState.cpp" "/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles/collision_core.dir/src/PauseState.cpp.o"
-  "/home/f85/crfred/Desktop/testboy/collision/src/Player.cpp" "/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles/collision_core.dir/src/Player.cpp.o"
-  "/home/f85/crfred/Desktop/testboy/collision/src/ResourceManager.cpp" "/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o"
-  "/home/f85/crfred/Desktop/testboy/collision/src/SplashState.cpp" "/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles/collision_core.dir/src/SplashState.cpp.o"
-  "/home/f85/crfred/Desktop/testboy/collision/src/StateManager.cpp" "/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles/collision_core.dir/src/StateManager.cpp.o"
-  "/home/f85/crfred/Desktop/testboy/collision/src/WinState.cpp" "/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles/collision_core.dir/src/WinState.cpp.o"
+  "/home/eyosyaswd/Documents/cs437/collision/collision/src/GameApp.cpp" "/home/eyosyaswd/Documents/cs437/collision/collision/Debug/CMakeFiles/collision_core.dir/src/GameApp.cpp.o"
+  "/home/eyosyaswd/Documents/cs437/collision/collision/src/GameLogic.cpp" "/home/eyosyaswd/Documents/cs437/collision/collision/Debug/CMakeFiles/collision_core.dir/src/GameLogic.cpp.o"
+  "/home/eyosyaswd/Documents/cs437/collision/collision/src/ResourceManager.cpp" "/home/eyosyaswd/Documents/cs437/collision/collision/Debug/CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o"
+  "/home/eyosyaswd/Documents/cs437/collision/collision/src/StateManager.cpp" "/home/eyosyaswd/Documents/cs437/collision/collision/Debug/CMakeFiles/collision_core.dir/src/StateManager.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

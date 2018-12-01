@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/f85/crfred/Desktop/testboy/collision/bin/main.cpp" "/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles/main.dir/bin/main.cpp.o"
+  "/home/eyosyaswd/Documents/cs437/collision/collision/bin/main.cpp" "/home/eyosyaswd/Documents/cs437/collision/collision/Debug/CMakeFiles/main.dir/bin/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -15,7 +15,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles/collision_core.dir/DependInfo.cmake"
+  "/home/eyosyaswd/Documents/cs437/collision/collision/Debug/CMakeFiles/collision_core.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

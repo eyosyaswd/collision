@@ -1,10 +1,11 @@
 /**
-  * Filename = ResourceManager.cpp
+  * Filename: ResourceManager.cpp
 **/
 
 #include <iostream>
-#include "ResourceManager.hpp"
 #include <SFML/Audio.hpp>
+
+#include "ResourceManager.hpp"
 
 
 ResourceManager::ResourceManager() {}

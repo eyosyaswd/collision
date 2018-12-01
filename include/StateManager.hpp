@@ -7,9 +7,11 @@
 #ifndef STATEMANAGER_HPP
 #define STATEMANAGER_HPP
 
+
 #include <memory>
 #include <stack>
-#include "State.hpp"
+
+#include "States/State.hpp"
 
 typedef std::unique_ptr<State> StateRef; // smart pointer that points at a state
 

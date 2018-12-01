@@ -2,10 +2,11 @@
   * Filename: GameApp.cpp
 **/
 
-#include "GameApp.hpp"
-#include "Global.hpp"
-#include "SplashState.hpp"
 #include <iostream>
+
+#include "Global.hpp"
+#include "GameApp.hpp"
+#include "States/SplashState.hpp"
 
 
 GameApp::GameApp() {}
