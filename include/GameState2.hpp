@@ -1,26 +1,35 @@
 /**
-	* Filename: GameState.hpp
+	* Filename: GameState2.hpp
 	*
-	* This is the main game playing screen.
+	* This is the second wave of the game.
 **/
 
-#ifndef GAMESTATE_HPP
-#define GAMESTATE_HPP
+#ifndef GAMESTATE2_HPP
+#define GAMESTATE2_HPP
 
 
 #include <SFML/Graphics.hpp>
+#include <sstream>
+#include <iostream>
 
-#include "GameApp.hpp"
+#include "Global.hpp"
 #include "State.hpp"
+#include "GameApp.hpp"
+
+#include "MenuState.hpp"
+#include "PauseState.hpp"
+#include "WinState.hpp"
+#include "LoseState.hpp"
+
 #include "Player.hpp"
 #include "Bullet.hpp"
 #include "Goomba.hpp"
 
 
-class GameState : public State {
+class GameState2 : public State {
 
 	public:
-		GameState(GameDataRef data);
+		GameState2(GameDataRef data);
 		void init();
 		void handleEvents();
 		void update(float dt);
@@ -41,7 +50,7 @@ class GameState : public State {
     sf::Sprite heart3;
 
     sf::Time powertime;
-    sf::Time elapsedpowertime;
+    sf::Time  elapsedpowertime;
     sf::Clock powerclock;
 
     Player *spaceship;

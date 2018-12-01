@@ -11,8 +11,8 @@ ControlsState::ControlsState(GameDataRef data) : gameData(data)
 
 	void ControlsState::init()
 	{
-		this->gameData->resourceManager.loadTexture("GameState Background", GAME_STATE_BACKGROUND_FILEPATH);
-    backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState Background"));
+		this->gameData->resourceManager.loadTexture("ControlsState Background", CONTROLS_STATE_BACKGROUND_FILEPATH);
+    backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("ControlsState Background"));
 
 		this->gameData->resourceManager.loadFont("font", MAIN_FONT_FILEPATH);
 

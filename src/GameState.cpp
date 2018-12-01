@@ -3,6 +3,7 @@
 
 #include "Global.hpp"
 #include "GameState.hpp"
+#include "GameState2.hpp"
 #include "MenuState.hpp"
 #include "PauseState.hpp"
 #include "WinState.hpp"
@@ -10,7 +11,6 @@
 #include "Player.hpp"
 #include "Bullet.hpp"
 
-float newshot = 0.0f;
 
 
 
@@ -27,8 +27,8 @@ GameState::GameState(GameDataRef data) : gameData(data)
 
 	void GameState::init()
 	{
-    this->gameData->resourceManager.loadTexture("GameState Background", GAME_STATE_BACKGROUND_FILEPATH);
-    backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState Background"));
+    this->gameData->resourceManager.loadTexture("GameState1 Background", GAME_STATE1_BACKGROUND_FILEPATH);
+    backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState1 Background"));
 
     spaceship = new Player(gameData);
     goomba = new Goomba(gameData);
@@ -76,6 +76,7 @@ GameState::GameState(GameDataRef data) : gameData(data)
 
 
 
+
 	}
 
 	void GameState::handleEvents()
@@ -99,7 +100,7 @@ GameState::GameState(GameDataRef data) : gameData(data)
         if (event.key.code == sf::Keyboard::Space)
         {
 
-				this->gameData->stateManager.pushState(StateRef(new PauseState(gameData)), false);
+				this->gameData->stateManager.pushState(StateRef(new PauseState(this->gameData)), false);
         }
 
 
@@ -108,6 +109,10 @@ GameState::GameState(GameDataRef data) : gameData(data)
         { this->gameData->window.close();}
 	     }
 
+			 // switch to GameState2
+			 if (sf::Keyboard::isKeyPressed(sf::Keyboard::C)) {
+				 this->gameData->stateManager.pushState(StateRef(new GameState2(this->gameData)), true);
+			 }
 
          //different weapon toggle system, switches between bullets, active bullet displays larger, need to calibrate sizes still
          if(event.type == sf::Event::MouseWheelMoved){

@@ -51,7 +51,7 @@ void ResourceManager::loadMusic(std::string fileName) {
     std::cout << "Error occured while loading music: " << fileName << std::endl;
   else {
 
-    std::cout << "Playing: " << fileName << std::endl;
+    //std::cout << "Playing: " << fileName << std::endl;
     music.setLoop(true);
     music.play();
   }

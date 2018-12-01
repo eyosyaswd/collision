@@ -15,18 +15,18 @@ class Entity {
   public:
     virtual void draw() = 0;
 
-    virtual void animate(float secs) = 0;
+    //virtual void animate(float secs) = 0;
 
-    virtual sf::RectangleShape getShape() = 0;
+    //virtual sf::RectangleShape getShape() = 0;
 
     virtual void moveUp() = 0;
     virtual void moveDown() = 0;
     virtual void moveLeft() = 0;
     virtual void moveRight() = 0;
 
-    virtual void update(float secs) = 0;
-    virtual void set() = 0;
-    virtual sf::Vector2f getPosition() = 0;
+    //virtual void update(float secs) = 0;
+    //virtual void set() = 0;
+    //virtual sf::Vector2f getPosition() = 0;
 
 };
 

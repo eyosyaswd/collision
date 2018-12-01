@@ -14,8 +14,8 @@ PauseState::PauseState(GameDataRef data) : gameData(data)
 	void PauseState::init()
 	{
 
-		this->gameData->resourceManager.loadTexture("GameState Background", GAME_STATE_BACKGROUND_FILEPATH);
-    backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState Background"));
+		this->gameData->resourceManager.loadTexture("PauseState Background", PAUSE_STATE_BACKGROUND_FILEPATH);
+    backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("PauseState Background"));
 
 		this->gameData->resourceManager.loadFont("font", MAIN_FONT_FILEPATH);
 
