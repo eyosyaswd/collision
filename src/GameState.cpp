@@ -90,10 +90,6 @@ GameState::GameState(GameDataRef data) : gameData(data)
 	void GameState::handleEvents() {
         sf::Event event;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 9c81778772a002c503f39379264cc9092e9588d4
         while (this->gameData->window.pollEvent(event)) {
             if (sf::Event::Closed == event.type) {
                 this->gameData->window.close();
