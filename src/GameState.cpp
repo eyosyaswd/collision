@@ -149,8 +149,6 @@ GameState::GameState(GameDataRef data) : gameData(data)
                  sf::Keyboard::isKeyPressed(sf::Keyboard::D)) { spaceship->moveRight(); }
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 
-            laser.play();
-
             if (bullet->position.y > 850 || bullet->position.y < 0 || bullet->position.x > 1100 ||
                 bullet->position.x < 0) {
 
@@ -162,7 +160,7 @@ GameState::GameState(GameDataRef data) : gameData(data)
                 float cleanshot = atan2(sf::Mouse::getPosition(this->gameData->window).y - bullet->position.y,
                                         sf::Mouse::getPosition(this->gameData->window).x - bullet->position.x);
                 newshot = cleanshot;
-
+                laser.play();
                 if (bullet->position.y > 850 || bullet->position.y < 0 || bullet->position.x > 1100 ||
                     bullet->position.x < 0) {
                     bullet->set(spaceship->position.x, spaceship->position.y);
@@ -174,6 +172,7 @@ GameState::GameState(GameDataRef data) : gameData(data)
                     float cleanshot = atan2(sf::Mouse::getPosition(this->gameData->window).y - bullet->position.y,
                                             sf::Mouse::getPosition(this->gameData->window).x - bullet->position.x);
                     newshot = cleanshot;
+                    laser.play();
                 }
 
             }
