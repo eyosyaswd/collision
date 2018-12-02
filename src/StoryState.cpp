@@ -59,7 +59,9 @@ StoryState::StoryState(GameDataRef data) : gameData(data)
             }
             if (count == 2){
               backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("StoryState3 Background"));
-
+            }
+            if (count == 3){
+                playTheme.stop();
             }
           }
         }
@@ -78,5 +80,5 @@ StoryState::StoryState(GameDataRef data) : gameData(data)
 
 		this->gameData->window.draw(backgroundSprite);
 
-    gameData->window.display();
+        gameData->window.display();
 	}

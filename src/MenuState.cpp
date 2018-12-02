@@ -99,8 +99,8 @@ MenuState::MenuState(GameDataRef data) : gameData(data)
             break;
             case 1:
                 select.play();
-            this->gameData->stateManager.pushState(StateRef(new ControlsState(gameData)), true);
-            menuTheme.stop();
+                this->gameData->stateManager.pushState(StateRef(new ControlsState(gameData)), true);
+                menuTheme.stop();
             break;
             case 2: {
                 select.play();
