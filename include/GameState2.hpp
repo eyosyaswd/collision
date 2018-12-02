@@ -11,6 +11,8 @@
 #include <SFML/Graphics.hpp>
 #include <sstream>
 #include <iostream>
+#include <cstdlib>
+#include <math.h>
 
 #include "Global.hpp"
 #include "State.hpp"
@@ -23,7 +25,7 @@
 
 #include "Player.hpp"
 #include "Bullet.hpp"
-#include "Goomba.hpp"
+// #include "Goomba.hpp"
 
 
 class GameState2 : public State {
@@ -55,7 +57,7 @@ class GameState2 : public State {
 
     Player *spaceship;
     Bullet *bullet;
-    Goomba *goomba;
+    // Goomba *goomba;
 
     float newshot;
     float cleanshot;

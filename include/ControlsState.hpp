@@ -38,6 +38,10 @@ class ControlsState : public State {
     int selectedItem;
 	  sf::Font font;
 	  sf::Text menu[MAX_NUMBER_OF_ITEMS];
+	  sf::SoundBuffer controls_Theme;
+	  sf::SoundBuffer select_Buffer;
+	  sf::Sound controlsTheme;
+	  sf::Sound select;
 
 };
 

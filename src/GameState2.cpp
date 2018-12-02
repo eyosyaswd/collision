@@ -16,7 +16,7 @@ void GameState2::init() {
 	// initialize player, bullet, and enemies
   spaceship = new Player(gameData);
 	bullet = new Bullet(gameData);
-  goomba = new Goomba(gameData);
+  // goomba = new Goomba(gameData);
 
   // sets up weapon toggle
   std::string weapontoggle = "selectsecondary";
@@ -43,10 +43,11 @@ void GameState2::init() {
   powerup.setPosition(1500,1500);
 }
 
+
 void GameState2::handleEvents() {
 	sf::Event event;
 
-	// process events
+	/* process events */
 	while (this->gameData->window.pollEvent(event)) {
 
 		// close event
@@ -72,9 +73,7 @@ void GameState2::handleEvents() {
 
 	}
 
-
-	// proccess inputs
-
+  /* proccess inputs */
 	// "Space" key pressed (pauses game)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
 		this->gameData->stateManager.pushState(StateRef(new PauseState(gameData)), false);
@@ -128,7 +127,7 @@ void GameState2::update(float dt) {
   bullet->move(newshot);
   spaceship->update(dt);
   bullet->update(dt);
-  goomba->update(dt);
+  // goomba->update(dt);
 
   elapsedpowertime += powerclock.getElapsedTime();
   powertime = powerclock.getElapsedTime();
@@ -165,7 +164,7 @@ void GameState2::draw(float dt) {
 
   this->gameData->window.draw(backgroundSprite);
   spaceship->draw();
-  goomba->draw();
+  // goomba->draw();
   bullet->draw();
   this->gameData->window.draw(defaultWeapon);
   this->gameData->window.draw(secondaryWeapon);

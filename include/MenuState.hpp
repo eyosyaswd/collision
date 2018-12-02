@@ -40,7 +40,11 @@ class MenuState : public State {
 	  sf::Font font;
 	  sf::Text menu[MAX_NUMBER_OF_ITEMS];
 	  sf::SoundBuffer menu_Theme;
+	  sf::SoundBuffer switch_Buffer;
+	  sf::SoundBuffer select_Buffer;
 	  sf::Sound menuTheme;
+	  sf::Sound menuSwitch;
+	  sf::Sound select;
 
 };
 
