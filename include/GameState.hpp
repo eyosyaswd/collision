@@ -56,7 +56,10 @@ class GameState : public State {
 
     //music
     sf::SoundBuffer play_Theme;
+    sf::SoundBuffer laser_Buffer;
     sf::Sound playTheme;
+    sf::Sound laser;
+
 
 	};
 

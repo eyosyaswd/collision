@@ -31,6 +31,7 @@ MenuState::MenuState(GameDataRef data) : gameData(data)
         else {
             menuSwitch.setBuffer(switch_Buffer);
         }
+
         if (!select_Buffer.loadFromFile("../res/sounds/select.wav"))
             std::cout << "Error occured while loading music " << std::endl;
         else {

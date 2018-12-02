@@ -27,6 +27,7 @@ GameState::GameState(GameDataRef data) : gameData(data)
 
 	void GameState::init()
 	{
+
     this->gameData->resourceManager.loadTexture("GameState1 Background", GAME_STATE1_BACKGROUND_FILEPATH);
     backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState1 Background"));
 
@@ -36,9 +37,16 @@ GameState::GameState(GameDataRef data) : gameData(data)
         playTheme.setBuffer(play_Theme);
         playTheme.setLoop(true);
         playTheme.play();
-        }
+    }
 
-    spaceship = new Player(gameData);
+    if (!laser_Buffer.loadFromFile("../res/sounds/laser.wav"))
+        std::cout << "Error occured while loading music " << std::endl;
+    else {
+        laser.setBuffer(laser_Buffer);
+    }
+
+        spaceship = new Player(gameData);
+
     // goomba = new Goomba(gameData);
 
     //sets up weapon toggle
@@ -141,6 +149,7 @@ GameState::GameState(GameDataRef data) : gameData(data)
                  sf::Keyboard::isKeyPressed(sf::Keyboard::D)) { spaceship->moveRight(); }
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 
+            laser.play();
 
             if (bullet->position.y > 850 || bullet->position.y < 0 || bullet->position.x > 1100 ||
                 bullet->position.x < 0) {
