@@ -37,17 +37,17 @@
 #define MENU_STATE_BACKGROUND_FILEPATH "../res/images/menuBackground.png"
 #define WIN_STATE_BACKGROUND_FILEPATH "../res/images/WinBackground.png"
 #define LOSE_STATE_BACKGROUND_FILEPATH "../res/images/loseBackground.png"
-#define CONTROLS_STATE_BACKGROUND_FILEPATH "../res/images/pixelSpace.png"
-#define PAUSE_STATE_BACKGROUND_FILEPATH "../res/images/pixelSpace.png"
+#define CONTROLS_STATE_BACKGROUND_FILEPATH "../res/images/controlBackground.png"
+#define PAUSE_STATE_BACKGROUND_FILEPATH "../res/images/pauseBackground.png"
 
 //Story
 #define STORY_STATE_BACKGROUND_FILEPATH1 "../res/images/Story1.png"
 #define STORY_STATE_BACKGROUND_FILEPATH2 "../res/images/Story2.png"
 #define STORY_STATE_BACKGROUND_FILEPATH3 "../res/images/Story3.png"
-#define STORY_STATE_BACKGROUND_FILEPATH4 "../res/images/pixelSpace.png"
 
-//Player ship
 
+//Sprite Sheet
+#define SPRITE_SHEET_FILEPATH "../res/images/spriteSheet400.png"
 
 //Fire spaceship
 

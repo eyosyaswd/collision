@@ -38,19 +38,19 @@ PauseState::PauseState(GameDataRef data) : gameData(data)
     menu[0].setFillColor(sf::Color::Red);
     menu[0].setCharacterSize(70);
     menu[0].setString("Resume");
-    menu[0].setPosition(sf::Vector2f(WINDOW_WIDTH / 9.1,WINDOW_HEIGHT / (MAX_NUMBER_OF_ITEMS + 1) * 1));
+    menu[0].setPosition(sf::Vector2f(WINDOW_WIDTH / 3,WINDOW_HEIGHT / (MAX_NUMBER_OF_ITEMS + 1) + 60));
     	//width/2.1
     menu[1].setFont(this->gameData->resourceManager.getFont("font"));
     menu[1].setFillColor(sf::Color::White);
     menu[1].setCharacterSize(70);
     menu[1].setString("Main Menu");
-    menu[1].setPosition(sf::Vector2f(WINDOW_WIDTH / 9.1,WINDOW_HEIGHT / (MAX_NUMBER_OF_ITEMS + 1) * 2));
+    menu[1].setPosition(sf::Vector2f(WINDOW_WIDTH / 3,WINDOW_HEIGHT / (MAX_NUMBER_OF_ITEMS + 1) + 140));
 
     menu[2].setFont(this->gameData->resourceManager.getFont("font"));
     menu[2].setFillColor(sf::Color::White);
     menu[2].setCharacterSize(70);
     menu[2].setString("Exit");
-    menu[2].setPosition(sf::Vector2f(WINDOW_WIDTH / 9.1, WINDOW_HEIGHT / (MAX_NUMBER_OF_ITEMS + 1) * 3));
+    menu[2].setPosition(sf::Vector2f(WINDOW_WIDTH / 3, WINDOW_HEIGHT / (MAX_NUMBER_OF_ITEMS + 1) +220));
 
     selectedItem = 0;
 	}

@@ -3,7 +3,9 @@
 #include "Global.hpp"
 #include "MenuState.hpp"
 #include "GameState.hpp"
+#include "StoryState.hpp"
 #include "ControlsState.hpp"
+
 
 
 MenuState::MenuState(GameDataRef data) : gameData(data)
@@ -91,7 +93,7 @@ MenuState::MenuState(GameDataRef data) : gameData(data)
           {
             case 0: {
                 select.play();
-                this->gameData->stateManager.pushState(StateRef(new GameState(gameData)), true);
+                this->gameData->stateManager.pushState(StateRef(new StoryState(gameData)), true);
                 menuTheme.stop();
             }
             break;

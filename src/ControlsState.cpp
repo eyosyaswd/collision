@@ -33,9 +33,9 @@ ControlsState::ControlsState(GameDataRef data) : gameData(data)
 
     menu[0].setFont(this->gameData->resourceManager.getFont("font"));
     menu[0].setFillColor(sf::Color::Red);
-    menu[0].setCharacterSize(70);
+    menu[0].setCharacterSize(50);
     menu[0].setString("Menu");
-    menu[0].setPosition(sf::Vector2f(WINDOW_WIDTH / 9.1,WINDOW_HEIGHT / (MAX_NUMBER_OF_ITEMS + 1) * 1));
+    menu[0].setPosition(sf::Vector2f(WINDOW_WIDTH -150 , WINDOW_HEIGHT / (MAX_NUMBER_OF_ITEMS + 1) + 550));
     	//width/2.1
     menu[1].setFont(this->gameData->resourceManager.getFont("font"));
     menu[1].setFillColor(sf::Color::White);
@@ -87,7 +87,7 @@ ControlsState::ControlsState(GameDataRef data) : gameData(data)
             //this->gameData->stateManager.pushState(StateRef(new GameState(gameData)), true);
             break;
             case 2:
-            this->gameData->window.close();
+
             break;
           }
 

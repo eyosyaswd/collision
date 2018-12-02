@@ -9,6 +9,7 @@
 #include "MenuState.hpp"
 #include "WinState.hpp"
 #include "LoseState.hpp"
+#include "StoryState.hpp"
 
 SplashState::SplashState(GameDataRef data): gameData(data) {}
 
@@ -52,4 +53,3 @@ void SplashState::draw(float dt) {
   gameData->window.draw(backgroundSprite);
   gameData->window.display();
 }
-

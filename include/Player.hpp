@@ -22,7 +22,8 @@ class Player {
 
 		//Player(float startX, float startY);
 		//sf::FloatRect getPosition();
-		sf::RectangleShape getShape();
+		//sf::RectangleShape getShape();
+		sf::Sprite getShape();
 		void moveUp();
 		void moveDown();
 		void moveLeft();
@@ -35,6 +36,9 @@ class Player {
 		sf::RectangleShape spaceship;
 		float velocity = 5.f;
 		GameDataRef gameData;
+
+		sf::Texture texture;
+
 
 		sf::Clock clock;
 		sf::Clock move;
