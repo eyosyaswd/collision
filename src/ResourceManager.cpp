@@ -40,4 +40,3 @@ void ResourceManager::loadFont(std::string fontName, std::string fileName) {
 sf::Font &ResourceManager::getFont(std::string fontName) {
   return this->fontsMap.at(fontName);
 }
-

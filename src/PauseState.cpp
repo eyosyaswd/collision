@@ -14,6 +14,7 @@ PauseState::PauseState(GameDataRef data) : gameData(data)
 	void PauseState::init()
 	{
 
+
         if (!switch_Buffer.loadFromFile("../res/sounds/switch.wav"))
             std::cout << "Error occured while loading music " << std::endl;
         else {
@@ -25,8 +26,11 @@ PauseState::PauseState(GameDataRef data) : gameData(data)
             select.setBuffer(select_Buffer);
         }
 
-		this->gameData->resourceManager.loadTexture("GameState Background", GAME_STATE_BACKGROUND_FILEPATH);
+		this->gameData->resourceManager.loadTexture("GameState Background", GAME_STATE1_BACKGROUND_FILEPATH);
     backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState Background"));
+
+		this->gameData->resourceManager.loadTexture("PauseState Background", PAUSE_STATE_BACKGROUND_FILEPATH);
+    backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("PauseState Background"));
 
 		this->gameData->resourceManager.loadFont("font", MAIN_FONT_FILEPATH);
 

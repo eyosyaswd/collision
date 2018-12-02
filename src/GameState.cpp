@@ -3,6 +3,7 @@
 
 #include "Global.hpp"
 #include "GameState.hpp"
+#include "GameState2.hpp"
 #include "MenuState.hpp"
 #include "PauseState.hpp"
 #include "WinState.hpp"
@@ -12,7 +13,6 @@
 #include <SFML/Audio.hpp>
 
 
-float newshot = 0.0f;
 
 
 
@@ -29,8 +29,8 @@ GameState::GameState(GameDataRef data) : gameData(data)
 
 	void GameState::init()
 	{
-    this->gameData->resourceManager.loadTexture("GameState Background", GAME_STATE_BACKGROUND_FILEPATH);
-    backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState Background"));
+    this->gameData->resourceManager.loadTexture("GameState1 Background", GAME_STATE1_BACKGROUND_FILEPATH);
+    backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState1 Background"));
 
     if (!play_Theme.loadFromFile("../res/sounds/confrontation.wav"))
         std::cout << "Error occured while loading music " << std::endl;
@@ -86,16 +86,36 @@ GameState::GameState(GameDataRef data) : gameData(data)
 
 
 
+
 	}
 
 	void GameState::handleEvents() {
         sf::Event event;
 
 
+<<<<<<< HEAD
+		while (this->gameData->window.pollEvent(event))
+		{
+			if (sf::Event::Closed == event.type)
+			{
+				this->gameData->window.close();
+			}
+
+
+
+      if (event.type == sf::Event::KeyPressed)
+      {
+        if (event.key.code == sf::Keyboard::Space)
+        {
+
+				this->gameData->stateManager.pushState(StateRef(new PauseState(this->gameData)), false);
+        }
+=======
         while (this->gameData->window.pollEvent(event)) {
             if (sf::Event::Closed == event.type) {
                 this->gameData->window.close();
             }
+>>>>>>> 47721da557e5c2ae34938d0a82bd8b56a8107e22
 
 
             if (event.type == sf::Event::KeyPressed) {
@@ -104,6 +124,10 @@ GameState::GameState(GameDataRef data) : gameData(data)
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) { this->gameData->window.close(); }
             }
 
+			 // switch to GameState2
+			 if (sf::Keyboard::isKeyPressed(sf::Keyboard::C)) {
+				 this->gameData->stateManager.pushState(StateRef(new GameState2(this->gameData)), true);
+			 }
 
             //different weapon toggle system, switches between bullets, active bullet displays larger, need to calibrate sizes still
             if (event.type == sf::Event::MouseWheelMoved) {

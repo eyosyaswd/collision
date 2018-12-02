@@ -23,8 +23,6 @@ class Goomba : public Entity{
 
     void animate(float secs);
 
-    //Player(float startX, float startY);
-    //sf::FloatRect getPosition();
     sf::RectangleShape getShape();
     void moveUp();
     void moveDown();
