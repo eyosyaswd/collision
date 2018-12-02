@@ -41,7 +41,7 @@ GameState::GameState(GameDataRef data) : gameData(data)
         }
 
     spaceship = new Player(gameData);
-    goomba = new Goomba(gameData);
+    // goomba = new Goomba(gameData);
 
     //sets up weapon toggle
     std::string weapontoggle = "selectsecondary";
@@ -93,29 +93,10 @@ GameState::GameState(GameDataRef data) : gameData(data)
         sf::Event event;
 
 
-<<<<<<< HEAD
-		while (this->gameData->window.pollEvent(event))
-		{
-			if (sf::Event::Closed == event.type)
-			{
-				this->gameData->window.close();
-			}
-
-
-
-      if (event.type == sf::Event::KeyPressed)
-      {
-        if (event.key.code == sf::Keyboard::Space)
-        {
-
-				this->gameData->stateManager.pushState(StateRef(new PauseState(this->gameData)), false);
-        }
-=======
         while (this->gameData->window.pollEvent(event)) {
             if (sf::Event::Closed == event.type) {
                 this->gameData->window.close();
             }
->>>>>>> 47721da557e5c2ae34938d0a82bd8b56a8107e22
 
 
             if (event.type == sf::Event::KeyPressed) {
@@ -211,7 +192,7 @@ GameState::GameState(GameDataRef data) : gameData(data)
             bullet->move(newshot);
             spaceship->update(dt);
             bullet->update(dt);
-            goomba->update(dt);
+            // goomba->update(dt);
 
 
             elapsedpowertime += powerclock.getElapsedTime();
@@ -246,7 +227,7 @@ GameState::GameState(GameDataRef data) : gameData(data)
 
             this->gameData->window.draw(backgroundSprite);
             spaceship->draw();
-            goomba->draw();
+            // goomba->draw();
             bullet->draw();
             this->gameData->window.draw(defaultWeapon);
             this->gameData->window.draw(secondaryWeapon);
