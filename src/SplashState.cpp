@@ -16,6 +16,13 @@ SplashState::SplashState(GameDataRef data): gameData(data) {}
 void SplashState::init() {
   this->gameData->resourceManager.loadTexture("SplashState Background", SPLASH_STATE_BACKGROUND_FILEPATH);
   backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("SplashState Background"));
+
+    if (!splash_Theme.loadFromFile("../res/sounds/splash.wav"))
+        std::cout << "Error occured while loading music " << std::endl;
+    else {
+        splash.setBuffer(splash_Theme);
+        splash.play();
+    }
 }
 
 

@@ -31,6 +31,9 @@ class SplashState : public State {
     sf::Texture backgroundTexture;
     sf::Sprite backgroundSprite;
 
+    sf::SoundBuffer splash_Theme;
+    sf::Sound splash;
+
 };
 
 

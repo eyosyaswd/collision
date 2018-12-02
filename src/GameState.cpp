@@ -99,8 +99,7 @@ GameState::GameState(GameDataRef data) : gameData(data)
 
 
             if (event.type == sf::Event::KeyPressed) {
-                if (event.key.code == sf::Keyboard::Space) {
-
+                if (event.key.code == sf::Keyboard::Space){
                     this->gameData->stateManager.pushState(StateRef(new PauseState(gameData)), false);
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) { this->gameData->window.close(); }
             }

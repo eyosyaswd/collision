@@ -14,6 +14,21 @@ ControlsState::ControlsState(GameDataRef data) : gameData(data)
 		this->gameData->resourceManager.loadTexture("GameState Background", GAME_STATE_BACKGROUND_FILEPATH);
     backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState Background"));
 
+        if (!controls_Theme.loadFromFile("../res/sounds/controlsTheme.wav"))
+            std::cout << "Error occured while loading music " << std::endl;
+        else {
+            controlsTheme.setBuffer(controls_Theme);
+            controlsTheme.setLoop(true);
+            controlsTheme.play();
+
+        }
+
+        if (!select_Buffer.loadFromFile("../res/sounds/select.wav"))
+            std::cout << "Error occured while loading music " << std::endl;
+        else {
+            select.setBuffer(select_Buffer);
+        }
+
 		this->gameData->resourceManager.loadFont("font", MAIN_FONT_FILEPATH);
 
     menu[0].setFont(this->gameData->resourceManager.getFont("font"));
@@ -64,7 +79,9 @@ ControlsState::ControlsState(GameDataRef data) : gameData(data)
           switch (getPressedItem() )
           {
             case 0:
+                select.play();
             this->gameData->stateManager.pushState(StateRef(new MenuState(gameData)), true);
+            controlsTheme.stop();
             break;
             case 1:
             //this->gameData->stateManager.pushState(StateRef(new GameState(gameData)), true);
@@ -83,7 +100,6 @@ ControlsState::ControlsState(GameDataRef data) : gameData(data)
 
 	void ControlsState::update(float dt)
 	{
-
 	}
 
 	void ControlsState::draw(float dt)
