@@ -13,6 +13,14 @@ void GameState2::init() {
   this->gameData->resourceManager.loadTexture("GameState2 Background", GAME_STATE2_BACKGROUND_FILEPATH);
   backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState2 Background"));
 
+    if (!play_Theme.loadFromFile("../res/sounds/wave2.wav"))
+        std::cout << "Error occured while loading music " << std::endl;
+    else {
+        playTheme.setBuffer(play_Theme);
+        playTheme.setLoop(true);
+        playTheme.play();
+    }
+
 	// initialize player, bullet, and enemies
   spaceship = new Player(gameData);
 	bullet = new Bullet(gameData);

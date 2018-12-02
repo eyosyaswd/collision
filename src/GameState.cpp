@@ -31,7 +31,7 @@ GameState::GameState(GameDataRef data) : gameData(data)
     this->gameData->resourceManager.loadTexture("GameState1 Background", GAME_STATE1_BACKGROUND_FILEPATH);
     backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState1 Background"));
 
-    if (!play_Theme.loadFromFile("../res/sounds/confrontation.wav"))
+    if (!play_Theme.loadFromFile("../res/sounds/wave1.wav"))
         std::cout << "Error occured while loading music " << std::endl;
     else {
         playTheme.setBuffer(play_Theme);
