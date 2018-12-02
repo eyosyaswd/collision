@@ -9,7 +9,7 @@
 
 
 #include <SFML/Graphics.hpp>
-
+#include <SFML/Audio.hpp>
 #include "GameApp.hpp"
 #include "State.hpp"
 #include "Player.hpp"

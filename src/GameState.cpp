@@ -8,9 +8,7 @@
 #include "PauseState.hpp"
 #include "WinState.hpp"
 #include "LoseState.hpp"
-#include "Player.hpp"
-#include "Bullet.hpp"
-#include <SFML/Audio.hpp>
+
 
 
 
@@ -92,42 +90,23 @@ GameState::GameState(GameDataRef data) : gameData(data)
 	void GameState::handleEvents() {
         sf::Event event;
 
-
-<<<<<<< HEAD
-		while (this->gameData->window.pollEvent(event))
-		{
-			if (sf::Event::Closed == event.type)
-			{
-				this->gameData->window.close();
-			}
-
-
-
-      if (event.type == sf::Event::KeyPressed)
-      {
-        if (event.key.code == sf::Keyboard::Space)
-        {
-
-				this->gameData->stateManager.pushState(StateRef(new PauseState(this->gameData)), false);
-        }
-=======
         while (this->gameData->window.pollEvent(event)) {
             if (sf::Event::Closed == event.type) {
                 this->gameData->window.close();
             }
->>>>>>> 47721da557e5c2ae34938d0a82bd8b56a8107e22
 
 
             if (event.type == sf::Event::KeyPressed) {
-                if (event.key.code == sf::Keyboard::Space){
+                if (event.key.code == sf::Keyboard::Space) {
+                    playTheme.pause();
                     this->gameData->stateManager.pushState(StateRef(new PauseState(gameData)), false);
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) { this->gameData->window.close(); }
             }
 
-			 // switch to GameState2
-			 if (sf::Keyboard::isKeyPressed(sf::Keyboard::C)) {
-				 this->gameData->stateManager.pushState(StateRef(new GameState2(this->gameData)), true);
-			 }
+            // switch to GameState2
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::C)) {
+                this->gameData->stateManager.pushState(StateRef(new GameState2(this->gameData)), true);
+            }
 
             //different weapon toggle system, switches between bullets, active bullet displays larger, need to calibrate sizes still
             if (event.type == sf::Event::MouseWheelMoved) {
@@ -147,7 +126,6 @@ GameState::GameState(GameDataRef data) : gameData(data)
 
             }
 
-
         }
 
 
@@ -155,8 +133,10 @@ GameState::GameState(GameDataRef data) : gameData(data)
             spaceship->moveDown();
         } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) ||
                    sf::Keyboard::isKeyPressed(sf::Keyboard::W)) { spaceship->moveUp(); }
+
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) ||
             sf::Keyboard::isKeyPressed(sf::Keyboard::A)) { spaceship->moveLeft(); }
+
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) ||
                  sf::Keyboard::isKeyPressed(sf::Keyboard::D)) { spaceship->moveRight(); }
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
@@ -202,9 +182,9 @@ GameState::GameState(GameDataRef data) : gameData(data)
                 bullet->modify("double");
             }
 
-
         }
     }
+
 
         void GameState::update(float dt) {
             bullet->move(newshot);
