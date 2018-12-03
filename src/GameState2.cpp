@@ -161,8 +161,8 @@ void GameState2::handleEvents() {
         }
 
         if(weapontoggle == "selectprimary" && shotcountstring != ""){
-            
-            
+
+
             int shotint = std::stoi(shotcountstring);
             shotint = shotint - 1;
             shotcountstring = std::to_string(shotint);
@@ -360,6 +360,7 @@ void GameState2::update(float dt) {
         }
         else{
             this->gameData->stateManager.pushState(StateRef(new LoseState(this->gameData)), true);
+            playTheme.stop();
         }
         }
 
