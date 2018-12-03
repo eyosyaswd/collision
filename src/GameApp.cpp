@@ -41,7 +41,9 @@ void GameApp::mainLoop() {
     accumulator += frameTime;
 
     while (accumulator >= dt) {
-      this->gameData->stateManager.getActiveState()->handleEvents();
+      if (this->gameData->window.hasFocus()) {
+        this->gameData->stateManager.getActiveState()->handleEvents();
+      }
       this->gameData->stateManager.getActiveState()->update(dt);
 
       accumulator -= dt;
