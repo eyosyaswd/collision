@@ -13,7 +13,14 @@ void GameState2::init() {
   this->gameData->resourceManager.loadTexture("GameState2 Background", GAME_STATE2_BACKGROUND_FILEPATH);
   backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState2 Background"));
 
-  //TODO: uncomment music later, only turned it off for testing
+	// initialize player, bullet, and enemies
+  spaceship = new Player(gameData);
+	bullet = new Bullet(gameData);
+  goombaSpawnTimer = 0;
+
+    //TODO: uncomment music later, only turned it off for testing
+
+    //Initializes sounds for the game
     // if (!play_Theme.loadFromFile("../res/sounds/wave2.wav"))
     //     std::cout << "Error occured while loading music " << std::endl;
     // else {
@@ -22,10 +29,12 @@ void GameState2::init() {
     //     playTheme.play();
     // }
 
-	// initialize player, bullet, and enemies
-  spaceship = new Player(gameData);
-	bullet = new Bullet(gameData);
-  goombaSpawnTimer = 0;
+    if (!laser_Buffer.loadFromFile("../res/sounds/laser.wav"))
+        std::cout << "Error occured while loading music " << std::endl;
+    else
+    {
+        laser.setBuffer(laser_Buffer);
+    }
 
   // sets up weapon toggle
   std::string weapontoggle = "selectsecondary";
@@ -116,6 +125,9 @@ void GameState2::handleEvents() {
     if(bullet->position.y > 850 || bullet->position.y < 0 || bullet->position.x > 1100 || bullet->position.x < 0) {
     	bullet->set(spaceship->position.x,spaceship->position.y);
 	    sf::Vector2f mousePosition = this->gameData->window.mapPixelToCoords(sf::Mouse::getPosition(this->gameData->window));
+
+	    laser.play();
+
 	    float cleanshot = atan2(sf::Mouse::getPosition(this->gameData->window).y - bullet->position.y, sf::Mouse::getPosition(this->gameData->window).x - bullet->position.x);
 	    newshot = cleanshot;
     }
