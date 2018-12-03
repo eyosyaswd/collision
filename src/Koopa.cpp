@@ -78,13 +78,13 @@ void Koopa::moveDown() {
 
 
 void Koopa::moveLeft() {
-    position.x -= velocity * 0.25;
+    position.x -= velocity;
     koopa.setTextureRect(sf::IntRect(50,250,50,50));
 }
 
 
 void Koopa::moveRight() {
-    position.x += velocity * 0.25;
+    position.x += velocity;
     koopa.setTextureRect(sf::IntRect(50,200,50,50));
 }
 

@@ -3,7 +3,7 @@
 #include "Global.hpp"
 #include "StoryState.hpp"
 #include "MenuState.hpp"
-#include "GameState.hpp"
+#include "GameState2.hpp"
 
 
 StoryState::StoryState(GameDataRef data) : gameData(data)
@@ -51,7 +51,7 @@ StoryState::StoryState(GameDataRef data) : gameData(data)
           if (event.key.code == sf::Keyboard::Return) {
             count = count + 1;
             if(count > 2){
-              this -> gameData->stateManager.pushState(StateRef(new GameState(gameData)), true);
+              this -> gameData->stateManager.pushState(StateRef(new GameState2(gameData)), true);
             }
             if (count == 1){
               backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("StoryState2 Background"));

@@ -38,7 +38,7 @@ public:
 private:
     sf::Sprite koopa;
     sf::Texture texture;
-    float velocity = 3.0;
+    float velocity = 6;
     GameDataRef gameData;
     sf::Vector2f position;
 
