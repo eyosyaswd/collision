@@ -91,3 +91,8 @@ void Bullet::update(float secs)
 {
 	bullet.setPosition(position);
 }
+
+
+sf::CircleShape Bullet::getShape() {
+  return bullet;
+}

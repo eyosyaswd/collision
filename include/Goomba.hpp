@@ -35,7 +35,7 @@ class Goomba : public Entity{
 
   private:
     sf::RectangleShape goomba;
-    float velocity = 5.0;
+    float velocity = 3.0;
     GameDataRef gameData;
     sf::Vector2f position;
 

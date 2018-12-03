@@ -14,19 +14,17 @@ void GameState2::init() {
   backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState2 Background"));
 
   //TODO: uncomment music later, only turned it off for testing
-    if (!play_Theme.loadFromFile("../res/sounds/wave2.wav"))
-        std::cout << "Error occured while loading music " << std::endl;
-    else {
-        playTheme.setBuffer(play_Theme);
-        playTheme.setLoop(true);
-        playTheme.play();
-    }
+    // if (!play_Theme.loadFromFile("../res/sounds/wave2.wav"))
+    //     std::cout << "Error occured while loading music " << std::endl;
+    // else {
+    //     playTheme.setBuffer(play_Theme);
+    //     playTheme.setLoop(true);
+    //     playTheme.play();
+    // }
 
 	// initialize player, bullet, and enemies
   spaceship = new Player(gameData);
 	bullet = new Bullet(gameData);
-  // goomba = new Goomba(gameData);
-  // goombas.push_back(Goomba(this->gameData));
   goombaSpawnTimer = 0;
 
   // sets up weapon toggle
@@ -48,6 +46,7 @@ void GameState2::init() {
   heart3.setPosition(120,50);
   heart3.setScale(sf::Vector2f(0.1f, 0.1f));
 
+  // loads powerups
   powerup.setRadius(30);
   powerup.setOutlineThickness(10);
   powerup.setOutlineColor(sf::Color::White);
@@ -84,7 +83,7 @@ void GameState2::handleEvents() {
 
 	}
 
-  /* proccess inputs */
+  /* proccess key inputs */
 	// "Space" key pressed (pauses game)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
 		this->gameData->stateManager.pushState(StateRef(new PauseState(gameData)), false);
@@ -138,7 +137,6 @@ void GameState2::update(float dt) {
   bullet->move(newshot);
   spaceship->update(dt);
   bullet->update(dt);
-  // goomba->update(dt);
 
   elapsedpowertime += powerclock.getElapsedTime();
   powertime = powerclock.getElapsedTime();
@@ -168,36 +166,54 @@ void GameState2::update(float dt) {
     elapsedpowertime = sf::milliseconds(0);
   }
 
-  // times for how fast goombas can spawn
-  if (goombaSpawnTimer < 40) {  // TODO: can also use asSeconds() instead
+  // determine how fast goombas can spawn
+  if (goombaSpawnTimer < 50) {  // TODO: can also use asSeconds() instead
      goombaSpawnTimer++;
   }
 
-  // spawning goombas
-  if (goombaSpawnTimer >= 40) {
+  // spawn goombas
+  if (goombaSpawnTimer >= 50) {
     goombas.push_back(Goomba(this->gameData));
     goombaSpawnTimer = 0;
   }
 
+  // move goombas down
   for (size_t i = 0; i < goombas.size(); i++) {
     goombas[i].moveDown();
     goombas[i].update(dt);
+
+    // delete goombas if they go off the screen
+    if (goombas[i].getPosition().y > this->gameData->window.getSize().y - 100) { // TODO: get rid of the '-100', only there for testing
+      goombas.erase(goombas.begin() + i);
+    }
   }
 
+  // collision of bullets and goombas
+  if (!goombas.empty()) {
+    for (size_t i = 0; i < goombas.size(); i++) {
+      if (bullet->getShape().getGlobalBounds().intersects(goombas[i].getShape().getGlobalBounds())) {
+        // TODO: erase bullet
+        goombas.erase(goombas.begin() + i);
+        break;
+      }
+    }
+  }
 
 }
 
 
 void GameState2::draw(float dt) {
 	this->gameData->window.clear(sf::Color::White);
-
   this->gameData->window.draw(backgroundSprite);
+
   spaceship->draw();
+  bullet->draw();
+
   for (size_t i = 0; i < goombas.size(); i++) {
     goombas[i].draw();
   }
-  // goomba->draw();
-  bullet->draw();
+
+
   this->gameData->window.draw(defaultWeapon);
   this->gameData->window.draw(secondaryWeapon);
   this->gameData->window.draw(heart1);
