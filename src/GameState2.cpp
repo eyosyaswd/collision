@@ -207,9 +207,9 @@ void GameState2::update(float dt) {
      goombaSpawnTimer++;
   }
 
-  // spawn goombas
+  // spawn goombas that move down
   if (goombaSpawnTimer >= 50) {
-    goombas.push_back(Goomba(this->gameData));
+    goombas.push_back(Goomba(this->gameData, "down"));
     goombaSpawnTimer = 0;
   }
 
@@ -223,6 +223,26 @@ void GameState2::update(float dt) {
       goombas.erase(goombas.begin() + i);
     }
   }
+
+  //Testing for Koopas
+/*
+    // spawn koopas that move down
+    if (goombaSpawnTimer >= 50) {
+        koopas.push_back(Koopa(this->gameData, "right"));
+        goombaSpawnTimer = 0;
+    }
+
+    // move koopas down
+    for (size_t i = 0; i < koopas.size(); i++) {
+        koopas[i].moveDown();
+        koopas[i].update(dt);
+
+        // delete koopas if they go off the screen
+        if (koopas[i].getPosition().x > this->gameData->window.getSize().x - 100) { // TODO: get rid of the '-100', only there for testing
+            koopas.erase(koopas.begin() + i);
+        }
+    }
+    */
 
   // collision of bullets and goombas
   if (!goombas.empty()) {
