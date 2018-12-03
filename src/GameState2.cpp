@@ -117,7 +117,6 @@ void GameState2::handleEvents() {
   /* proccess key inputs */
 	// "Space" key pressed (pauses game)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-	    playTheme.stop();
 		this->gameData->stateManager.pushState(StateRef(new PauseState(gameData)), false);
 	}
 
