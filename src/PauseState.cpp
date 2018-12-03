@@ -75,10 +75,10 @@ PauseState::PauseState(GameDataRef data) : gameData(data)
 	void PauseState::handleEvents()
 	{
 		sf::Event event;
-
+    
 		while (this->gameData->window.pollEvent(event))
 		{
-
+            playTheme.pause();
 			if (sf::Event::Closed == event.type)
 			{
 				this->gameData->window.close();
