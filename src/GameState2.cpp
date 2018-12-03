@@ -35,6 +35,7 @@ backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameStat
 	// initialize player, bullet, and enemies
   spaceship = new Player(gameData);
 	bullet = new Bullet(gameData);
+    backbullet = new Bullet(gameData);
   goombaSpawnTimer = 0;
   goombaSpawnSpeed = 60;
 
@@ -159,11 +160,18 @@ void GameState2::handleEvents() {
         backbullet->set(spaceship->position.x,spaceship->position.y);
         }
 
-        if(weapontoggle == "selectprimary"){
-            int shotcountint = std::stoi(shotcountstring);
-            shotcountstring = std::to_string(shotcountint);
+        if(weapontoggle == "selectprimary" && shotcountstring != ""){
+            
+            
+            int shotint = std::stoi(shotcountstring);
+            shotint = shotint - 1;
+            shotcountstring = std::to_string(shotint);
             shotcount.setString(shotcountstring);
-
+            if(shotint == 0){
+                shotcountstring = "";
+                shotcount.setString(shotcountstring);
+                secondaryWeapon.setFillColor(sf::Color::White);
+            }
         }
 
     }
