@@ -42,13 +42,13 @@ backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameStat
     //TODO: uncomment music later, only turned it off for testing
 
     //Initializes sounds for the game
-    // if (!play_Theme.loadFromFile("../res/sounds/wave2.wav"))
-    //     std::cout << "Error occured while loading music " << std::endl;
-    // else {
-    //     playTheme.setBuffer(play_Theme);
-    //     playTheme.setLoop(true);
-    //     playTheme.play();
-    // }
+     if (!play_Theme.loadFromFile("../res/sounds/wave2.wav"))
+         std::cout << "Error occured while loading music " << std::endl;
+     else {
+         playTheme.setBuffer(play_Theme);
+         playTheme.setLoop(true);
+         playTheme.play();
+     }
 
     if (!laser_Buffer.loadFromFile("../res/sounds/laser.wav"))
         std::cout << "Error occured while loading music " << std::endl;
@@ -117,6 +117,7 @@ void GameState2::handleEvents() {
   /* proccess key inputs */
 	// "Space" key pressed (pauses game)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+	    playTheme.stop();
 		this->gameData->stateManager.pushState(StateRef(new PauseState(gameData)), false);
 	}
 
