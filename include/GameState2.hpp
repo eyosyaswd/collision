@@ -55,24 +55,28 @@ class GameState2 : public State {
     sf::Time powertime;
     sf::Time  elapsedpowertime;
     sf::Clock powerclock;
-    
+		sf::Clock gameClock;
+		sf::Time gameTime;
+		float currGameTime;
+
     int powercolor;
 
     Player *spaceship;
     Bullet *bullet;
-    // Goomba *goomba;
+		
 		std::vector<Goomba> goombas;
 		int goombaSpawnTimer;
+		int goombaSpawnSpeed;
 
     float newshot;
     float cleanshot;
     int bulletstart_x;
     int bulletstart_y;
 
-	sf::SoundBuffer play_Theme;
-	sf::SoundBuffer laser_Buffer;
-	sf::Sound playTheme;
-	sf::Sound laser;
+		sf::SoundBuffer play_Theme;
+		sf::SoundBuffer laser_Buffer;
+		sf::Sound playTheme;
+		sf::Sound laser;
 
 };
 
