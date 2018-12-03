@@ -131,6 +131,10 @@ void GameState2::handleEvents() {
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::O) || sf::Keyboard::isKeyPressed(sf::Keyboard::O)) {
 		bullet->modify("double");
   }
+  
+
+      
+  
 }
 
 
@@ -144,7 +148,7 @@ void GameState2::update(float dt) {
   powerclock.restart();
 
   if (elapsedpowertime.asSeconds() > 5) {
-    int powercolor = rand() % 5 + 1;
+    powercolor = rand() % 5 + 1;
     int powerx = rand() % 800 + 100;
     int powery = rand() % 700 + 100;
     if(powercolor == 1) {
@@ -166,6 +170,25 @@ void GameState2::update(float dt) {
 
     elapsedpowertime = sf::milliseconds(0);
   }
+  
+  
+  //power-up collision  
+  if(spaceship->getPosition().intersects(powerup.getGlobalBounds())){
+      powerup.setPosition(-1000,-1000);
+      if(powercolor == 3){
+            secondaryWeapon.setFillColor(sf::Color::Blue);
+            bullet->modify("double");
+      }
+      if(powercolor == 5){
+            secondaryWeapon.setFillColor(sf::Color::Yellow);
+            bullet->modify("big");
+      }
+      if(powercolor == 4){
+            secondaryWeapon.setFillColor(sf::Color::Green);
+            bullet->modify("pierce");
+      }
+  }
+  
 
   // determine how fast goombas can spawn
   if (goombaSpawnTimer < 50) {  // TODO: can also use asSeconds() instead
@@ -193,6 +216,19 @@ void GameState2::update(float dt) {
   if (!goombas.empty()) {
     for (size_t i = 0; i < goombas.size(); i++) {
       if (bullet->getShape().getGlobalBounds().intersects(goombas[i].getShape().getGlobalBounds())) {
+        // TODO: erase bullet
+        goombas.erase(goombas.begin() + i);
+        bullet->set(-10000000,-100000000);
+        break;
+      }
+    }
+  }
+  
+  
+  //playercollision
+    if (!goombas.empty()) {
+    for (size_t i = 0; i < goombas.size(); i++) {
+      if (spaceship->getPosition().intersects(goombas[i].getShape().getGlobalBounds())) {
         // TODO: erase bullet
         goombas.erase(goombas.begin() + i);
         break;

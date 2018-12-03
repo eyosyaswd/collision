@@ -55,6 +55,8 @@ class GameState2 : public State {
     sf::Time powertime;
     sf::Time  elapsedpowertime;
     sf::Clock powerclock;
+    
+    int powercolor;
 
     Player *spaceship;
     Bullet *bullet;
