@@ -3,7 +3,7 @@
 #include "Global.hpp"
 #include "StoryState.hpp"
 #include "MenuState.hpp"
-#include "GameState.hpp"
+#include "GameState2.hpp"
 
 
 StoryState::StoryState(GameDataRef data) : gameData(data)
@@ -49,9 +49,14 @@ StoryState::StoryState(GameDataRef data) : gameData(data)
       if (event.type == sf::Event::KeyPressed) {
           if (event.key.code == sf::Keyboard::Return) {
             count = count + 1;
+<<<<<<< HEAD
             if(count > 3)
 						{
               this -> gameData->stateManager.pushState(StateRef(new GameState(gameData)), true);
+=======
+            if(count > 2){
+              this -> gameData->stateManager.pushState(StateRef(new GameState2(gameData)), true);
+>>>>>>> fac530bedb630dd283e334456da7fdf217fe64d1
             }
             if (count == 1)
 						{

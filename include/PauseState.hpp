@@ -36,10 +36,15 @@ class PauseState : public State {
     int selectedItem;
 	  sf::Font font;
 	  sf::Text menu[MAX_NUMBER_OF_ITEMS];
+
+	sf::SoundBuffer pause_Theme;
+	sf::SoundBuffer play_Theme;
     sf::SoundBuffer switch_Buffer;
     sf::SoundBuffer select_Buffer;
     sf::Sound menuSwitch;
     sf::Sound select;
+    sf::Sound pauseTheme;
+	sf::Sound playTheme;
 
 };
 

@@ -29,9 +29,9 @@ void Player::draw()
 }
 
 
-// gets bounding box bounds
-//sf::FloatRect Player::getPosition()
-//{ return spaceship.getGlobalBounds(); }
+
+sf::FloatRect Player::getPosition()
+{ return ship.getGlobalBounds(); }
 
 //returns sprite
 sf::Sprite Player::getShape()

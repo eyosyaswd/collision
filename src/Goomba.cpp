@@ -18,6 +18,36 @@ Goomba::Goomba(GameDataRef data) : gameData(data) {
   goomba.setPosition(position);
 }
 
+Goomba::Goomba(GameDataRef data, std::string direction) : gameData(data) {
+
+  this->gameData->resourceManager.loadTexture("goomba", PINK_SHEET_FILEPATH);
+  goomba.setTexture(this->gameData->resourceManager.getTexture("goomba"));
+
+  // TODO: Might have to tweak spawn locations
+  if(direction == "down") {
+    goomba.setTextureRect(sf::IntRect(100,0,50,50));
+    position.x = rand() % int(gameData->window.getSize().x - 50);
+    position.y = 0.f;
+  }
+
+  if(direction == "up") {
+    goomba.setTextureRect(sf::IntRect(100,50,50,50));
+    position.x = rand() % int(gameData->window.getSize().x - 50);
+    position.y = int(gameData->window.getSize().y - 100); //TODO: Spawn at edge of screen
+  }
+
+  if(direction == "right") {
+    position.x = 0.f;
+    position.y = rand() % int(gameData->window.getSize().y - 50); // TODO: Randomize the starting positions and movement
+  }
+
+  if(direction == "left") {
+    position.x = int(gameData->window.getSize().x - 100);
+    position.y = rand() % int(gameData->window.getSize().y - 50); // TODO: Randomize the starting positions and movement
+  }
+
+  goomba.setPosition(position);
+}
 
 Goomba::~Goomba() {}
 

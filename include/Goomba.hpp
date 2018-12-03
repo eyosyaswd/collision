@@ -17,6 +17,8 @@ class Goomba : public Entity{
 
   public:
     Goomba(GameDataRef data);
+
+    Goomba(GameDataRef data, std::string direction);
     ~Goomba();
 
     void draw();

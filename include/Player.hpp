@@ -24,6 +24,7 @@ class Player {
 		void set();
 		void update(float secs);
 		void hit();
+        sf::FloatRect getPosition();
 		sf::Vector2f position;
 
 	private:
