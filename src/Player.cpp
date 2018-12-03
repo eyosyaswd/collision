@@ -1,31 +1,20 @@
-#include "Player.hpp"
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Global.hpp"
+#include "Player.hpp"
 
-// creates the player class, a RectangleShape with size, position and color
-//Player::Player(float startX, float startY)
-//{
-//	position.x = startX;
-//	position.y = startY;
-
-//	spaceship.setSize(sf::Vector2f(30,50));
-//	spaceship.setPosition(position);
-//	spaceship.setFillColor(sf::Color::Red);
-//}
-
+// creates the player class, a sprite with size, position and color
 Player::Player(GameDataRef data) : gameData(data)
 {
-  //position.x = spaceship.getPosition().x;
-  //position.y = spaceship.getPosition().y;
-
-	//spaceship.setSize(sf::Vector2f(30,50));
-	//spaceship.setPosition(position);
-	//spaceship.setFillColor(sf::Color::Red);
 
   this->gameData->resourceManager.loadTexture("ship", SPRITE_SHEET_FILEPATH);
   ship.setTexture(this->gameData->resourceManager.getTexture("ship"));
-  ship.setTextureRect(sf::IntRect(0,200,50,50));
+  //sf::IntRect box(0,200,50,50);
+  boxSprite.left = 0;
+  boxSprite.top = 200;
+  boxSprite.width = 50;
+  boxSprite.height = 50;
+  ship.setTextureRect(boxSprite);
 
   position.x = ship.getPosition().x;
   position.y = ship.getPosition().y;
@@ -34,12 +23,13 @@ Player::Player(GameDataRef data) : gameData(data)
 
 }
 
-void Player::draw(){
-        gameData->window.draw(spaceship);
-        gameData->window.draw(ship);
+void Player::draw()
+{
+  gameData->window.draw(ship);
 }
 
-void Player::animate(float secs){
+void Player::animate(float secs)
+{
 
 }
 
@@ -47,50 +37,54 @@ void Player::animate(float secs){
 //sf::FloatRect Player::getPosition()
 //{ return spaceship.getGlobalBounds(); }
 
-//returns ranctablge shape
-//sf::RectangleShape Player::getShape()
-//{ return ship; }
-
+//returns sprite
 sf::Sprite Player::getShape()
-{ return ship; }
+{
+  return ship;
+}
 
-//keyboard input up arrow to move paddle
+//keyboard input up arrow to move spaceship
 void Player::moveUp()
 {
-    position.y -= velocity;
-    ship.setTextureRect(sf::IntRect(0,200,50,50));
+  position.y -= velocity;
+  ship.setTextureRect(sf::IntRect(0,200,50,50));
 
 }
 
-//keyboard input down arrow to move paddle
+//keyboard input down arrow to move spaceship
 void Player::moveDown()
 {
-    position.y += velocity;
-    ship.setTextureRect(sf::IntRect(0,250,50,50));
-
+  position.y += velocity;
+  ship.setTextureRect(sf::IntRect(0,250,50,50));
 }
 
+//moves spaceship Left
 void Player::moveLeft()
-{ position.x -= velocity;
+{
+  position.x -= velocity;
   ship.setTextureRect(sf::IntRect(50,250,50,50));
 }
 
-
+//moves spaceship Right
 void Player::moveRight()
-{ position.x += velocity;
+{
+  position.x += velocity;
   ship.setTextureRect(sf::IntRect(50,200,50,50));
 }
 
-void Player::set(){
-    //position.x = spaceship.getPosition().x;
-	//position.y = spaceship.getPosition().y;
-    //std::cout << "sapceship" << position.x;
-    ship.setPosition(position);
+//Sets spaceship position
+void Player::set()
+{
+  ship.setPosition(position);
+}
+
+void Player::hit()
+{
+  ship.setTextureRect(sf::IntRect(0,0,0,0));
 }
 
 //redraws the paddle
 void Player::update(float secs)
 {
-
 	ship.setPosition(position);
 }

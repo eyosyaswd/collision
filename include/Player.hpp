@@ -5,7 +5,6 @@
 **/
 
 #include <SFML/Graphics.hpp>
-
 #include "GameApp.hpp"
 #pragma once
 
@@ -17,34 +16,26 @@ class Player {
 		~Player();
 
 		void draw();
-
 		void animate(float secs);
-
-		//Player(float startX, float startY);
-		//sf::FloatRect getPosition();
-		//sf::RectangleShape getShape();
 		sf::Sprite getShape();
 		void moveUp();
 		void moveDown();
 		void moveLeft();
 		void moveRight();
-		void update(float secs);
 		void set();
+		void update(float secs);
+		void hit();
 		sf::Vector2f position;
 
 	private:
-		sf::RectangleShape spaceship;
 		float velocity = 5.f;
 		GameDataRef gameData;
-
 		sf::Texture texture;
-
-
 		sf::Clock clock;
 		sf::Clock move;
 		sf::Sprite ship;
+		sf::IntRect boxSprite;
 		std::vector<sf::Texture> frames;
-
 		int shipState;
 
 };

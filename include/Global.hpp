@@ -24,9 +24,16 @@
 
 //Game Play
 
+// Levels 1 -3
 #define GAME_STATE1_BACKGROUND_FILEPATH "../res/images/GameBackgroundLevel1.png"
+
+//Levels 4-6
 #define GAME_STATE2_BACKGROUND_FILEPATH "../res/images/GameBackgroundLevel2.png"
+
+//Levels 7-9
 #define GAME_STATE3_BACKGROUND_FILEPATH "../res/images/GameBackgroundLevel3.png"
+
+//final level. level 10
 #define GAME_STATE4_BACKGROUND_FILEPATH "../res/images/GameBackgroundFinalLevel.png"
 #define HEART_FILEPATH "../res/images/heart.png"
 
@@ -49,12 +56,7 @@
 //Sprite Sheet
 #define SPRITE_SHEET_FILEPATH "../res/images/spriteSheet400.png"
 
-//Fire spaceship
-
-
-//koopa spaceship
-
 //Goomba ship
-
+#define PINK_SHEET_FILEPATH "../res/images/pinkShipSheet400.png"
 
 #endif

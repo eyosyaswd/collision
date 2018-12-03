@@ -99,7 +99,8 @@ void GameState2::handleEvents() {
 		spaceship->moveDown();
   }
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)|| sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-		spaceship->moveUp();
+    spaceship->moveUp();
+
 	}
 
 	// "Left" and "Right" keys pressed (moves player left and right)
