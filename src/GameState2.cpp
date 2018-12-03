@@ -5,18 +5,38 @@
 #include "GameState2.hpp"
 
 
+
 GameState2::GameState2(GameDataRef data) : gameData(data) {}
 
 
 void GameState2::init() {
+  currGameTime = 0.0f;
 	// load background
+  this->gameData->resourceManager.loadTexture("GameState1 Background", GAME_STATE1_BACKGROUND_FILEPATH);
   this->gameData->resourceManager.loadTexture("GameState2 Background", GAME_STATE2_BACKGROUND_FILEPATH);
-  backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState2 Background"));
+this->gameData->resourceManager.loadTexture("GameState3 Background", GAME_STATE3_BACKGROUND_FILEPATH);
+backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState1 Background"));
+
+
+    //draws shot count in bottom left
+    shotcountstring = "";
+    shotcount.setFont(this->gameData->resourceManager.getFont("font"));
+    shotcount.setFillColor(sf::Color::White);
+    shotcount.setCharacterSize(70);
+    shotcount.setString(shotcountstring);
+    shotcount.setPosition(150, WINDOW_HEIGHT-100);
+
+    shield.setRadius(50);
+    shield.setPosition(-400,-400);
+    shieldfollow = false;
+    backbool = false;
+
 
 	// initialize player, bullet, and enemies
   spaceship = new Player(gameData);
 	bullet = new Bullet(gameData);
   goombaSpawnTimer = 0;
+  goombaSpawnSpeed = 60;
 
     //TODO: uncomment music later, only turned it off for testing
 
@@ -60,6 +80,7 @@ void GameState2::init() {
   powerup.setOutlineThickness(10);
   powerup.setOutlineColor(sf::Color::White);
   powerup.setPosition(1500,1500);
+  piercing = false;
 }
 
 
@@ -105,6 +126,7 @@ void GameState2::handleEvents() {
 	}
 
 	// "Up" and "Down" keys pressed (moves player up and down)
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
 		spaceship->moveDown();
   }
@@ -121,6 +143,8 @@ void GameState2::handleEvents() {
 		spaceship->moveRight();
 	}
 
+
+
 	// "Mouse Left-Click" pressed (player shoots bullets)
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
     if(bullet->position.y > 850 || bullet->position.y < 0 || bullet->position.x > 1100 || bullet->position.x < 0) {
@@ -131,34 +155,49 @@ void GameState2::handleEvents() {
 
 	    float cleanshot = atan2(sf::Mouse::getPosition(this->gameData->window).y - bullet->position.y, sf::Mouse::getPosition(this->gameData->window).x - bullet->position.x);
 	    newshot = cleanshot;
+
+        if(backbool == true){
+        backbullet->set(spaceship->position.x,spaceship->position.y);
+        }
+
+        if(weapontoggle == "selectprimary"){
+            int shotcountint = std::stoi(shotcountstring);
+            shotcountstring = std::to_string(shotcountint);
+            shotcount.setString(shotcountstring);
+
+        }
+
     }
   }
 
-  //testing cycling through the various kind of bullets - will depend on colliding with power-ups later, but for now just toggle through them with keys as a test
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::B) || sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
-		bullet->modify("big");
-  }
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::P) || sf::Keyboard::isKeyPressed(sf::Keyboard::P)) {
-		bullet->modify("pierce");
-  }
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::O) || sf::Keyboard::isKeyPressed(sf::Keyboard::O)) {
-		bullet->modify("double");
-  }
-  
 
-      
-  
+
+
+
+
+
 }
 
 
 void GameState2::update(float dt) {
   bullet->move(newshot);
+
   spaceship->update(dt);
   bullet->update(dt);
+
+  if(backbool == true){
+  backbullet->backmove(newshot);
+  backbullet->update(dt);
+  }
+
+
 
   elapsedpowertime += powerclock.getElapsedTime();
   powertime = powerclock.getElapsedTime();
   powerclock.restart();
+  gameTime = gameClock.getElapsedTime();
+  currGameTime = gameTime.asSeconds();
+  std::cout << currGameTime << std::endl;
 
   if (elapsedpowertime.asSeconds() > 5) {
     powercolor = rand() % 5 + 1;
@@ -183,35 +222,70 @@ void GameState2::update(float dt) {
 
     elapsedpowertime = sf::milliseconds(0);
   }
-  
-  
-  //power-up collision  
+
+
+  //power-up collision
   if(spaceship->getPosition().intersects(powerup.getGlobalBounds())){
       powerup.setPosition(-1000,-1000);
       if(powercolor == 3){
             secondaryWeapon.setFillColor(sf::Color::Blue);
             bullet->modify("double");
+            shotcountstring = "20";
+            shotcount.setString(shotcountstring);
+            piercing = false;
+            backbool = true;
       }
       if(powercolor == 5){
             secondaryWeapon.setFillColor(sf::Color::Yellow);
             bullet->modify("big");
+            shotcountstring = "20";
+            shotcount.setString(shotcountstring);
+            piercing = false;
+            backbool = false;
       }
       if(powercolor == 4){
             secondaryWeapon.setFillColor(sf::Color::Green);
             bullet->modify("pierce");
+            shotcountstring = "20";
+            shotcount.setString(shotcountstring);
+            piercing = true;
+            backbool = false;
+      }
+      if(powercolor==2){
+            shieldfollow = true;
+            shield.setFillColor(sf::Color(255,255,255,128));
+      }
+      if(powercolor ==1){
+            if(heart2.getPosition().x > 0 and heart1.getPosition().x > 0){
+                    heart3.setPosition(120,50);
+            }
+            else
+            {
+                    heart2.setPosition(70,50);
+            }
+
+
       }
   }
-  
+
+  if(shieldfollow == true){
+        shield.setPosition(spaceship->position.x - 25,spaceship->position.y - 20);
+  }
+
 
   // determine how fast goombas can spawn
-  if (goombaSpawnTimer < 50) {  // TODO: can also use asSeconds() instead
+  if (goombaSpawnTimer < goombaSpawnSpeed) {
      goombaSpawnTimer++;
   }
 
   // spawn goombas that move down
-  if (goombaSpawnTimer >= 50) {
-    goombas.push_back(Goomba(this->gameData, "down"));
-    goombaSpawnTimer = 0;
+  if ((currGameTime > 5.0 && currGameTime < 60.0) ||
+      (currGameTime > 65.0 && currGameTime < 120.0) ||
+      (currGameTime > 185.0)) {
+    if (goombaSpawnTimer >= goombaSpawnSpeed) {
+      goombas.push_back(Goomba(this->gameData, "down"));
+      goombaSpawnTimer = 0;
+    }
   }
 
   // move goombas down
@@ -220,7 +294,7 @@ void GameState2::update(float dt) {
     goombas[i].update(dt);
 
     // delete goombas if they go off the screen
-    if (goombas[i].getPosition().y > this->gameData->window.getSize().y - 100) { // TODO: get rid of the '-100', only there for testing
+    if (goombas[i].getPosition().y > this->gameData->window.getSize().y) {
       goombas.erase(goombas.begin() + i);
     }
   }
@@ -251,22 +325,57 @@ void GameState2::update(float dt) {
       if (bullet->getShape().getGlobalBounds().intersects(goombas[i].getShape().getGlobalBounds())) {
         // TODO: erase bullet
         goombas.erase(goombas.begin() + i);
+        if(piercing == false){
         bullet->set(-10000000,-100000000);
+        }
         break;
       }
     }
   }
-  
-  
+
+
   //playercollision
-    if (!goombas.empty()) {
+  if (!goombas.empty()) {
     for (size_t i = 0; i < goombas.size(); i++) {
       if (spaceship->getPosition().intersects(goombas[i].getShape().getGlobalBounds())) {
         // TODO: erase bullet
         goombas.erase(goombas.begin() + i);
+        if(shieldfollow == true){
+            shield.setPosition(-1000,-1000);
+            shieldfollow = false;
+        }
+        else{
+        if(heart3.getPosition().x >= 0){
+            heart3.setPosition(-100,0);
+        }
+        else if(heart2.getPosition().x > 0){
+            heart2.setPosition(-100,0);
+        }
+        else{
+            this->gameData->stateManager.pushState(StateRef(new LoseState(this->gameData)), true);
+        }
+        }
+
         break;
       }
     }
+  }
+
+  // change enemy spawn speeds based on time
+  if (currGameTime > 10.0 && currGameTime < 20.0) {
+    goombaSpawnSpeed = 40;
+  }
+  else if(currGameTime > 20.0 && currGameTime < 30.0) {
+    goombaSpawnSpeed = 30;
+  }
+  else if(currGameTime > 30.0 && currGameTime < 45.0) {
+    goombaSpawnSpeed = 20;
+  }
+  else if(currGameTime > 45.0 && currGameTime < 60.0) {
+    goombaSpawnSpeed = 10;
+  }
+  else if(currGameTime > 60.0 && currGameTime < 70.0) {
+    goombaSpawnSpeed = 50;
   }
 
 }
@@ -278,6 +387,10 @@ void GameState2::draw(float dt) {
 
   spaceship->draw();
   bullet->draw();
+
+  if(backbool == true){
+  backbullet->draw();
+  }
 
   for (size_t i = 0; i < goombas.size(); i++) {
     goombas[i].draw();
@@ -291,6 +404,8 @@ void GameState2::draw(float dt) {
   this->gameData->window.draw(heart3);
   this->gameData->window.draw(powerup);
   this->gameData->window.draw(powerup);
+  this->gameData->window.draw(shotcount);
+  this->gameData->window.draw(shield);
 
 	this->gameData->window.display();
 }

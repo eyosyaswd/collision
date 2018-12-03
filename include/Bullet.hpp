@@ -28,12 +28,15 @@ class Bullet {
     void set(int x, int y);
     void update(float secs);
     void modify(std::string power);
+    std::string getType();
+    void backmove(float shot);
 
 	private:
 		sf::CircleShape bullet;
     GameDataRef gameData;
     sf::Clock clock;
 		Player *spaceship;
+
 
 };
 
