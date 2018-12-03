@@ -14,14 +14,6 @@ PauseState::PauseState(GameDataRef data) : gameData(data)
 	void PauseState::init()
 	{
 
-        if (!pause_Theme.loadFromFile("../res/sounds/controlsTheme.wav"))
-            std::cout << "Error occured while loading music " << std::endl;
-        else {
-            pauseTheme.setBuffer(pause_Theme);
-            pauseTheme.setLoop(true);
-            pauseTheme.play();
-        }
-
         if (!switch_Buffer.loadFromFile("../res/sounds/switch.wav"))
             std::cout << "Error occured while loading music " << std::endl;
         else {
@@ -32,13 +24,6 @@ PauseState::PauseState(GameDataRef data) : gameData(data)
             std::cout << "Error occured while loading music " << std::endl;
         else {
             select.setBuffer(select_Buffer);
-        }
-
-        if (!play_Theme.loadFromFile("../res/sounds/wave1.wav"))
-            std::cout << "Error occured while loading music " << std::endl;
-        else {
-            playTheme.setBuffer(play_Theme);
-            playTheme.setLoop(true);
         }
 
 
@@ -78,7 +63,7 @@ PauseState::PauseState(GameDataRef data) : gameData(data)
 
 		while (this->gameData->window.pollEvent(event))
 		{
-
+		    playTheme.pause();
 			if (sf::Event::Closed == event.type)
 			{
 				this->gameData->window.close();
@@ -103,14 +88,11 @@ PauseState::PauseState(GameDataRef data) : gameData(data)
             case 0:
             this->gameData->stateManager.popState();
             select.play();
-            pauseTheme.stop();
-            playTheme.play();
             break;
             case 1:
             this->gameData->stateManager.popState();
             this->gameData->stateManager.pushState(StateRef(new MenuState(gameData)),true);
             select.play();
-            pauseTheme.stop();
             break;
             case 2:
             this->gameData->window.close();
