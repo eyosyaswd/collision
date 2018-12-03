@@ -11,7 +11,7 @@
 
 // constants
 #define WINDOW_WIDTH 1100
-#define WINDOW_HEIGHT 825
+#define WINDOW_HEIGHT 850
 #define BITS_PER_PIXEL 16
 #define GAME_TITLE "COLLISION"
 
@@ -44,13 +44,14 @@
 #define MENU_STATE_BACKGROUND_FILEPATH "../res/images/menuBackground.png"
 #define WIN_STATE_BACKGROUND_FILEPATH "../res/images/WinBackground.png"
 #define LOSE_STATE_BACKGROUND_FILEPATH "../res/images/loseBackground.png"
-#define CONTROLS_STATE_BACKGROUND_FILEPATH "../res/images/controlBackground.png"
+#define CONTROLS_STATE_BACKGROUND_FILEPATH "../res/images/controlsBackground.png"
 #define PAUSE_STATE_BACKGROUND_FILEPATH "../res/images/pauseBackground.png"
 
 //Story
 #define STORY_STATE_BACKGROUND_FILEPATH1 "../res/images/Story1.png"
 #define STORY_STATE_BACKGROUND_FILEPATH2 "../res/images/Story2.png"
 #define STORY_STATE_BACKGROUND_FILEPATH3 "../res/images/Story3.png"
+#define STORY_STATE_BACKGROUND_FILEPATH4 "../res/images/info.png"
 
 
 //Sprite Sheet
@@ -58,5 +59,6 @@
 
 //Goomba ship
 #define PINK_SHEET_FILEPATH "../res/images/pinkShipSheet400.png"
+#define PINK_SHEET_FILEPATH2 "../res/images/otherPinkShipSheet400.png"
 
 #endif

@@ -18,9 +18,8 @@ StoryState::StoryState(GameDataRef data) : gameData(data)
     backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("StoryState1 Background"));
 
     this->gameData->resourceManager.loadTexture("StoryState2 Background", STORY_STATE_BACKGROUND_FILEPATH2);
-
-
     this->gameData->resourceManager.loadTexture("StoryState3 Background", STORY_STATE_BACKGROUND_FILEPATH3);
+		this->gameData->resourceManager.loadTexture("StoryState4 Background", STORY_STATE_BACKGROUND_FILEPATH4);
 
 
 
@@ -50,19 +49,26 @@ StoryState::StoryState(GameDataRef data) : gameData(data)
       if (event.type == sf::Event::KeyPressed) {
           if (event.key.code == sf::Keyboard::Return) {
             count = count + 1;
-            if(count > 2){
+            if(count > 3)
+						{
               this -> gameData->stateManager.pushState(StateRef(new GameState(gameData)), true);
             }
-            if (count == 1){
+            if (count == 1)
+						{
               backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("StoryState2 Background"));
 
             }
-            if (count == 2){
+            if (count == 2)
+						{
               backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("StoryState3 Background"));
             }
-            if (count == 3){
-                playTheme.stop();
+            if (count == 3)
+						{
+							backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("StoryState4 Background"));
             }
+						if (count == 4){
+							playTheme.stop();
+						}
           }
         }
 		}

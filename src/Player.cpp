@@ -28,10 +28,6 @@ void Player::draw()
   gameData->window.draw(ship);
 }
 
-void Player::animate(float secs)
-{
-
-}
 
 // gets bounding box bounds
 //sf::FloatRect Player::getPosition()

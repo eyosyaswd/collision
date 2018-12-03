@@ -34,6 +34,7 @@ class StoryState : public State {
     sf::Sprite backgroundSprite;
     sf::Sprite backgroundSprite2;
     sf::Sprite backgroundSprite3;
+		sf::Sprite backgroundSprite4;
 
 
 	  sf::Font font;
