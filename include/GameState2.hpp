@@ -27,6 +27,7 @@
 #include "Player.hpp"
 #include "Bullet.hpp"
 #include "Goomba.hpp"
+#include "Koopa.hpp"
 
 
 class GameState2 : public State {
@@ -68,6 +69,7 @@ class GameState2 : public State {
 		int goombaSpawnTimer;
 		int goombaSpawnSpeed;
 
+	std::vector<Koopa> koopas;
     float newshot;
     float cleanshot;
     int bulletstart_x;

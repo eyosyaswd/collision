@@ -1,25 +1,25 @@
 /**
-  * Filename: Goomba.hpp
+  * Filename: Koopa.hpp
   *
-  * This is the most basic enemy. Goombas will come in groups of rows. They will
-  * start from one end of the screen and move across.
+  * This is the second level of enemies. Koopas will come in from the sides of the screen.
+  * They will start from one end of the screen and bounce from border to border.
 **/
 
-#ifndef GOOMBA_HPP
-#define GOOMBA_HPP
+#ifndef KOOPA_HPP
+#define KOOPA_HPP
 
 
 #include "GameApp.hpp"
 #include "Entity.hpp"
 
 
-class Goomba : public Entity{
+class Koopa : public Entity{
 
-  public:
-    Goomba(GameDataRef data);
+public:
+    Koopa(GameDataRef data);
 
-    Goomba(GameDataRef data, std::string direction);
-    ~Goomba();
+    Koopa(GameDataRef data, std::string direction);
+    ~Koopa();
 
     void draw();
 
@@ -35,8 +35,8 @@ class Goomba : public Entity{
     sf::Vector2f getPosition();
     sf::Vector2f getSize();
 
-  private:
-    sf::Sprite goomba;
+private:
+    sf::Sprite koopa;
     sf::Texture texture;
     float velocity = 3.0;
     GameDataRef gameData;
@@ -47,4 +47,4 @@ class Goomba : public Entity{
 };
 
 
-#endif //GOOMBA_HPP
+#endif //KOOPA_HPP
