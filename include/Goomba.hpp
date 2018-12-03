@@ -23,7 +23,7 @@ class Goomba : public Entity{
 
     void animate(float secs);
 
-    sf::RectangleShape getShape();
+    sf::Sprite getShape();
     void moveUp();
     void moveDown();
     void moveLeft();
@@ -34,7 +34,8 @@ class Goomba : public Entity{
     sf::Vector2f getSize();
 
   private:
-    sf::RectangleShape goomba;
+    sf::Sprite goomba;
+    sf::Texture texture;
     float velocity = 3.0;
     GameDataRef gameData;
     sf::Vector2f position;

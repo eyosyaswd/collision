@@ -3,16 +3,19 @@
 **/
 
 #include "Goomba.hpp"
+#include "Global.hpp"
 
 
 Goomba::Goomba(GameDataRef data) : gameData(data) {
-  goomba.setSize(sf::Vector2f(50.f, 50.f));
 
-  position.x = rand() % int(gameData->window.getSize().x - goomba.getSize().x);
+  this->gameData->resourceManager.loadTexture("goomba", PINK_SHEET_FILEPATH);
+  goomba.setTexture(this->gameData->resourceManager.getTexture("goomba"));
+  goomba.setTextureRect(sf::IntRect(100,0,50,50));
+
+  position.x = rand() % int(gameData->window.getSize().x - 50);
   position.y = 0.f; // TODO: Randomize the starting positions and movement
-  goomba.setPosition(position);
 
-  goomba.setFillColor(sf::Color::Blue);
+  goomba.setPosition(position);
 }
 
 
@@ -27,18 +30,20 @@ void Goomba::draw() {
 void Goomba::animate(float secs) {}
 
 
-sf::RectangleShape Goomba::getShape() {
+sf::Sprite Goomba::getShape() {
   return goomba;
 }
 
 
 void Goomba::moveUp() {
   position.y -= velocity;
+  goomba.setTextureRect(sf::IntRect(100,0,50,50));
 }
 
 
 void Goomba::moveDown() {
   position.y += velocity;
+  goomba.setTextureRect(sf::IntRect(100,50,50,50));
 }
 
 
@@ -64,9 +69,4 @@ void Goomba::update(float secs) {
 
 sf::Vector2f Goomba::getPosition() {
   return position;
-}
-
-
-sf::Vector2f Goomba::getSize() {
-  return goomba.getSize();
 }
