@@ -11,7 +11,7 @@
 
 // constants
 #define WINDOW_WIDTH 1100
-#define WINDOW_HEIGHT 850
+#define WINDOW_HEIGHT 825
 #define BITS_PER_PIXEL 16
 #define GAME_TITLE "COLLISION"
 
