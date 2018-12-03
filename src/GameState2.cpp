@@ -13,6 +13,7 @@ void GameState2::init() {
   this->gameData->resourceManager.loadTexture("GameState2 Background", GAME_STATE2_BACKGROUND_FILEPATH);
   backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState2 Background"));
 
+  //TODO: uncomment music later, only turned it off for testing
     if (!play_Theme.loadFromFile("../res/sounds/wave2.wav"))
         std::cout << "Error occured while loading music " << std::endl;
     else {
@@ -25,6 +26,8 @@ void GameState2::init() {
   spaceship = new Player(gameData);
 	bullet = new Bullet(gameData);
   // goomba = new Goomba(gameData);
+  // goombas.push_back(Goomba(this->gameData));
+  goombaSpawnTimer = 0;
 
   // sets up weapon toggle
   std::string weapontoggle = "selectsecondary";
@@ -164,6 +167,24 @@ void GameState2::update(float dt) {
 
     elapsedpowertime = sf::milliseconds(0);
   }
+
+  // times for how fast goombas can spawn
+  if (goombaSpawnTimer < 40) {  // TODO: can also use asSeconds() instead
+     goombaSpawnTimer++;
+  }
+
+  // spawning goombas
+  if (goombaSpawnTimer >= 40) {
+    goombas.push_back(Goomba(this->gameData));
+    goombaSpawnTimer = 0;
+  }
+
+  for (size_t i = 0; i < goombas.size(); i++) {
+    goombas[i].moveDown();
+    goombas[i].update(dt);
+  }
+
+
 }
 
 
@@ -172,6 +193,9 @@ void GameState2::draw(float dt) {
 
   this->gameData->window.draw(backgroundSprite);
   spaceship->draw();
+  for (size_t i = 0; i < goombas.size(); i++) {
+    goombas[i].draw();
+  }
   // goomba->draw();
   bullet->draw();
   this->gameData->window.draw(defaultWeapon);

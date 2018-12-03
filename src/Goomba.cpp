@@ -6,13 +6,17 @@
 
 
 Goomba::Goomba(GameDataRef data) : gameData(data) {
-  position.x = goomba.getPosition().x;
-  position.y = goomba.getPosition().y;
+  goomba.setSize(sf::Vector2f(50.f, 50.f));
 
-  goomba.setSize(sf::Vector2f(20,20));
+  position.x = rand() % int(gameData->window.getSize().x - goomba.getSize().x);
+  position.y = 0.f; // TODO: Randomize the starting positions and movement
   goomba.setPosition(position);
+
   goomba.setFillColor(sf::Color::Blue);
 }
+
+
+Goomba::~Goomba() {}
 
 
 void Goomba::draw() {
@@ -48,7 +52,7 @@ void Goomba::moveRight() {
 }
 
 
-void Goomba::set() {
+void Goomba::setPosition(sf::Vector2f) {
   goomba.setPosition(position);
 }
 
@@ -57,6 +61,12 @@ void Goomba::update(float secs) {
   goomba.setPosition(position);
 }
 
+
 sf::Vector2f Goomba::getPosition() {
   return position;
+}
+
+
+sf::Vector2f Goomba::getSize() {
+  return goomba.getSize();
 }

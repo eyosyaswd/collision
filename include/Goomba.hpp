@@ -29,13 +29,13 @@ class Goomba : public Entity{
     void moveLeft();
     void moveRight();
     void update(float secs);
-    void set();
+    void setPosition(sf::Vector2f);
     sf::Vector2f getPosition();
-
+    sf::Vector2f getSize();
 
   private:
     sf::RectangleShape goomba;
-    float velocity = 2.0;
+    float velocity = 5.0;
     GameDataRef gameData;
     sf::Vector2f position;
 
