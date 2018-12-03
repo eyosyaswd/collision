@@ -56,31 +56,23 @@ void Goomba::draw() {
   gameData->window.draw(goomba);
 }
 
-
-void Goomba::animate(float secs) {}
-
-
 sf::Sprite Goomba::getShape() {
   return goomba;
 }
-
 
 void Goomba::moveUp() {
   position.y -= velocity;
   goomba.setTextureRect(sf::IntRect(100,0,50,50));
 }
 
-
 void Goomba::moveDown() {
   position.y += velocity;
   goomba.setTextureRect(sf::IntRect(100,50,50,50));
 }
 
-
 void Goomba::moveLeft() {
   position.x -= velocity;
 }
-
 
 void Goomba::moveRight() {
   position.x += velocity;

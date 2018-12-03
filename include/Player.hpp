@@ -16,7 +16,6 @@ class Player {
 		~Player();
 
 		void draw();
-		void animate(float secs);
 		sf::Sprite getShape();
 		void moveUp();
 		void moveDown();

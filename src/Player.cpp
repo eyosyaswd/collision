@@ -28,10 +28,6 @@ void Player::draw()
   gameData->window.draw(ship);
 }
 
-void Player::animate(float secs)
-{
-
-}
 
 
 sf::FloatRect Player::getPosition()
