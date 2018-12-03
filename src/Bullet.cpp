@@ -28,6 +28,8 @@ Bullet::Bullet(GameDataRef data) : gameData(data)
     position.x = -500;
 	position.y = -500;
 
+
+    
 	bullet.setRadius(7);
 	bullet.setPosition(position);
 	bullet.setFillColor(sf::Color::White);
@@ -58,6 +60,37 @@ void Bullet::move(float shot){
     //}
 
 }
+
+
+
+void Bullet::backmove(float shot){
+    //if(position.x < 0 || position.x > 1100 || position.y > 850 || position.y < 0){
+    //bullet.move(cos(newshot) * 0.5f, 0);
+    //bullet.setPosition(x,y);
+    position.x = position.x - cos(shot) * 30.0;
+    position.y = position.y;
+    bullet.setPosition(position);
+    //bullet.move(0, sin(newshot) * 0.5f);
+    position.x = position.x;
+    position.y = position.y - sin(shot) * 30.0;
+
+    //position.x = position.x + 20;
+    //position.y = position.y + 20;
+    bullet.setPosition(position);
+
+    //}
+
+}
+
+
+
+
+
+
+
+
+
+
 
 void Bullet::set(int x, int y){
     position.x = x;
@@ -96,3 +129,4 @@ void Bullet::update(float secs)
 sf::CircleShape Bullet::getShape() {
   return bullet;
 }
+

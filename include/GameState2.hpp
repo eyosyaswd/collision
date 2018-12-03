@@ -15,6 +15,7 @@
 #include <math.h>
 #include <vector>
 
+
 #include "Global.hpp"
 #include "State.hpp"
 #include "GameApp.hpp"
@@ -27,6 +28,7 @@
 #include "Player.hpp"
 #include "Bullet.hpp"
 #include "Goomba.hpp"
+#include "LoseState.hpp"
 
 
 class GameState2 : public State {
@@ -45,6 +47,7 @@ class GameState2 : public State {
     sf::Sprite backgroundSprite;
     sf::CircleShape defaultWeapon;
     sf::CircleShape secondaryWeapon;
+    sf::CircleShape shield;
     std::string weapontoggle;
     sf::CircleShape powerup;
 
@@ -60,6 +63,7 @@ class GameState2 : public State {
 
     Player *spaceship;
     Bullet *bullet;
+    Bullet *backbullet;
     // Goomba *goomba;
 		std::vector<Goomba> goombas;
 		int goombaSpawnTimer;
@@ -73,6 +77,14 @@ class GameState2 : public State {
 	sf::SoundBuffer laser_Buffer;
 	sf::Sound playTheme;
 	sf::Sound laser;
+    
+        sf::Font font;
+	  sf::Text shotcount;
+      std::string shotcountstring;
+    
+    bool piercing;
+    bool backbool;
+    bool shieldfollow;
 
 };
 
