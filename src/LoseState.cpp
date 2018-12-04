@@ -144,12 +144,9 @@ LoseState::LoseState(GameDataRef data, int score) : gameData(data)
     		this->gameData->window.draw(menu[i]);
     	}
 
-<<<<<<< HEAD
-=======
         this->gameData->window.draw(finaltext);
         this->gameData->window.draw(finalscore);
 
->>>>>>> 1019b079e50c334b2ddb84eecdbd3fc7d06de6c0
 		this->gameData->window.display();
 	}
 
