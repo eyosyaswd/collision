@@ -243,7 +243,7 @@ void GameState2::update(float dt) {
   currGameTime = gameTime.asSeconds();
   std::cout << currGameTime << std::endl;
 
-  if (elapsedpowertime.asSeconds() > 17) {
+  if (elapsedpowertime.asSeconds() > 5) {
     powercolor = rand() % 5 + 1;
     int powerx = rand() % 800 + 100;
     int powery = rand() % 700 + 100;
