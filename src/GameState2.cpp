@@ -14,8 +14,8 @@ void GameState2::init() {
 	// load background
   this->gameData->resourceManager.loadTexture("GameState1 Background", GAME_STATE1_BACKGROUND_FILEPATH);
   this->gameData->resourceManager.loadTexture("GameState2 Background", GAME_STATE2_BACKGROUND_FILEPATH);
-this->gameData->resourceManager.loadTexture("GameState3 Background", GAME_STATE3_BACKGROUND_FILEPATH);
-backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState1 Background"));
+  this->gameData->resourceManager.loadTexture("GameState3 Background", GAME_STATE3_BACKGROUND_FILEPATH);
+  backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState1 Background"));
 
 
     //draws shot count in bottom left
@@ -35,7 +35,7 @@ backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameStat
 	// initialize player, bullet, and enemies
   spaceship = new Player(gameData);
 	bullet = new Bullet(gameData);
-    backbullet = new Bullet(gameData);
+  backbullet = new Bullet(gameData);
   goombaSpawnTimer = 0;
   goombaSpawnSpeed = 60;
 
@@ -127,19 +127,23 @@ void GameState2::handleEvents() {
 
 	// "Up" and "Down" keys pressed (moves player up and down)
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+  {
 		spaceship->moveDown();
   }
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)|| sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)|| sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+  {
     spaceship->moveUp();
 
 	}
 
 	// "Left" and "Right" keys pressed (moves player left and right)
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+  {
 		spaceship->moveLeft();
 	}
-  else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+  else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+  {
 		spaceship->moveRight();
 	}
 
@@ -161,8 +165,8 @@ void GameState2::handleEvents() {
         }
 
         if(weapontoggle == "selectprimary" && shotcountstring != ""){
-            
-            
+
+
             int shotint = std::stoi(shotcountstring);
             shotint = shotint - 1;
             shotcountstring = std::to_string(shotint);
@@ -187,6 +191,7 @@ void GameState2::handleEvents() {
 
 
 void GameState2::update(float dt) {
+  spaceship->animate(dt);
   bullet->move(newshot);
 
   spaceship->update(dt);
@@ -229,6 +234,7 @@ void GameState2::update(float dt) {
 
     elapsedpowertime = sf::milliseconds(0);
   }
+
 
 
   //power-up collision
@@ -346,19 +352,24 @@ void GameState2::update(float dt) {
     for (size_t i = 0; i < goombas.size(); i++) {
       if (spaceship->getPosition().intersects(goombas[i].getShape().getGlobalBounds())) {
         // TODO: erase bullet
+        spaceship->hit();
         goombas.erase(goombas.begin() + i);
         if(shieldfollow == true){
+            spaceship->hit();
             shield.setPosition(-1000,-1000);
             shieldfollow = false;
         }
         else{
         if(heart3.getPosition().x >= 0){
+            spaceship->hit();
             heart3.setPosition(-100,0);
         }
         else if(heart2.getPosition().x > 0){
+          spaceship->hit();
             heart2.setPosition(-100,0);
         }
         else{
+
             this->gameData->stateManager.pushState(StateRef(new LoseState(this->gameData)), true);
         }
         }

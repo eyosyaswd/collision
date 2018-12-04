@@ -22,12 +22,17 @@ class Player {
 		void moveLeft();
 		void moveRight();
 		void set();
+		void animate(float secs);
 		void update(float secs);
 		void hit();
         sf::FloatRect getPosition();
 		sf::Vector2f position;
 
 	private:
+		bool upDir;
+		bool downDir;
+		bool rightDir;
+		bool leftDir;
 		float velocity = 5.f;
 		GameDataRef gameData;
 		sf::Texture texture;
