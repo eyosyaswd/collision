@@ -20,19 +20,24 @@ class LoseState : public State {
 
 	public:
 		LoseState(GameDataRef data);
+		LoseState(GameDataRef data, int score);
 		void init();
 		void handleEvents();
 		void update(float dt);
 		void draw(float dt);
 
-    void moveUp();
-    void moveDown();
-    int getPressedItem() { return selectedItem; }
+		void moveUp();
+		void moveDown();
+		int getPressedItem() { return selectedItem; }
 
 	private:
 		GameDataRef gameData;
+        std::string scorestring;
+		int finalscoreint;
+		sf::Text finalscore;
 
-		sf::Texture backgroundTexture;
+
+    sf::Texture backgroundTexture;
     sf::Sprite backgroundSprite;
 
     int selectedItem;

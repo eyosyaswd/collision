@@ -98,6 +98,7 @@ class GameState2 : public State {
     sf::Text enemytext;
     std::string killcountstring;
     sf::Text killcount;
+    int killint;
 
 };
 
