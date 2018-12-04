@@ -70,12 +70,14 @@ class GameState2 : public State {
     Player *spaceship;
     Bullet *bullet;
     Bullet *backbullet;
-    // Goomba *goomba;
 		std::vector<Goomba> goombas;
 		int goombaSpawnTimer;
 		int goombaSpawnSpeed;
 
 	std::vector<Koopa> koopas;
+	int koopaSpawnTimer;
+	int koopaSpawnSpeed;
+
     float newshot;
     float cleanshot;
     int bulletstart_x;

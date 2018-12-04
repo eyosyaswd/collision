@@ -26,7 +26,9 @@ Koopa::Koopa(GameDataRef data) : gameData(data) {
 
 Koopa::Koopa(GameDataRef data, std::string direction) : gameData(data) {
 
-    this->gameData->resourceManager.loadTexture("koopa", PINK_SHEET_FILEPATH);
+    this->direction = direction;
+
+    this->gameData->resourceManager.loadTexture("koopa", SPRITE_SHEET_FILEPATH);
     koopa.setTexture(this->gameData->resourceManager.getTexture("koopa"));
 
     // TODO: Might have to tweak spawn locations
@@ -162,4 +164,8 @@ void Koopa::update(float secs) {
 
 sf::Vector2f Koopa::getPosition() {
     return position;
+}
+
+std::string Koopa::getDirection() {
+  return direction;
 }

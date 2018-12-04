@@ -35,6 +35,7 @@ public:
     void hit();
     sf::Vector2f getPosition();
     sf::Vector2f getSize();
+    std::string getDirection();
 
 private:
     bool rightDir;
@@ -46,6 +47,7 @@ private:
     sf::Vector2f position;
     sf::IntRect boxSprite;
     sf::Clock clock;
+    std::string direction;
 
 };
 

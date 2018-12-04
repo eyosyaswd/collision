@@ -3,7 +3,7 @@
 #include "Global.hpp"
 #include "LoseState.hpp"
 #include "MenuState.hpp"
-#include "GameState.hpp"
+#include "GameState2.hpp"
 
 
 LoseState::LoseState(GameDataRef data) : gameData(data)
@@ -99,7 +99,7 @@ LoseState::LoseState(GameDataRef data, int score) : gameData(data)
             case 0:
 						select.play();
 						defeatTheme.stop();
-            this->gameData->stateManager.pushState(StateRef(new GameState(gameData)), true);
+            this->gameData->stateManager.pushState(StateRef(new GameState2(gameData)), true);
             break;
             case 1:
 						select.play();
@@ -135,7 +135,7 @@ LoseState::LoseState(GameDataRef data, int score) : gameData(data)
     	{
     		this->gameData->window.draw(menu[i]);
     	}
-        
+
 		this->gameData->window.display();
 	}
 

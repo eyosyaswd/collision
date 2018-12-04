@@ -53,7 +53,9 @@ void GameState2::init() {
   backbullet = new Bullet(gameData);
   backbullet->setFillColor();
   goombaSpawnTimer = 0;
-  goombaSpawnSpeed = 60;
+  goombaSpawnSpeed = 70;
+  koopaSpawnTimer = 0;
+  koopaSpawnSpeed = 80;
 
   //Initializes sounds for the game
   if (!play_Theme.loadFromFile("../res/sounds/wave1.wav"))
@@ -331,6 +333,11 @@ void GameState2::update(float dt) {
     goombaSpawnTimer++;
  }
 
+ // determine how fast koopas can spawn
+ if (koopaSpawnTimer < koopaSpawnSpeed) {
+   koopaSpawnTimer++;
+}
+
  // spawn goombas that move up
  if ((currGameTime > 70.0 && currGameTime < 120.0) || (currGameTime > 130.0)) {
    if (goombaSpawnTimer >= goombaSpawnSpeed) {
@@ -347,6 +354,21 @@ void GameState2::update(float dt) {
       goombaSpawnTimer = 0;
     }
   }
+
+  // spawn koopas that move right
+  if ((currGameTime > 210.0)) {
+    if (koopaSpawnTimer >= koopaSpawnSpeed) {
+      koopas.push_back(Koopa(this->gameData, "right"));
+    }
+  }
+
+  // spawn koopas that move left
+  if ((currGameTime > 210.0)) {
+     if (koopaSpawnTimer >= koopaSpawnSpeed) {
+       koopas.push_back(Koopa(this->gameData, "left"));
+       koopaSpawnTimer = 0;
+     }
+   }
 
   // move goombas
   for (size_t i = 0; i < goombas.size(); i++) {
@@ -369,25 +391,26 @@ void GameState2::update(float dt) {
 
   }
 
-  //Testing for Koopas
-/*
-    // spawn koopas that move down
-    if (goombaSpawnTimer >= 50) {
-        koopas.push_back(Koopa(this->gameData, "right"));
-        goombaSpawnTimer = 0;
+  // move koopas
+  for (size_t i = 0; i < koopas.size(); i++) {
+    if (koopas[i].getDirection() == "right") {
+      koopas[i].moveRight();
+      // delete koopas if they go below the screen
+      if (koopas[i].getPosition().y > this->gameData->window.getSize().y) {
+        koopas.erase(koopas.begin() + i);
+      }
     }
-
-    // move koopas down
-    for (size_t i = 0; i < koopas.size(); i++) {
-        koopas[i].moveDown();
-        koopas[i].update(dt);
-
-        // delete koopas if they go off the screen
-        if (koopas[i].getPosition().x > this->gameData->window.getSize().x - 100) { // TODO: get rid of the '-100', only there for testing
-            koopas.erase(koopas.begin() + i);
-        }
+    else if (koopas[i].getDirection() == "left") {
+      koopas[i].moveLeft();
+      // delete koopas if they go above the screen
+      if (koopas[i].getPosition().y < 0) {
+        koopas.erase(koopas.begin() + i);
+      }
     }
-    */
+    // TODO: animate koopas
+    koopas[i].update(dt);
+
+  }
 
   // collision of bullets and goombas
   if (!goombas.empty()) {
@@ -402,6 +425,30 @@ void GameState2::update(float dt) {
 
         // TODO: erase bullet
         goombas.erase(goombas.begin() + i);
+        if(piercing == true and weapontoggle == "selectprimary"){
+        /////
+        }
+        else{
+          bullet->set(-10000000,-100000000);
+        }
+        break;
+      }
+    }
+  }
+
+  // collision of bullets and koopas
+  if (!koopas.empty()) {
+    for (size_t i = 0; i < koopas.size(); i++) {
+      if (bullet->getShape().getGlobalBounds().intersects(koopas[i].getShape().getGlobalBounds())) {
+        koopas[i].hit();
+
+        killint = std::stoi(killcountstring);
+        killint++;
+        killcountstring = std::to_string(killint);
+        killcount.setString(killcountstring);
+
+        // TODO: erase bullet
+        koopas.erase(koopas.begin() + i);
         if(piercing == true and weapontoggle == "selectprimary"){
         /////
         }
@@ -447,48 +494,86 @@ void GameState2::update(float dt) {
     }
   }
 
+  //playercollision
+  if (!koopas.empty()) {
+    for (size_t i = 0; i < koopas.size(); i++) {
+      if (spaceship->getPosition().intersects(koopas[i].getShape().getGlobalBounds())) {
+        // TODO: erase bullet
+        spaceship->hit();
+        koopas[i].hit();
+        koopas.erase(koopas.begin() + i);
+        if(shieldfollow == true){
+            spaceship->hit();
+            shield.setPosition(-1000,-1000);
+            shieldfollow = false;
+        }
+        else{
+        if(heart3.getPosition().x >= 0){
+            spaceship->hit();
+            heart3.setPosition(-100,0);
+        }
+        else if(heart2.getPosition().x > 0){
+          spaceship->hit();
+            heart2.setPosition(-100,0);
+        }
+        else{
+            playTheme.stop();
+            this->gameData->stateManager.pushState(StateRef(new LoseState(this->gameData, killint)), true);
+        }
+        }
+
+        break;
+      }
+    }
+  }
+
   // change enemy spawn speeds based on time
   if (currGameTime > 10.0 && currGameTime < 20.0) {
-    goombaSpawnSpeed = 40;
+    goombaSpawnSpeed -= 10;
   }
   else if(currGameTime > 20.0 && currGameTime < 30.0) {
-    goombaSpawnSpeed = 30;
+    goombaSpawnSpeed -= 10;
   }
   else if(currGameTime > 30.0 && currGameTime < 45.0) {
-    goombaSpawnSpeed = 20;
+    goombaSpawnSpeed -= 10;
   }
   else if(currGameTime > 45.0 && currGameTime < 60.0) {
-    goombaSpawnSpeed = 10;
+    goombaSpawnSpeed -= 10;
   }                                                       // 10 second break
   else if(currGameTime > 70.0 && currGameTime < 90.0) {
-    goombaSpawnSpeed = 50;
+    goombaSpawnSpeed = 60;
   }
   else if(currGameTime > 90.0 && currGameTime < 120.0) {
-    goombaSpawnSpeed = 40;
+    goombaSpawnSpeed -= 5;
   }
   else if(currGameTime > 120.0 && currGameTime < 150.0) {
-    goombaSpawnSpeed = 30;
+    goombaSpawnSpeed -= 5;
   }
   else if(currGameTime > 150.0 && currGameTime < 180.0) {
-    goombaSpawnSpeed = 20;
+    goombaSpawnSpeed -= 5;
   }
   else if(currGameTime > 180.0 && currGameTime < 200.0) {
-    goombaSpawnSpeed = 10;
+    goombaSpawnSpeed -= 5;
   }                                                       // 10 second break
   else if(currGameTime > 210.0 && currGameTime < 240.0) {
-    goombaSpawnSpeed = 50;
+    goombaSpawnSpeed = 60;
+    koopaSpawnSpeed = 80;
   }
   else if(currGameTime > 240.0 && currGameTime < 260.0) {
-    goombaSpawnSpeed = 40;
+    goombaSpawnSpeed -= 10;
+    koopaSpawnSpeed -= 10;
   }
   else if(currGameTime > 260.0 && currGameTime < 280.0) {
-    goombaSpawnSpeed = 30;
+    goombaSpawnSpeed -= 10;
+    koopaSpawnSpeed -= 10;
   }
   else if(currGameTime > 300.0 && currGameTime < 320.0) {
-    goombaSpawnSpeed = 20;
+    goombaSpawnSpeed -= 10;
+    koopaSpawnSpeed -= 10;
   }
   else if(currGameTime > 320.0) {
-    goombaSpawnSpeed = 10;
+    goombaSpawnSpeed -= 10;
+    koopaSpawnSpeed -= 10;
   }
 
 }
@@ -519,6 +604,9 @@ void GameState2::draw(float dt) {
 
   for (size_t i = 0; i < goombas.size(); i++) {
     goombas[i].draw();
+  }
+  for (size_t i = 0; i < koopas.size(); i++) {
+    koopas[i].draw();
   }
 
   this->gameData->window.display();
