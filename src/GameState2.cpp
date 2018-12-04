@@ -530,51 +530,51 @@ void GameState2::update(float dt) {
 
   // change enemy spawn speeds based on time
   if (currGameTime > 10.0 && currGameTime < 20.0) {
-    goombaSpawnSpeed -= 10;
+    goombaSpawnSpeed = 60;
   }
   else if(currGameTime > 20.0 && currGameTime < 30.0) {
-    goombaSpawnSpeed -= 10;
+    goombaSpawnSpeed = 50;
   }
   else if(currGameTime > 30.0 && currGameTime < 45.0) {
-    goombaSpawnSpeed -= 10;
+    goombaSpawnSpeed = 40;
   }
   else if(currGameTime > 45.0 && currGameTime < 60.0) {
-    goombaSpawnSpeed -= 10;
+    goombaSpawnSpeed = 30;
   }                                                       // 10 second break
   else if(currGameTime > 70.0 && currGameTime < 90.0) {
     goombaSpawnSpeed = 60;
   }
   else if(currGameTime > 90.0 && currGameTime < 120.0) {
-    goombaSpawnSpeed -= 5;
+    goombaSpawnSpeed = 55;
   }
   else if(currGameTime > 120.0 && currGameTime < 150.0) {
-    goombaSpawnSpeed -= 5;
+    goombaSpawnSpeed = 45;
   }
   else if(currGameTime > 150.0 && currGameTime < 180.0) {
-    goombaSpawnSpeed -= 5;
+    goombaSpawnSpeed = 40;
   }
   else if(currGameTime > 180.0 && currGameTime < 200.0) {
-    goombaSpawnSpeed -= 5;
+    goombaSpawnSpeed = 40;
   }                                                       // 10 second break
   else if(currGameTime > 210.0 && currGameTime < 240.0) {
     goombaSpawnSpeed = 60;
     koopaSpawnSpeed = 80;
   }
   else if(currGameTime > 240.0 && currGameTime < 260.0) {
-    goombaSpawnSpeed -= 10;
-    koopaSpawnSpeed -= 10;
+    goombaSpawnSpeed = 50;
+    koopaSpawnSpeed = 70;
   }
   else if(currGameTime > 260.0 && currGameTime < 280.0) {
-    goombaSpawnSpeed -= 10;
-    koopaSpawnSpeed -= 10;
+    goombaSpawnSpeed = 40;
+    koopaSpawnSpeed = 60;
   }
   else if(currGameTime > 300.0 && currGameTime < 320.0) {
-    goombaSpawnSpeed -= 10;
-    koopaSpawnSpeed -= 10;
+    goombaSpawnSpeed = 30;
+    koopaSpawnSpeed = 50;
   }
   else if(currGameTime > 320.0) {
-    goombaSpawnSpeed -= 10;
-    koopaSpawnSpeed -= 10;
+    goombaSpawnSpeed = 20;
+    koopaSpawnSpeed = 40;
   }
 
 }

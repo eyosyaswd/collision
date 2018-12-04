@@ -43,13 +43,14 @@ Koopa::Koopa(GameDataRef data, std::string direction) : gameData(data) {
     }
 
     if(direction == "right") {
-        koopa.setTextureRect(sf::IntRect(350,0,50,50));
+        koopa.setTextureRect(sf::IntRect(350,50,50,50));
         position.x = 0.f;
         position.y = rand() % int(gameData->window.getSize().y - 50); // TODO: Randomize the starting positions and movement
     }
 
     if(direction == "left") {
-        koopa.setTextureRect(sf::IntRect(350,50,50,50));
+      koopa.setTextureRect(sf::IntRect(350,0,50,50));
+
         position.x = int(gameData->window.getSize().x - 100);
         position.y = rand() % int(gameData->window.getSize().y - 50); // TODO: Randomize the starting positions and movement
     }
@@ -133,7 +134,7 @@ void Koopa::moveLeft() {
     leftDir = true;
     rightDir = false;
     boxSprite.left = 350;
-    boxSprite.top = 0;
+    boxSprite.top = 50;
     boxSprite.width = 50;
     boxSprite.height = 50;
     koopa.setTextureRect(boxSprite);
@@ -145,7 +146,7 @@ void Koopa::moveRight() {
     leftDir = false;
     rightDir = true;
     boxSprite.left = 350;
-    boxSprite.top = 50;
+    boxSprite.top = 0;
     boxSprite.width = 50;
     boxSprite.height = 50;
     koopa.setTextureRect(boxSprite);
