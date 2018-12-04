@@ -31,9 +31,15 @@ void GameState2::init() {
     shieldfollow = false;
     backbool = false;
 
+    enemytext.setFont(this->gameData->resourceManager.getFont("font"));
+    enemytext.setFillColor(sf::Color::Red);
+    enemytext.setCharacterSize(70);
+    enemytext.setString("Enemies Destroyed: ");
+    enemytext.setPosition(WINDOW_WIDTH - 300, WINDOW_HEIGHT - 100);
+
     killcountstring = "0";
     killcount.setFont(this->gameData->resourceManager.getFont("font"));
-    killcount.setFillColor(sf::Color::White);
+    killcount.setFillColor(sf::Color::Red);
     killcount.setCharacterSize(70);
     killcount.setString(killcountstring);
     killcount.setPosition(WINDOW_WIDTH - 100, WINDOW_HEIGHT - 100);
@@ -449,6 +455,7 @@ void GameState2::draw(float dt) {
   this->gameData->window.draw(powerup);
   this->gameData->window.draw(shotcount);
   this->gameData->window.draw(killcount);
+  this->gameData->window.draw(enemytext);
   this->gameData->window.draw(shield);
   this->gameData->window.display();
 }
