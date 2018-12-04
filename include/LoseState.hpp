@@ -34,12 +34,16 @@ class LoseState : public State {
 
 		sf::Texture backgroundTexture;
     sf::Sprite backgroundSprite;
-		
+
     int selectedItem;
 	  sf::Font font;
 	  sf::Text menu[MAX_NUMBER_OF_ITEMS];
 	  sf::SoundBuffer defeat_Theme;
+		sf::SoundBuffer switch_Buffer;
+	  sf::SoundBuffer select_Buffer;
 	  sf::Sound defeatTheme;
+		sf::Sound select;
+		sf::Sound menuSwitch;
 
 };
 

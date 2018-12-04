@@ -42,7 +42,7 @@ backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameStat
     //TODO: uncomment music later, only turned it off for testing
 
     //Initializes sounds for the game
-     if (!play_Theme.loadFromFile("../res/sounds/wave2.wav"))
+     if (!play_Theme.loadFromFile("../res/sounds/wave1.wav"))
          std::cout << "Error occured while loading music " << std::endl;
      else {
          playTheme.setBuffer(play_Theme);
@@ -359,8 +359,8 @@ void GameState2::update(float dt) {
             heart2.setPosition(-100,0);
         }
         else{
-            this->gameData->stateManager.pushState(StateRef(new LoseState(this->gameData)), true);
             playTheme.stop();
+            this->gameData->stateManager.pushState(StateRef(new LoseState(this->gameData)), true);
         }
         }
 

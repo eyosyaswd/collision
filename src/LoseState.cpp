@@ -16,8 +16,20 @@ LoseState::LoseState(GameDataRef data) : gameData(data)
 		this->gameData->resourceManager.loadTexture("LoseState Background", LOSE_STATE_BACKGROUND_FILEPATH);
     backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("LoseState Background"));
 
+		if (!switch_Buffer.loadFromFile("../res/sounds/switch.wav"))
+				std::cout << "Error occured while loading music " << std::endl;
+		else {
+				menuSwitch.setBuffer(switch_Buffer);
+		}
+
+		if (!select_Buffer.loadFromFile("../res/sounds/select.wav"))
+				std::cout << "Error occured while loading music " << std::endl;
+		else {
+				select.setBuffer(select_Buffer);
+		}
+
 		this->gameData->resourceManager.loadFont("font", MAIN_FONT_FILEPATH);
-        if (!defeat_Theme.loadFromFile("../res/sounds/collisionTheme.wav"))
+        if (!defeat_Theme.loadFromFile("../res/sounds/defeatTheme.wav"))
             std::cout << "Error occured while loading music " << std::endl;
         else {
             defeatTheme.setBuffer(defeat_Theme);
@@ -61,22 +73,29 @@ LoseState::LoseState(GameDataRef data) : gameData(data)
         {
           case sf::Keyboard::Up:
           moveUp();
+					menuSwitch.play();
           break;
 
           case sf::Keyboard::Down:
           moveDown();
+					menuSwitch.play();
           break;
 
           case sf::Keyboard::Return:
           switch (getPressedItem() )
           {
             case 0:
+						select.play();
+						defeatTheme.stop();
             this->gameData->stateManager.pushState(StateRef(new GameState(gameData)), true);
             break;
             case 1:
+						select.play();
+						defeatTheme.stop();
             this -> gameData->stateManager.pushState(StateRef(new MenuState(gameData)), true);
             break;
             case 2:
+						select.play();
             this->gameData->window.close();
             break;
           }
