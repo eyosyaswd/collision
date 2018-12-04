@@ -395,7 +395,7 @@ void GameState2::update(float dt) {
       if (bullet->getShape().getGlobalBounds().intersects(goombas[i].getShape().getGlobalBounds())) {
         goombas[i].hit();
 
-        int killint = std::stoi(killcountstring);
+        killint = std::stoi(killcountstring);
         killint++;
         killcountstring = std::to_string(killint);
         killcount.setString(killcountstring);
@@ -438,7 +438,7 @@ void GameState2::update(float dt) {
         }
         else{
             playTheme.stop();
-            this->gameData->stateManager.pushState(StateRef(new LoseState(this->gameData)), true);
+            this->gameData->stateManager.pushState(StateRef(new LoseState(this->gameData, killint)), true);
         }
         }
 
