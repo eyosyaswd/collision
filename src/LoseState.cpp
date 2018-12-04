@@ -21,11 +21,12 @@ LoseState::LoseState(GameDataRef data, int score) : gameData(data)
 		this->gameData->resourceManager.loadTexture("LoseState Background", LOSE_STATE_BACKGROUND_FILEPATH);
     backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("LoseState Background"));
 
-        scorestring = std::to_string(finalscoreint);
+        finalscore.setFont(this->gameData->resourceManager.getFont("font"));
         finalscore.setFillColor(sf::Color::Red);
         finalscore.setCharacterSize(70);
+        scorestring = std::to_string(finalscoreint);
         finalscore.setString(scorestring);
-        finalscore.setPosition(WINDOW_WIDTH - 625, WINDOW_HEIGHT - 75);
+        finalscore.setPosition(WINDOW_WIDTH / 2, 175);
 
 		if (!switch_Buffer.loadFromFile("../res/sounds/switch.wav"))
 				std::cout << "Error occured while loading music " << std::endl;
@@ -128,12 +129,13 @@ LoseState::LoseState(GameDataRef data, int score) : gameData(data)
 		this->gameData->window.clear(sf::Color::Black);
 
 		this->gameData->window.draw(backgroundSprite);
+        this->gameData->window.draw(finalscore);
 
     for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
     	{
     		this->gameData->window.draw(menu[i]);
     	}
-        this->gameData->window.draw(finalscore);
+        
 		this->gameData->window.display();
 	}
 
