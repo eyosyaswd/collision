@@ -243,7 +243,7 @@ void GameState2::update(float dt) {
   currGameTime = gameTime.asSeconds();
   std::cout << currGameTime << std::endl;
 
-  if (elapsedpowertime.asSeconds() > 5) {
+  if (elapsedpowertime.asSeconds() > 17) {
     powercolor = rand() % 5 + 1;
     int powerx = rand() % 800 + 100;
     int powery = rand() % 700 + 100;
@@ -332,7 +332,7 @@ void GameState2::update(float dt) {
  }
 
  // spawn goombas that move up
- if ((currGameTime > 70.0 && currGameTime < 120.0) || (currGameTime > 185.0)) {
+ if ((currGameTime > 70.0 && currGameTime < 120.0) || (currGameTime > 130.0)) {
    if (goombaSpawnTimer >= goombaSpawnSpeed) {
      goombas.push_back(Goomba(this->gameData, "up"));
    }
@@ -341,14 +341,12 @@ void GameState2::update(float dt) {
  // spawn goombas that move down
  if ((currGameTime > 5.0 && currGameTime < 60.0) ||
      (currGameTime > 70.0 && currGameTime < 120.0) ||
-     (currGameTime > 185.0)) {
+     (currGameTime > 130.0)) {
     if (goombaSpawnTimer >= goombaSpawnSpeed) {
       goombas.push_back(Goomba(this->gameData, "down"));
       goombaSpawnTimer = 0;
     }
   }
-
-  // move goombas down
 
   // move goombas
   for (size_t i = 0; i < goombas.size(); i++) {
@@ -461,9 +459,36 @@ void GameState2::update(float dt) {
   }
   else if(currGameTime > 45.0 && currGameTime < 60.0) {
     goombaSpawnSpeed = 10;
-  }
-  else if(currGameTime > 60.0 && currGameTime < 70.0) {
+  }                                                       // 10 second break
+  else if(currGameTime > 70.0 && currGameTime < 90.0) {
     goombaSpawnSpeed = 50;
+  }
+  else if(currGameTime > 90.0 && currGameTime < 120.0) {
+    goombaSpawnSpeed = 40;
+  }
+  else if(currGameTime > 120.0 && currGameTime < 150.0) {
+    goombaSpawnSpeed = 30;
+  }
+  else if(currGameTime > 150.0 && currGameTime < 180.0) {
+    goombaSpawnSpeed = 20;
+  }
+  else if(currGameTime > 180.0 && currGameTime < 200.0) {
+    goombaSpawnSpeed = 10;
+  }                                                       // 10 second break
+  else if(currGameTime > 210.0 && currGameTime < 240.0) {
+    goombaSpawnSpeed = 50;
+  }
+  else if(currGameTime > 240.0 && currGameTime < 260.0) {
+    goombaSpawnSpeed = 40;
+  }
+  else if(currGameTime > 260.0 && currGameTime < 280.0) {
+    goombaSpawnSpeed = 30;
+  }
+  else if(currGameTime > 300.0 && currGameTime < 320.0) {
+    goombaSpawnSpeed = 20;
+  }
+  else if(currGameTime > 320.0) {
+    goombaSpawnSpeed = 10;
   }
 
 }

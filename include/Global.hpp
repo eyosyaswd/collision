@@ -15,7 +15,7 @@
 #define BITS_PER_PIXEL 16
 #define GAME_TITLE "COLLISION"
 
-#define SPLASH_STATE_TIME_LENGTH 1.50 //3.0
+#define SPLASH_STATE_TIME_LENGTH 3.0
 
 
 // fonts
