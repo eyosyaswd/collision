@@ -13,7 +13,8 @@ LoseState::LoseState(GameDataRef data) : gameData(data)
 
 LoseState::LoseState(GameDataRef data, int score) : gameData(data)
 {
-    this->finalscoreint = score;
+        this->finalscoreint = score;
+
 }
 
 	void LoseState::init()
@@ -21,12 +22,19 @@ LoseState::LoseState(GameDataRef data, int score) : gameData(data)
 		this->gameData->resourceManager.loadTexture("LoseState Background", LOSE_STATE_BACKGROUND_FILEPATH);
     backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("LoseState Background"));
 
+        finaltext.setFont(this->gameData->resourceManager.getFont("font"));
+        finaltext.setFillColor(sf::Color::Red);
+        finaltext.setCharacterSize(70);
+        finaltext.setString("Game Over! Final Score:");
+        finaltext.setPosition((WINDOW_WIDTH / 8) - 40, 65);
+
         finalscore.setFont(this->gameData->resourceManager.getFont("font"));
         finalscore.setFillColor(sf::Color::Red);
         finalscore.setCharacterSize(70);
         scorestring = std::to_string(finalscoreint);
         finalscore.setString(scorestring);
-        finalscore.setPosition(WINDOW_WIDTH / 2, 175);
+        finalscore.setPosition(WINDOW_WIDTH / 2, 150);
+
 
 		if (!switch_Buffer.loadFromFile("../res/sounds/switch.wav"))
 				std::cout << "Error occured while loading music " << std::endl;
@@ -136,6 +144,12 @@ LoseState::LoseState(GameDataRef data, int score) : gameData(data)
     		this->gameData->window.draw(menu[i]);
     	}
 
+<<<<<<< HEAD
+=======
+        this->gameData->window.draw(finaltext);
+        this->gameData->window.draw(finalscore);
+
+>>>>>>> 1019b079e50c334b2ddb84eecdbd3fc7d06de6c0
 		this->gameData->window.display();
 	}
 
