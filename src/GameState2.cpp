@@ -156,25 +156,31 @@ void GameState2::handleEvents() {
 	}
 
 	// "Up" and "Down" keys pressed (moves player up and down)
-
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
   {
-		spaceship->moveDown();
+    if (spaceship->getShape().getPosition().y + 50 < WINDOW_HEIGHT) {
+      spaceship->moveDown();
+    }
   }
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)|| sf::Keyboard::isKeyPressed(sf::Keyboard::W))
   {
-    spaceship->moveUp();
-
+    if (spaceship->getShape().getPosition().y > 0) {
+      spaceship->moveUp();
+    }
 	}
 
 	// "Left" and "Right" keys pressed (moves player left and right)
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A))
   {
-		spaceship->moveLeft();
+    if (spaceship->getShape().getPosition().x > 0) {
+      spaceship->moveLeft();
+    }
 	}
   else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
   {
-		spaceship->moveRight();
+    if (spaceship->getShape().getPosition().x + 50 < WINDOW_WIDTH) {
+      spaceship->moveRight();
+    }
 	}
 
 
