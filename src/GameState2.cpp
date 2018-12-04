@@ -27,11 +27,24 @@ void GameState2::init() {
   shotcount.setString(shotcountstring);
   shotcount.setPosition(150, WINDOW_HEIGHT-100);
 
-  shield.setRadius(50);
-  shield.setPosition(-400,-400);
-  shieldfollow = false;
-  backbool = false;
-  bigbool = false;
+    shield.setRadius(50);
+    shield.setPosition(-400,-400);
+    shieldfollow = false;
+    backbool = false;
+    bigbool = false;
+
+    enemytext.setFont(this->gameData->resourceManager.getFont("font"));
+    enemytext.setFillColor(sf::Color::Red);
+    enemytext.setCharacterSize(70);
+    enemytext.setString("Enemies Destroyed: ");
+    enemytext.setPosition(WINDOW_WIDTH - 300, WINDOW_HEIGHT - 100);
+
+    killcountstring = "0";
+    killcount.setFont(this->gameData->resourceManager.getFont("font"));
+    killcount.setFillColor(sf::Color::Red);
+    killcount.setCharacterSize(70);
+    killcount.setString(killcountstring);
+    killcount.setPosition(WINDOW_WIDTH - 100, WINDOW_HEIGHT - 100);
 
 
 	// initialize player, bullet, and enemies
@@ -104,6 +117,7 @@ void GameState2::handleEvents() {
 	      secondaryWeapon.setRadius(24);
 	      secondaryWeapon.setPosition(80,750);
 	      weapontoggle = "selectprimary";
+
           if (piercing == true){
             bullet->modify("pierce");
           }
@@ -140,19 +154,23 @@ void GameState2::handleEvents() {
 
 	// "Up" and "Down" keys pressed (moves player up and down)
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+  {
 		spaceship->moveDown();
   }
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)|| sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)|| sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+  {
     spaceship->moveUp();
 
 	}
 
 	// "Left" and "Right" keys pressed (moves player left and right)
-  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+  {
 		spaceship->moveLeft();
 	}
-  else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+  else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+  {
 		spaceship->moveRight();
 	}
 
@@ -168,13 +186,11 @@ void GameState2::handleEvents() {
 	    float cleanshot = atan2(sf::Mouse::getPosition(this->gameData->window).y - bullet->position.y, sf::Mouse::getPosition(this->gameData->window).x - bullet->position.x);
 	    newshot = cleanshot;
 
-
-
         if(backbool == true and weapontoggle == "selectprimary"){
           backbullet->set(spaceship->position.x,spaceship->position.y);
         }
 
-        if(weapontoggle == "selectprimary" and shotcountstring != ""){
+        if(weapontoggle == "selectprimary" && shotcountstring != ""){
 
             int shotint = std::stoi(shotcountstring);
             shotint = shotint - 1;
@@ -204,7 +220,12 @@ void GameState2::handleEvents() {
 
 
 void GameState2::update(float dt) {
+  spaceship->animate(dt);
+
   bullet->move(newshot);
+
+
+
 
   spaceship->update(dt);
   bullet->update(dt);
@@ -245,6 +266,7 @@ void GameState2::update(float dt) {
 
     elapsedpowertime = sf::milliseconds(0);
   }
+
 
 
   //power-up collision
@@ -344,7 +366,7 @@ void GameState2::update(float dt) {
         goombas.erase(goombas.begin() + i);
       }
     }
-
+    // TODO: animate goombas
     goombas[i].update(dt);
 
   }
@@ -372,14 +394,21 @@ void GameState2::update(float dt) {
   // collision of bullets and goombas
   if (!goombas.empty()) {
     for (size_t i = 0; i < goombas.size(); i++) {
-      if (bullet->getShape().getGlobalBounds().intersects(goombas[i].getShape().getGlobalBounds()) || backbullet->getShape().getGlobalBounds().intersects(goombas[i].getShape().getGlobalBounds()) ) {
+      if (bullet->getShape().getGlobalBounds().intersects(goombas[i].getShape().getGlobalBounds())) {
+        goombas[i].hit();
+
+        int killint = std::stoi(killcountstring);
+        killint++;
+        killcountstring = std::to_string(killint);
+        killcount.setString(killcountstring);
+
         // TODO: erase bullet
         goombas.erase(goombas.begin() + i);
         if(piercing == true and weapontoggle == "selectprimary"){
+        /////
         }
         else{
-                    bullet->set(-10000000,-100000000);
-
+          bullet->set(-10000000,-100000000);
         }
         break;
       }
@@ -392,16 +421,21 @@ void GameState2::update(float dt) {
     for (size_t i = 0; i < goombas.size(); i++) {
       if (spaceship->getPosition().intersects(goombas[i].getShape().getGlobalBounds())) {
         // TODO: erase bullet
+        spaceship->hit();
+        goombas[i].hit();
         goombas.erase(goombas.begin() + i);
         if(shieldfollow == true){
+            spaceship->hit();
             shield.setPosition(-1000,-1000);
             shieldfollow = false;
         }
         else{
         if(heart3.getPosition().x >= 0){
+            spaceship->hit();
             heart3.setPosition(-100,0);
         }
         else if(heart2.getPosition().x > 0){
+          spaceship->hit();
             heart2.setPosition(-100,0);
         }
         else{
@@ -447,6 +481,8 @@ void GameState2::draw(float dt) {
   this->gameData->window.draw(powerup);
   this->gameData->window.draw(powerup);
   this->gameData->window.draw(shotcount);
+  this->gameData->window.draw(killcount);
+  this->gameData->window.draw(enemytext);
   this->gameData->window.draw(shield);
 
   if(backbool == true){

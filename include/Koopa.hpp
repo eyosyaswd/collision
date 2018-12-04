@@ -32,16 +32,19 @@ public:
     void moveRight();
     void update(float secs);
     void setPosition(sf::Vector2f);
+    void hit();
     sf::Vector2f getPosition();
     sf::Vector2f getSize();
 
 private:
+    bool rightDir;
+    bool leftDir;
     sf::Sprite koopa;
     sf::Texture texture;
     float velocity = 6;
     GameDataRef gameData;
     sf::Vector2f position;
-
+    sf::IntRect boxSprite;
     sf::Clock clock;
 
 };

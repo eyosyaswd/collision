@@ -35,15 +35,19 @@ class Goomba : public Entity{
     sf::Vector2f getPosition();
     sf::Vector2f getSize();
     std::string getDirection();
+    void hit();
 
   private:
+    bool upDir;
+		bool downDir;
     sf::Sprite goomba;
     sf::Texture texture;
     float velocity = 3.0;
     GameDataRef gameData;
+    sf::Clock clock;
     sf::Vector2f position;
     std::string direction;
-    sf::Clock clock;
+    sf::IntRect boxSprite;
 
 };
 
