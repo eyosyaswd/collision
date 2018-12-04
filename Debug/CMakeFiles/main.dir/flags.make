@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=c++11 -g
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/f85/crfred/Desktop/testboy/collision/include 
+CXX_INCLUDES = -I/home/f85/blmonten/github/collision/collision/include 
 

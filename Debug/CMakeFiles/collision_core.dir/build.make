@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/f85/crfred/Desktop/testboy/collision
+CMAKE_SOURCE_DIR = /home/f85/blmonten/github/collision/collision
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/f85/crfred/Desktop/testboy/collision/Debug
+CMAKE_BINARY_DIR = /home/f85/blmonten/github/collision/collision/Debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/collision_core.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/collision_core.dir/flags.make
 
 CMakeFiles/collision_core.dir/src/Enemy.cpp.o: CMakeFiles/collision_core.dir/flags.make
 CMakeFiles/collision_core.dir/src/Enemy.cpp.o: ../src/Enemy.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/collision_core.dir/src/Enemy.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/Enemy.cpp.o -c /home/f85/crfred/Desktop/testboy/collision/src/Enemy.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/blmonten/github/collision/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/collision_core.dir/src/Enemy.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/Enemy.cpp.o -c /home/f85/blmonten/github/collision/collision/src/Enemy.cpp
 
 CMakeFiles/collision_core.dir/src/Enemy.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/Enemy.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/crfred/Desktop/testboy/collision/src/Enemy.cpp > CMakeFiles/collision_core.dir/src/Enemy.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/blmonten/github/collision/collision/src/Enemy.cpp > CMakeFiles/collision_core.dir/src/Enemy.cpp.i
 
 CMakeFiles/collision_core.dir/src/Enemy.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/Enemy.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/crfred/Desktop/testboy/collision/src/Enemy.cpp -o CMakeFiles/collision_core.dir/src/Enemy.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/blmonten/github/collision/collision/src/Enemy.cpp -o CMakeFiles/collision_core.dir/src/Enemy.cpp.s
 
 CMakeFiles/collision_core.dir/src/Enemy.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/collision_core.dir/src/Enemy.cpp.o.provides.build: CMakeFiles/collisi
 
 CMakeFiles/collision_core.dir/src/GameApp.cpp.o: CMakeFiles/collision_core.dir/flags.make
 CMakeFiles/collision_core.dir/src/GameApp.cpp.o: ../src/GameApp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/collision_core.dir/src/GameApp.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/GameApp.cpp.o -c /home/f85/crfred/Desktop/testboy/collision/src/GameApp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/blmonten/github/collision/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/collision_core.dir/src/GameApp.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/GameApp.cpp.o -c /home/f85/blmonten/github/collision/collision/src/GameApp.cpp
 
 CMakeFiles/collision_core.dir/src/GameApp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/GameApp.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/crfred/Desktop/testboy/collision/src/GameApp.cpp > CMakeFiles/collision_core.dir/src/GameApp.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/blmonten/github/collision/collision/src/GameApp.cpp > CMakeFiles/collision_core.dir/src/GameApp.cpp.i
 
 CMakeFiles/collision_core.dir/src/GameApp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/GameApp.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/crfred/Desktop/testboy/collision/src/GameApp.cpp -o CMakeFiles/collision_core.dir/src/GameApp.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/blmonten/github/collision/collision/src/GameApp.cpp -o CMakeFiles/collision_core.dir/src/GameApp.cpp.s
 
 CMakeFiles/collision_core.dir/src/GameApp.cpp.o.requires:
 
@@ -105,258 +105,18 @@ CMakeFiles/collision_core.dir/src/GameApp.cpp.o.provides: CMakeFiles/collision_c
 CMakeFiles/collision_core.dir/src/GameApp.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/GameApp.cpp.o
 
 
-CMakeFiles/collision_core.dir/src/Player.cpp.o: CMakeFiles/collision_core.dir/flags.make
-CMakeFiles/collision_core.dir/src/Player.cpp.o: ../src/Player.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/collision_core.dir/src/Player.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/Player.cpp.o -c /home/f85/crfred/Desktop/testboy/collision/src/Player.cpp
-
-CMakeFiles/collision_core.dir/src/Player.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/Player.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/crfred/Desktop/testboy/collision/src/Player.cpp > CMakeFiles/collision_core.dir/src/Player.cpp.i
-
-CMakeFiles/collision_core.dir/src/Player.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/Player.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/crfred/Desktop/testboy/collision/src/Player.cpp -o CMakeFiles/collision_core.dir/src/Player.cpp.s
-
-CMakeFiles/collision_core.dir/src/Player.cpp.o.requires:
-
-.PHONY : CMakeFiles/collision_core.dir/src/Player.cpp.o.requires
-
-CMakeFiles/collision_core.dir/src/Player.cpp.o.provides: CMakeFiles/collision_core.dir/src/Player.cpp.o.requires
-	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/Player.cpp.o.provides.build
-.PHONY : CMakeFiles/collision_core.dir/src/Player.cpp.o.provides
-
-CMakeFiles/collision_core.dir/src/Player.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/Player.cpp.o
-
-
-CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o: CMakeFiles/collision_core.dir/flags.make
-CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o: ../src/ResourceManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o -c /home/f85/crfred/Desktop/testboy/collision/src/ResourceManager.cpp
-
-CMakeFiles/collision_core.dir/src/ResourceManager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/ResourceManager.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/crfred/Desktop/testboy/collision/src/ResourceManager.cpp > CMakeFiles/collision_core.dir/src/ResourceManager.cpp.i
-
-CMakeFiles/collision_core.dir/src/ResourceManager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/ResourceManager.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/crfred/Desktop/testboy/collision/src/ResourceManager.cpp -o CMakeFiles/collision_core.dir/src/ResourceManager.cpp.s
-
-CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o.requires:
-
-.PHONY : CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o.requires
-
-CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o.provides: CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o.requires
-	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o.provides.build
-.PHONY : CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o.provides
-
-CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o
-
-
-CMakeFiles/collision_core.dir/src/SplashState.cpp.o: CMakeFiles/collision_core.dir/flags.make
-CMakeFiles/collision_core.dir/src/SplashState.cpp.o: ../src/SplashState.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/collision_core.dir/src/SplashState.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/SplashState.cpp.o -c /home/f85/crfred/Desktop/testboy/collision/src/SplashState.cpp
-
-CMakeFiles/collision_core.dir/src/SplashState.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/SplashState.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/crfred/Desktop/testboy/collision/src/SplashState.cpp > CMakeFiles/collision_core.dir/src/SplashState.cpp.i
-
-CMakeFiles/collision_core.dir/src/SplashState.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/SplashState.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/crfred/Desktop/testboy/collision/src/SplashState.cpp -o CMakeFiles/collision_core.dir/src/SplashState.cpp.s
-
-CMakeFiles/collision_core.dir/src/SplashState.cpp.o.requires:
-
-.PHONY : CMakeFiles/collision_core.dir/src/SplashState.cpp.o.requires
-
-CMakeFiles/collision_core.dir/src/SplashState.cpp.o.provides: CMakeFiles/collision_core.dir/src/SplashState.cpp.o.requires
-	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/SplashState.cpp.o.provides.build
-.PHONY : CMakeFiles/collision_core.dir/src/SplashState.cpp.o.provides
-
-CMakeFiles/collision_core.dir/src/SplashState.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/SplashState.cpp.o
-
-
-CMakeFiles/collision_core.dir/src/StateManager.cpp.o: CMakeFiles/collision_core.dir/flags.make
-CMakeFiles/collision_core.dir/src/StateManager.cpp.o: ../src/StateManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/collision_core.dir/src/StateManager.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/StateManager.cpp.o -c /home/f85/crfred/Desktop/testboy/collision/src/StateManager.cpp
-
-CMakeFiles/collision_core.dir/src/StateManager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/StateManager.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/crfred/Desktop/testboy/collision/src/StateManager.cpp > CMakeFiles/collision_core.dir/src/StateManager.cpp.i
-
-CMakeFiles/collision_core.dir/src/StateManager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/StateManager.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/crfred/Desktop/testboy/collision/src/StateManager.cpp -o CMakeFiles/collision_core.dir/src/StateManager.cpp.s
-
-CMakeFiles/collision_core.dir/src/StateManager.cpp.o.requires:
-
-.PHONY : CMakeFiles/collision_core.dir/src/StateManager.cpp.o.requires
-
-CMakeFiles/collision_core.dir/src/StateManager.cpp.o.provides: CMakeFiles/collision_core.dir/src/StateManager.cpp.o.requires
-	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/StateManager.cpp.o.provides.build
-.PHONY : CMakeFiles/collision_core.dir/src/StateManager.cpp.o.provides
-
-CMakeFiles/collision_core.dir/src/StateManager.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/StateManager.cpp.o
-
-
-CMakeFiles/collision_core.dir/src/ControlsState.cpp.o: CMakeFiles/collision_core.dir/flags.make
-CMakeFiles/collision_core.dir/src/ControlsState.cpp.o: ../src/ControlsState.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/collision_core.dir/src/ControlsState.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/ControlsState.cpp.o -c /home/f85/crfred/Desktop/testboy/collision/src/ControlsState.cpp
-
-CMakeFiles/collision_core.dir/src/ControlsState.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/ControlsState.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/crfred/Desktop/testboy/collision/src/ControlsState.cpp > CMakeFiles/collision_core.dir/src/ControlsState.cpp.i
-
-CMakeFiles/collision_core.dir/src/ControlsState.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/ControlsState.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/crfred/Desktop/testboy/collision/src/ControlsState.cpp -o CMakeFiles/collision_core.dir/src/ControlsState.cpp.s
-
-CMakeFiles/collision_core.dir/src/ControlsState.cpp.o.requires:
-
-.PHONY : CMakeFiles/collision_core.dir/src/ControlsState.cpp.o.requires
-
-CMakeFiles/collision_core.dir/src/ControlsState.cpp.o.provides: CMakeFiles/collision_core.dir/src/ControlsState.cpp.o.requires
-	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/ControlsState.cpp.o.provides.build
-.PHONY : CMakeFiles/collision_core.dir/src/ControlsState.cpp.o.provides
-
-CMakeFiles/collision_core.dir/src/ControlsState.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/ControlsState.cpp.o
-
-
-CMakeFiles/collision_core.dir/src/GameState.cpp.o: CMakeFiles/collision_core.dir/flags.make
-CMakeFiles/collision_core.dir/src/GameState.cpp.o: ../src/GameState.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/collision_core.dir/src/GameState.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/GameState.cpp.o -c /home/f85/crfred/Desktop/testboy/collision/src/GameState.cpp
-
-CMakeFiles/collision_core.dir/src/GameState.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/GameState.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/crfred/Desktop/testboy/collision/src/GameState.cpp > CMakeFiles/collision_core.dir/src/GameState.cpp.i
-
-CMakeFiles/collision_core.dir/src/GameState.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/GameState.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/crfred/Desktop/testboy/collision/src/GameState.cpp -o CMakeFiles/collision_core.dir/src/GameState.cpp.s
-
-CMakeFiles/collision_core.dir/src/GameState.cpp.o.requires:
-
-.PHONY : CMakeFiles/collision_core.dir/src/GameState.cpp.o.requires
-
-CMakeFiles/collision_core.dir/src/GameState.cpp.o.provides: CMakeFiles/collision_core.dir/src/GameState.cpp.o.requires
-	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/GameState.cpp.o.provides.build
-.PHONY : CMakeFiles/collision_core.dir/src/GameState.cpp.o.provides
-
-CMakeFiles/collision_core.dir/src/GameState.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/GameState.cpp.o
-
-
-CMakeFiles/collision_core.dir/src/LoseState.cpp.o: CMakeFiles/collision_core.dir/flags.make
-CMakeFiles/collision_core.dir/src/LoseState.cpp.o: ../src/LoseState.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/collision_core.dir/src/LoseState.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/LoseState.cpp.o -c /home/f85/crfred/Desktop/testboy/collision/src/LoseState.cpp
-
-CMakeFiles/collision_core.dir/src/LoseState.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/LoseState.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/crfred/Desktop/testboy/collision/src/LoseState.cpp > CMakeFiles/collision_core.dir/src/LoseState.cpp.i
-
-CMakeFiles/collision_core.dir/src/LoseState.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/LoseState.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/crfred/Desktop/testboy/collision/src/LoseState.cpp -o CMakeFiles/collision_core.dir/src/LoseState.cpp.s
-
-CMakeFiles/collision_core.dir/src/LoseState.cpp.o.requires:
-
-.PHONY : CMakeFiles/collision_core.dir/src/LoseState.cpp.o.requires
-
-CMakeFiles/collision_core.dir/src/LoseState.cpp.o.provides: CMakeFiles/collision_core.dir/src/LoseState.cpp.o.requires
-	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/LoseState.cpp.o.provides.build
-.PHONY : CMakeFiles/collision_core.dir/src/LoseState.cpp.o.provides
-
-CMakeFiles/collision_core.dir/src/LoseState.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/LoseState.cpp.o
-
-
-CMakeFiles/collision_core.dir/src/MenuState.cpp.o: CMakeFiles/collision_core.dir/flags.make
-CMakeFiles/collision_core.dir/src/MenuState.cpp.o: ../src/MenuState.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/collision_core.dir/src/MenuState.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/MenuState.cpp.o -c /home/f85/crfred/Desktop/testboy/collision/src/MenuState.cpp
-
-CMakeFiles/collision_core.dir/src/MenuState.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/MenuState.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/crfred/Desktop/testboy/collision/src/MenuState.cpp > CMakeFiles/collision_core.dir/src/MenuState.cpp.i
-
-CMakeFiles/collision_core.dir/src/MenuState.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/MenuState.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/crfred/Desktop/testboy/collision/src/MenuState.cpp -o CMakeFiles/collision_core.dir/src/MenuState.cpp.s
-
-CMakeFiles/collision_core.dir/src/MenuState.cpp.o.requires:
-
-.PHONY : CMakeFiles/collision_core.dir/src/MenuState.cpp.o.requires
-
-CMakeFiles/collision_core.dir/src/MenuState.cpp.o.provides: CMakeFiles/collision_core.dir/src/MenuState.cpp.o.requires
-	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/MenuState.cpp.o.provides.build
-.PHONY : CMakeFiles/collision_core.dir/src/MenuState.cpp.o.provides
-
-CMakeFiles/collision_core.dir/src/MenuState.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/MenuState.cpp.o
-
-
-CMakeFiles/collision_core.dir/src/PauseState.cpp.o: CMakeFiles/collision_core.dir/flags.make
-CMakeFiles/collision_core.dir/src/PauseState.cpp.o: ../src/PauseState.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/collision_core.dir/src/PauseState.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/PauseState.cpp.o -c /home/f85/crfred/Desktop/testboy/collision/src/PauseState.cpp
-
-CMakeFiles/collision_core.dir/src/PauseState.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/PauseState.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/crfred/Desktop/testboy/collision/src/PauseState.cpp > CMakeFiles/collision_core.dir/src/PauseState.cpp.i
-
-CMakeFiles/collision_core.dir/src/PauseState.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/PauseState.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/crfred/Desktop/testboy/collision/src/PauseState.cpp -o CMakeFiles/collision_core.dir/src/PauseState.cpp.s
-
-CMakeFiles/collision_core.dir/src/PauseState.cpp.o.requires:
-
-.PHONY : CMakeFiles/collision_core.dir/src/PauseState.cpp.o.requires
-
-CMakeFiles/collision_core.dir/src/PauseState.cpp.o.provides: CMakeFiles/collision_core.dir/src/PauseState.cpp.o.requires
-	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/PauseState.cpp.o.provides.build
-.PHONY : CMakeFiles/collision_core.dir/src/PauseState.cpp.o.provides
-
-CMakeFiles/collision_core.dir/src/PauseState.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/PauseState.cpp.o
-
-
-CMakeFiles/collision_core.dir/src/WinState.cpp.o: CMakeFiles/collision_core.dir/flags.make
-CMakeFiles/collision_core.dir/src/WinState.cpp.o: ../src/WinState.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/collision_core.dir/src/WinState.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/WinState.cpp.o -c /home/f85/crfred/Desktop/testboy/collision/src/WinState.cpp
-
-CMakeFiles/collision_core.dir/src/WinState.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/WinState.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/crfred/Desktop/testboy/collision/src/WinState.cpp > CMakeFiles/collision_core.dir/src/WinState.cpp.i
-
-CMakeFiles/collision_core.dir/src/WinState.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/WinState.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/crfred/Desktop/testboy/collision/src/WinState.cpp -o CMakeFiles/collision_core.dir/src/WinState.cpp.s
-
-CMakeFiles/collision_core.dir/src/WinState.cpp.o.requires:
-
-.PHONY : CMakeFiles/collision_core.dir/src/WinState.cpp.o.requires
-
-CMakeFiles/collision_core.dir/src/WinState.cpp.o.provides: CMakeFiles/collision_core.dir/src/WinState.cpp.o.requires
-	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/WinState.cpp.o.provides.build
-.PHONY : CMakeFiles/collision_core.dir/src/WinState.cpp.o.provides
-
-CMakeFiles/collision_core.dir/src/WinState.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/WinState.cpp.o
-
-
 CMakeFiles/collision_core.dir/src/Bullet.cpp.o: CMakeFiles/collision_core.dir/flags.make
 CMakeFiles/collision_core.dir/src/Bullet.cpp.o: ../src/Bullet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/collision_core.dir/src/Bullet.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/Bullet.cpp.o -c /home/f85/crfred/Desktop/testboy/collision/src/Bullet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/blmonten/github/collision/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/collision_core.dir/src/Bullet.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/Bullet.cpp.o -c /home/f85/blmonten/github/collision/collision/src/Bullet.cpp
 
 CMakeFiles/collision_core.dir/src/Bullet.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/Bullet.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/crfred/Desktop/testboy/collision/src/Bullet.cpp > CMakeFiles/collision_core.dir/src/Bullet.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/blmonten/github/collision/collision/src/Bullet.cpp > CMakeFiles/collision_core.dir/src/Bullet.cpp.i
 
 CMakeFiles/collision_core.dir/src/Bullet.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/Bullet.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/crfred/Desktop/testboy/collision/src/Bullet.cpp -o CMakeFiles/collision_core.dir/src/Bullet.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/blmonten/github/collision/collision/src/Bullet.cpp -o CMakeFiles/collision_core.dir/src/Bullet.cpp.s
 
 CMakeFiles/collision_core.dir/src/Bullet.cpp.o.requires:
 
@@ -369,42 +129,210 @@ CMakeFiles/collision_core.dir/src/Bullet.cpp.o.provides: CMakeFiles/collision_co
 CMakeFiles/collision_core.dir/src/Bullet.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/Bullet.cpp.o
 
 
-CMakeFiles/collision_core.dir/src/GameLogic.cpp.o: CMakeFiles/collision_core.dir/flags.make
-CMakeFiles/collision_core.dir/src/GameLogic.cpp.o: ../src/GameLogic.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/collision_core.dir/src/GameLogic.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/GameLogic.cpp.o -c /home/f85/crfred/Desktop/testboy/collision/src/GameLogic.cpp
+CMakeFiles/collision_core.dir/src/SplashState.cpp.o: CMakeFiles/collision_core.dir/flags.make
+CMakeFiles/collision_core.dir/src/SplashState.cpp.o: ../src/SplashState.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/blmonten/github/collision/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/collision_core.dir/src/SplashState.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/SplashState.cpp.o -c /home/f85/blmonten/github/collision/collision/src/SplashState.cpp
 
-CMakeFiles/collision_core.dir/src/GameLogic.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/GameLogic.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/crfred/Desktop/testboy/collision/src/GameLogic.cpp > CMakeFiles/collision_core.dir/src/GameLogic.cpp.i
+CMakeFiles/collision_core.dir/src/SplashState.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/SplashState.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/blmonten/github/collision/collision/src/SplashState.cpp > CMakeFiles/collision_core.dir/src/SplashState.cpp.i
 
-CMakeFiles/collision_core.dir/src/GameLogic.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/GameLogic.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/crfred/Desktop/testboy/collision/src/GameLogic.cpp -o CMakeFiles/collision_core.dir/src/GameLogic.cpp.s
+CMakeFiles/collision_core.dir/src/SplashState.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/SplashState.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/blmonten/github/collision/collision/src/SplashState.cpp -o CMakeFiles/collision_core.dir/src/SplashState.cpp.s
 
-CMakeFiles/collision_core.dir/src/GameLogic.cpp.o.requires:
+CMakeFiles/collision_core.dir/src/SplashState.cpp.o.requires:
 
-.PHONY : CMakeFiles/collision_core.dir/src/GameLogic.cpp.o.requires
+.PHONY : CMakeFiles/collision_core.dir/src/SplashState.cpp.o.requires
 
-CMakeFiles/collision_core.dir/src/GameLogic.cpp.o.provides: CMakeFiles/collision_core.dir/src/GameLogic.cpp.o.requires
-	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/GameLogic.cpp.o.provides.build
-.PHONY : CMakeFiles/collision_core.dir/src/GameLogic.cpp.o.provides
+CMakeFiles/collision_core.dir/src/SplashState.cpp.o.provides: CMakeFiles/collision_core.dir/src/SplashState.cpp.o.requires
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/SplashState.cpp.o.provides.build
+.PHONY : CMakeFiles/collision_core.dir/src/SplashState.cpp.o.provides
 
-CMakeFiles/collision_core.dir/src/GameLogic.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/GameLogic.cpp.o
+CMakeFiles/collision_core.dir/src/SplashState.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/SplashState.cpp.o
+
+
+CMakeFiles/collision_core.dir/src/MenuState.cpp.o: CMakeFiles/collision_core.dir/flags.make
+CMakeFiles/collision_core.dir/src/MenuState.cpp.o: ../src/MenuState.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/blmonten/github/collision/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/collision_core.dir/src/MenuState.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/MenuState.cpp.o -c /home/f85/blmonten/github/collision/collision/src/MenuState.cpp
+
+CMakeFiles/collision_core.dir/src/MenuState.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/MenuState.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/blmonten/github/collision/collision/src/MenuState.cpp > CMakeFiles/collision_core.dir/src/MenuState.cpp.i
+
+CMakeFiles/collision_core.dir/src/MenuState.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/MenuState.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/blmonten/github/collision/collision/src/MenuState.cpp -o CMakeFiles/collision_core.dir/src/MenuState.cpp.s
+
+CMakeFiles/collision_core.dir/src/MenuState.cpp.o.requires:
+
+.PHONY : CMakeFiles/collision_core.dir/src/MenuState.cpp.o.requires
+
+CMakeFiles/collision_core.dir/src/MenuState.cpp.o.provides: CMakeFiles/collision_core.dir/src/MenuState.cpp.o.requires
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/MenuState.cpp.o.provides.build
+.PHONY : CMakeFiles/collision_core.dir/src/MenuState.cpp.o.provides
+
+CMakeFiles/collision_core.dir/src/MenuState.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/MenuState.cpp.o
+
+
+CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o: CMakeFiles/collision_core.dir/flags.make
+CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o: ../src/ResourceManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/blmonten/github/collision/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o -c /home/f85/blmonten/github/collision/collision/src/ResourceManager.cpp
+
+CMakeFiles/collision_core.dir/src/ResourceManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/ResourceManager.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/blmonten/github/collision/collision/src/ResourceManager.cpp > CMakeFiles/collision_core.dir/src/ResourceManager.cpp.i
+
+CMakeFiles/collision_core.dir/src/ResourceManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/ResourceManager.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/blmonten/github/collision/collision/src/ResourceManager.cpp -o CMakeFiles/collision_core.dir/src/ResourceManager.cpp.s
+
+CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o.requires:
+
+.PHONY : CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o.requires
+
+CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o.provides: CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o.requires
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o.provides.build
+.PHONY : CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o.provides
+
+CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o
+
+
+CMakeFiles/collision_core.dir/src/LoseState.cpp.o: CMakeFiles/collision_core.dir/flags.make
+CMakeFiles/collision_core.dir/src/LoseState.cpp.o: ../src/LoseState.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/blmonten/github/collision/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/collision_core.dir/src/LoseState.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/LoseState.cpp.o -c /home/f85/blmonten/github/collision/collision/src/LoseState.cpp
+
+CMakeFiles/collision_core.dir/src/LoseState.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/LoseState.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/blmonten/github/collision/collision/src/LoseState.cpp > CMakeFiles/collision_core.dir/src/LoseState.cpp.i
+
+CMakeFiles/collision_core.dir/src/LoseState.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/LoseState.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/blmonten/github/collision/collision/src/LoseState.cpp -o CMakeFiles/collision_core.dir/src/LoseState.cpp.s
+
+CMakeFiles/collision_core.dir/src/LoseState.cpp.o.requires:
+
+.PHONY : CMakeFiles/collision_core.dir/src/LoseState.cpp.o.requires
+
+CMakeFiles/collision_core.dir/src/LoseState.cpp.o.provides: CMakeFiles/collision_core.dir/src/LoseState.cpp.o.requires
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/LoseState.cpp.o.provides.build
+.PHONY : CMakeFiles/collision_core.dir/src/LoseState.cpp.o.provides
+
+CMakeFiles/collision_core.dir/src/LoseState.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/LoseState.cpp.o
+
+
+CMakeFiles/collision_core.dir/src/StateManager.cpp.o: CMakeFiles/collision_core.dir/flags.make
+CMakeFiles/collision_core.dir/src/StateManager.cpp.o: ../src/StateManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/blmonten/github/collision/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/collision_core.dir/src/StateManager.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/StateManager.cpp.o -c /home/f85/blmonten/github/collision/collision/src/StateManager.cpp
+
+CMakeFiles/collision_core.dir/src/StateManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/StateManager.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/blmonten/github/collision/collision/src/StateManager.cpp > CMakeFiles/collision_core.dir/src/StateManager.cpp.i
+
+CMakeFiles/collision_core.dir/src/StateManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/StateManager.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/blmonten/github/collision/collision/src/StateManager.cpp -o CMakeFiles/collision_core.dir/src/StateManager.cpp.s
+
+CMakeFiles/collision_core.dir/src/StateManager.cpp.o.requires:
+
+.PHONY : CMakeFiles/collision_core.dir/src/StateManager.cpp.o.requires
+
+CMakeFiles/collision_core.dir/src/StateManager.cpp.o.provides: CMakeFiles/collision_core.dir/src/StateManager.cpp.o.requires
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/StateManager.cpp.o.provides.build
+.PHONY : CMakeFiles/collision_core.dir/src/StateManager.cpp.o.provides
+
+CMakeFiles/collision_core.dir/src/StateManager.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/StateManager.cpp.o
+
+
+CMakeFiles/collision_core.dir/src/WinState.cpp.o: CMakeFiles/collision_core.dir/flags.make
+CMakeFiles/collision_core.dir/src/WinState.cpp.o: ../src/WinState.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/blmonten/github/collision/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/collision_core.dir/src/WinState.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/WinState.cpp.o -c /home/f85/blmonten/github/collision/collision/src/WinState.cpp
+
+CMakeFiles/collision_core.dir/src/WinState.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/WinState.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/blmonten/github/collision/collision/src/WinState.cpp > CMakeFiles/collision_core.dir/src/WinState.cpp.i
+
+CMakeFiles/collision_core.dir/src/WinState.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/WinState.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/blmonten/github/collision/collision/src/WinState.cpp -o CMakeFiles/collision_core.dir/src/WinState.cpp.s
+
+CMakeFiles/collision_core.dir/src/WinState.cpp.o.requires:
+
+.PHONY : CMakeFiles/collision_core.dir/src/WinState.cpp.o.requires
+
+CMakeFiles/collision_core.dir/src/WinState.cpp.o.provides: CMakeFiles/collision_core.dir/src/WinState.cpp.o.requires
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/WinState.cpp.o.provides.build
+.PHONY : CMakeFiles/collision_core.dir/src/WinState.cpp.o.provides
+
+CMakeFiles/collision_core.dir/src/WinState.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/WinState.cpp.o
+
+
+CMakeFiles/collision_core.dir/src/GameState.cpp.o: CMakeFiles/collision_core.dir/flags.make
+CMakeFiles/collision_core.dir/src/GameState.cpp.o: ../src/GameState.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/blmonten/github/collision/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/collision_core.dir/src/GameState.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/GameState.cpp.o -c /home/f85/blmonten/github/collision/collision/src/GameState.cpp
+
+CMakeFiles/collision_core.dir/src/GameState.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/GameState.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/blmonten/github/collision/collision/src/GameState.cpp > CMakeFiles/collision_core.dir/src/GameState.cpp.i
+
+CMakeFiles/collision_core.dir/src/GameState.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/GameState.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/blmonten/github/collision/collision/src/GameState.cpp -o CMakeFiles/collision_core.dir/src/GameState.cpp.s
+
+CMakeFiles/collision_core.dir/src/GameState.cpp.o.requires:
+
+.PHONY : CMakeFiles/collision_core.dir/src/GameState.cpp.o.requires
+
+CMakeFiles/collision_core.dir/src/GameState.cpp.o.provides: CMakeFiles/collision_core.dir/src/GameState.cpp.o.requires
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/GameState.cpp.o.provides.build
+.PHONY : CMakeFiles/collision_core.dir/src/GameState.cpp.o.provides
+
+CMakeFiles/collision_core.dir/src/GameState.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/GameState.cpp.o
+
+
+CMakeFiles/collision_core.dir/src/PauseState.cpp.o: CMakeFiles/collision_core.dir/flags.make
+CMakeFiles/collision_core.dir/src/PauseState.cpp.o: ../src/PauseState.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/blmonten/github/collision/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/collision_core.dir/src/PauseState.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/PauseState.cpp.o -c /home/f85/blmonten/github/collision/collision/src/PauseState.cpp
+
+CMakeFiles/collision_core.dir/src/PauseState.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/PauseState.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/blmonten/github/collision/collision/src/PauseState.cpp > CMakeFiles/collision_core.dir/src/PauseState.cpp.i
+
+CMakeFiles/collision_core.dir/src/PauseState.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/PauseState.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/blmonten/github/collision/collision/src/PauseState.cpp -o CMakeFiles/collision_core.dir/src/PauseState.cpp.s
+
+CMakeFiles/collision_core.dir/src/PauseState.cpp.o.requires:
+
+.PHONY : CMakeFiles/collision_core.dir/src/PauseState.cpp.o.requires
+
+CMakeFiles/collision_core.dir/src/PauseState.cpp.o.provides: CMakeFiles/collision_core.dir/src/PauseState.cpp.o.requires
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/PauseState.cpp.o.provides.build
+.PHONY : CMakeFiles/collision_core.dir/src/PauseState.cpp.o.provides
+
+CMakeFiles/collision_core.dir/src/PauseState.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/PauseState.cpp.o
 
 
 CMakeFiles/collision_core.dir/src/GameState2.cpp.o: CMakeFiles/collision_core.dir/flags.make
 CMakeFiles/collision_core.dir/src/GameState2.cpp.o: ../src/GameState2.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/collision_core.dir/src/GameState2.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/GameState2.cpp.o -c /home/f85/crfred/Desktop/testboy/collision/src/GameState2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/blmonten/github/collision/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/collision_core.dir/src/GameState2.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/GameState2.cpp.o -c /home/f85/blmonten/github/collision/collision/src/GameState2.cpp
 
 CMakeFiles/collision_core.dir/src/GameState2.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/GameState2.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/crfred/Desktop/testboy/collision/src/GameState2.cpp > CMakeFiles/collision_core.dir/src/GameState2.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/blmonten/github/collision/collision/src/GameState2.cpp > CMakeFiles/collision_core.dir/src/GameState2.cpp.i
 
 CMakeFiles/collision_core.dir/src/GameState2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/GameState2.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/crfred/Desktop/testboy/collision/src/GameState2.cpp -o CMakeFiles/collision_core.dir/src/GameState2.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/blmonten/github/collision/collision/src/GameState2.cpp -o CMakeFiles/collision_core.dir/src/GameState2.cpp.s
 
 CMakeFiles/collision_core.dir/src/GameState2.cpp.o.requires:
 
@@ -417,18 +345,42 @@ CMakeFiles/collision_core.dir/src/GameState2.cpp.o.provides: CMakeFiles/collisio
 CMakeFiles/collision_core.dir/src/GameState2.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/GameState2.cpp.o
 
 
+CMakeFiles/collision_core.dir/src/ControlsState.cpp.o: CMakeFiles/collision_core.dir/flags.make
+CMakeFiles/collision_core.dir/src/ControlsState.cpp.o: ../src/ControlsState.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/blmonten/github/collision/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/collision_core.dir/src/ControlsState.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/ControlsState.cpp.o -c /home/f85/blmonten/github/collision/collision/src/ControlsState.cpp
+
+CMakeFiles/collision_core.dir/src/ControlsState.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/ControlsState.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/blmonten/github/collision/collision/src/ControlsState.cpp > CMakeFiles/collision_core.dir/src/ControlsState.cpp.i
+
+CMakeFiles/collision_core.dir/src/ControlsState.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/ControlsState.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/blmonten/github/collision/collision/src/ControlsState.cpp -o CMakeFiles/collision_core.dir/src/ControlsState.cpp.s
+
+CMakeFiles/collision_core.dir/src/ControlsState.cpp.o.requires:
+
+.PHONY : CMakeFiles/collision_core.dir/src/ControlsState.cpp.o.requires
+
+CMakeFiles/collision_core.dir/src/ControlsState.cpp.o.provides: CMakeFiles/collision_core.dir/src/ControlsState.cpp.o.requires
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/ControlsState.cpp.o.provides.build
+.PHONY : CMakeFiles/collision_core.dir/src/ControlsState.cpp.o.provides
+
+CMakeFiles/collision_core.dir/src/ControlsState.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/ControlsState.cpp.o
+
+
 CMakeFiles/collision_core.dir/src/Goomba.cpp.o: CMakeFiles/collision_core.dir/flags.make
 CMakeFiles/collision_core.dir/src/Goomba.cpp.o: ../src/Goomba.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/collision_core.dir/src/Goomba.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/Goomba.cpp.o -c /home/f85/crfred/Desktop/testboy/collision/src/Goomba.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/blmonten/github/collision/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/collision_core.dir/src/Goomba.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/Goomba.cpp.o -c /home/f85/blmonten/github/collision/collision/src/Goomba.cpp
 
 CMakeFiles/collision_core.dir/src/Goomba.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/Goomba.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/crfred/Desktop/testboy/collision/src/Goomba.cpp > CMakeFiles/collision_core.dir/src/Goomba.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/blmonten/github/collision/collision/src/Goomba.cpp > CMakeFiles/collision_core.dir/src/Goomba.cpp.i
 
 CMakeFiles/collision_core.dir/src/Goomba.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/Goomba.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/crfred/Desktop/testboy/collision/src/Goomba.cpp -o CMakeFiles/collision_core.dir/src/Goomba.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/blmonten/github/collision/collision/src/Goomba.cpp -o CMakeFiles/collision_core.dir/src/Goomba.cpp.s
 
 CMakeFiles/collision_core.dir/src/Goomba.cpp.o.requires:
 
@@ -441,18 +393,66 @@ CMakeFiles/collision_core.dir/src/Goomba.cpp.o.provides: CMakeFiles/collision_co
 CMakeFiles/collision_core.dir/src/Goomba.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/Goomba.cpp.o
 
 
+CMakeFiles/collision_core.dir/src/GameLogic.cpp.o: CMakeFiles/collision_core.dir/flags.make
+CMakeFiles/collision_core.dir/src/GameLogic.cpp.o: ../src/GameLogic.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/blmonten/github/collision/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/collision_core.dir/src/GameLogic.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/GameLogic.cpp.o -c /home/f85/blmonten/github/collision/collision/src/GameLogic.cpp
+
+CMakeFiles/collision_core.dir/src/GameLogic.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/GameLogic.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/blmonten/github/collision/collision/src/GameLogic.cpp > CMakeFiles/collision_core.dir/src/GameLogic.cpp.i
+
+CMakeFiles/collision_core.dir/src/GameLogic.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/GameLogic.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/blmonten/github/collision/collision/src/GameLogic.cpp -o CMakeFiles/collision_core.dir/src/GameLogic.cpp.s
+
+CMakeFiles/collision_core.dir/src/GameLogic.cpp.o.requires:
+
+.PHONY : CMakeFiles/collision_core.dir/src/GameLogic.cpp.o.requires
+
+CMakeFiles/collision_core.dir/src/GameLogic.cpp.o.provides: CMakeFiles/collision_core.dir/src/GameLogic.cpp.o.requires
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/GameLogic.cpp.o.provides.build
+.PHONY : CMakeFiles/collision_core.dir/src/GameLogic.cpp.o.provides
+
+CMakeFiles/collision_core.dir/src/GameLogic.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/GameLogic.cpp.o
+
+
+CMakeFiles/collision_core.dir/src/Player.cpp.o: CMakeFiles/collision_core.dir/flags.make
+CMakeFiles/collision_core.dir/src/Player.cpp.o: ../src/Player.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/blmonten/github/collision/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/collision_core.dir/src/Player.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/Player.cpp.o -c /home/f85/blmonten/github/collision/collision/src/Player.cpp
+
+CMakeFiles/collision_core.dir/src/Player.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/Player.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/blmonten/github/collision/collision/src/Player.cpp > CMakeFiles/collision_core.dir/src/Player.cpp.i
+
+CMakeFiles/collision_core.dir/src/Player.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/Player.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/blmonten/github/collision/collision/src/Player.cpp -o CMakeFiles/collision_core.dir/src/Player.cpp.s
+
+CMakeFiles/collision_core.dir/src/Player.cpp.o.requires:
+
+.PHONY : CMakeFiles/collision_core.dir/src/Player.cpp.o.requires
+
+CMakeFiles/collision_core.dir/src/Player.cpp.o.provides: CMakeFiles/collision_core.dir/src/Player.cpp.o.requires
+	$(MAKE) -f CMakeFiles/collision_core.dir/build.make CMakeFiles/collision_core.dir/src/Player.cpp.o.provides.build
+.PHONY : CMakeFiles/collision_core.dir/src/Player.cpp.o.provides
+
+CMakeFiles/collision_core.dir/src/Player.cpp.o.provides.build: CMakeFiles/collision_core.dir/src/Player.cpp.o
+
+
 CMakeFiles/collision_core.dir/src/StoryState.cpp.o: CMakeFiles/collision_core.dir/flags.make
 CMakeFiles/collision_core.dir/src/StoryState.cpp.o: ../src/StoryState.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/collision_core.dir/src/StoryState.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/StoryState.cpp.o -c /home/f85/crfred/Desktop/testboy/collision/src/StoryState.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/blmonten/github/collision/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/collision_core.dir/src/StoryState.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/StoryState.cpp.o -c /home/f85/blmonten/github/collision/collision/src/StoryState.cpp
 
 CMakeFiles/collision_core.dir/src/StoryState.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/StoryState.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/crfred/Desktop/testboy/collision/src/StoryState.cpp > CMakeFiles/collision_core.dir/src/StoryState.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/blmonten/github/collision/collision/src/StoryState.cpp > CMakeFiles/collision_core.dir/src/StoryState.cpp.i
 
 CMakeFiles/collision_core.dir/src/StoryState.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/StoryState.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/crfred/Desktop/testboy/collision/src/StoryState.cpp -o CMakeFiles/collision_core.dir/src/StoryState.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/blmonten/github/collision/collision/src/StoryState.cpp -o CMakeFiles/collision_core.dir/src/StoryState.cpp.s
 
 CMakeFiles/collision_core.dir/src/StoryState.cpp.o.requires:
 
@@ -467,16 +467,16 @@ CMakeFiles/collision_core.dir/src/StoryState.cpp.o.provides.build: CMakeFiles/co
 
 CMakeFiles/collision_core.dir/src/Koopa.cpp.o: CMakeFiles/collision_core.dir/flags.make
 CMakeFiles/collision_core.dir/src/Koopa.cpp.o: ../src/Koopa.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/collision_core.dir/src/Koopa.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/Koopa.cpp.o -c /home/f85/crfred/Desktop/testboy/collision/src/Koopa.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/f85/blmonten/github/collision/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/collision_core.dir/src/Koopa.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/collision_core.dir/src/Koopa.cpp.o -c /home/f85/blmonten/github/collision/collision/src/Koopa.cpp
 
 CMakeFiles/collision_core.dir/src/Koopa.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/collision_core.dir/src/Koopa.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/crfred/Desktop/testboy/collision/src/Koopa.cpp > CMakeFiles/collision_core.dir/src/Koopa.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/f85/blmonten/github/collision/collision/src/Koopa.cpp > CMakeFiles/collision_core.dir/src/Koopa.cpp.i
 
 CMakeFiles/collision_core.dir/src/Koopa.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/collision_core.dir/src/Koopa.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/crfred/Desktop/testboy/collision/src/Koopa.cpp -o CMakeFiles/collision_core.dir/src/Koopa.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/f85/blmonten/github/collision/collision/src/Koopa.cpp -o CMakeFiles/collision_core.dir/src/Koopa.cpp.s
 
 CMakeFiles/collision_core.dir/src/Koopa.cpp.o.requires:
 
@@ -493,20 +493,20 @@ CMakeFiles/collision_core.dir/src/Koopa.cpp.o.provides.build: CMakeFiles/collisi
 collision_core_OBJECTS = \
 "CMakeFiles/collision_core.dir/src/Enemy.cpp.o" \
 "CMakeFiles/collision_core.dir/src/GameApp.cpp.o" \
-"CMakeFiles/collision_core.dir/src/Player.cpp.o" \
-"CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o" \
-"CMakeFiles/collision_core.dir/src/SplashState.cpp.o" \
-"CMakeFiles/collision_core.dir/src/StateManager.cpp.o" \
-"CMakeFiles/collision_core.dir/src/ControlsState.cpp.o" \
-"CMakeFiles/collision_core.dir/src/GameState.cpp.o" \
-"CMakeFiles/collision_core.dir/src/LoseState.cpp.o" \
-"CMakeFiles/collision_core.dir/src/MenuState.cpp.o" \
-"CMakeFiles/collision_core.dir/src/PauseState.cpp.o" \
-"CMakeFiles/collision_core.dir/src/WinState.cpp.o" \
 "CMakeFiles/collision_core.dir/src/Bullet.cpp.o" \
-"CMakeFiles/collision_core.dir/src/GameLogic.cpp.o" \
+"CMakeFiles/collision_core.dir/src/SplashState.cpp.o" \
+"CMakeFiles/collision_core.dir/src/MenuState.cpp.o" \
+"CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o" \
+"CMakeFiles/collision_core.dir/src/LoseState.cpp.o" \
+"CMakeFiles/collision_core.dir/src/StateManager.cpp.o" \
+"CMakeFiles/collision_core.dir/src/WinState.cpp.o" \
+"CMakeFiles/collision_core.dir/src/GameState.cpp.o" \
+"CMakeFiles/collision_core.dir/src/PauseState.cpp.o" \
 "CMakeFiles/collision_core.dir/src/GameState2.cpp.o" \
+"CMakeFiles/collision_core.dir/src/ControlsState.cpp.o" \
 "CMakeFiles/collision_core.dir/src/Goomba.cpp.o" \
+"CMakeFiles/collision_core.dir/src/GameLogic.cpp.o" \
+"CMakeFiles/collision_core.dir/src/Player.cpp.o" \
 "CMakeFiles/collision_core.dir/src/StoryState.cpp.o" \
 "CMakeFiles/collision_core.dir/src/Koopa.cpp.o"
 
@@ -515,25 +515,25 @@ collision_core_EXTERNAL_OBJECTS =
 
 libcollision_core.a: CMakeFiles/collision_core.dir/src/Enemy.cpp.o
 libcollision_core.a: CMakeFiles/collision_core.dir/src/GameApp.cpp.o
-libcollision_core.a: CMakeFiles/collision_core.dir/src/Player.cpp.o
-libcollision_core.a: CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o
-libcollision_core.a: CMakeFiles/collision_core.dir/src/SplashState.cpp.o
-libcollision_core.a: CMakeFiles/collision_core.dir/src/StateManager.cpp.o
-libcollision_core.a: CMakeFiles/collision_core.dir/src/ControlsState.cpp.o
-libcollision_core.a: CMakeFiles/collision_core.dir/src/GameState.cpp.o
-libcollision_core.a: CMakeFiles/collision_core.dir/src/LoseState.cpp.o
-libcollision_core.a: CMakeFiles/collision_core.dir/src/MenuState.cpp.o
-libcollision_core.a: CMakeFiles/collision_core.dir/src/PauseState.cpp.o
-libcollision_core.a: CMakeFiles/collision_core.dir/src/WinState.cpp.o
 libcollision_core.a: CMakeFiles/collision_core.dir/src/Bullet.cpp.o
-libcollision_core.a: CMakeFiles/collision_core.dir/src/GameLogic.cpp.o
+libcollision_core.a: CMakeFiles/collision_core.dir/src/SplashState.cpp.o
+libcollision_core.a: CMakeFiles/collision_core.dir/src/MenuState.cpp.o
+libcollision_core.a: CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o
+libcollision_core.a: CMakeFiles/collision_core.dir/src/LoseState.cpp.o
+libcollision_core.a: CMakeFiles/collision_core.dir/src/StateManager.cpp.o
+libcollision_core.a: CMakeFiles/collision_core.dir/src/WinState.cpp.o
+libcollision_core.a: CMakeFiles/collision_core.dir/src/GameState.cpp.o
+libcollision_core.a: CMakeFiles/collision_core.dir/src/PauseState.cpp.o
 libcollision_core.a: CMakeFiles/collision_core.dir/src/GameState2.cpp.o
+libcollision_core.a: CMakeFiles/collision_core.dir/src/ControlsState.cpp.o
 libcollision_core.a: CMakeFiles/collision_core.dir/src/Goomba.cpp.o
+libcollision_core.a: CMakeFiles/collision_core.dir/src/GameLogic.cpp.o
+libcollision_core.a: CMakeFiles/collision_core.dir/src/Player.cpp.o
 libcollision_core.a: CMakeFiles/collision_core.dir/src/StoryState.cpp.o
 libcollision_core.a: CMakeFiles/collision_core.dir/src/Koopa.cpp.o
 libcollision_core.a: CMakeFiles/collision_core.dir/build.make
 libcollision_core.a: CMakeFiles/collision_core.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX static library libcollision_core.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/f85/blmonten/github/collision/collision/Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX static library libcollision_core.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/collision_core.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/collision_core.dir/link.txt --verbose=$(VERBOSE)
 
@@ -544,20 +544,20 @@ CMakeFiles/collision_core.dir/build: libcollision_core.a
 
 CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/Enemy.cpp.o.requires
 CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/GameApp.cpp.o.requires
-CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/Player.cpp.o.requires
-CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o.requires
-CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/SplashState.cpp.o.requires
-CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/StateManager.cpp.o.requires
-CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/ControlsState.cpp.o.requires
-CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/GameState.cpp.o.requires
-CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/LoseState.cpp.o.requires
-CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/MenuState.cpp.o.requires
-CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/PauseState.cpp.o.requires
-CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/WinState.cpp.o.requires
 CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/Bullet.cpp.o.requires
-CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/GameLogic.cpp.o.requires
+CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/SplashState.cpp.o.requires
+CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/MenuState.cpp.o.requires
+CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o.requires
+CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/LoseState.cpp.o.requires
+CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/StateManager.cpp.o.requires
+CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/WinState.cpp.o.requires
+CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/GameState.cpp.o.requires
+CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/PauseState.cpp.o.requires
 CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/GameState2.cpp.o.requires
+CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/ControlsState.cpp.o.requires
 CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/Goomba.cpp.o.requires
+CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/GameLogic.cpp.o.requires
+CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/Player.cpp.o.requires
 CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/StoryState.cpp.o.requires
 CMakeFiles/collision_core.dir/requires: CMakeFiles/collision_core.dir/src/Koopa.cpp.o.requires
 
@@ -568,6 +568,6 @@ CMakeFiles/collision_core.dir/clean:
 .PHONY : CMakeFiles/collision_core.dir/clean
 
 CMakeFiles/collision_core.dir/depend:
-	cd /home/f85/crfred/Desktop/testboy/collision/Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/f85/crfred/Desktop/testboy/collision /home/f85/crfred/Desktop/testboy/collision /home/f85/crfred/Desktop/testboy/collision/Debug /home/f85/crfred/Desktop/testboy/collision/Debug /home/f85/crfred/Desktop/testboy/collision/Debug/CMakeFiles/collision_core.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/f85/blmonten/github/collision/collision/Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/f85/blmonten/github/collision/collision /home/f85/blmonten/github/collision/collision /home/f85/blmonten/github/collision/collision/Debug /home/f85/blmonten/github/collision/collision/Debug /home/f85/blmonten/github/collision/collision/Debug/CMakeFiles/collision_core.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/collision_core.dir/depend
 

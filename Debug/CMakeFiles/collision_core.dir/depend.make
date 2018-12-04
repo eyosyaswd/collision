@@ -162,6 +162,7 @@ CMakeFiles/collision_core.dir/src/StateManager.cpp.o: ../src/StateManager.cpp
 CMakeFiles/collision_core.dir/src/StoryState.cpp.o: ../include/Bullet.hpp
 CMakeFiles/collision_core.dir/src/StoryState.cpp.o: ../include/Entity.hpp
 CMakeFiles/collision_core.dir/src/StoryState.cpp.o: ../include/GameApp.hpp
+CMakeFiles/collision_core.dir/src/StoryState.cpp.o: ../include/GameState.hpp
 CMakeFiles/collision_core.dir/src/StoryState.cpp.o: ../include/GameState2.hpp
 CMakeFiles/collision_core.dir/src/StoryState.cpp.o: ../include/Global.hpp
 CMakeFiles/collision_core.dir/src/StoryState.cpp.o: ../include/Goomba.hpp

@@ -8,7 +8,7 @@ CMakeFiles/collision_core.dir/src/Bullet.cpp.o
  ../include/ResourceManager.hpp
  ../include/State.hpp
  ../include/StateManager.hpp
- /home/f85/crfred/Desktop/testboy/collision/src/Bullet.cpp
+ /home/f85/blmonten/github/collision/collision/src/Bullet.cpp
 CMakeFiles/collision_core.dir/src/ControlsState.cpp.o
  ../include/ControlsState.hpp
  ../include/GameApp.hpp
@@ -17,10 +17,10 @@ CMakeFiles/collision_core.dir/src/ControlsState.cpp.o
  ../include/ResourceManager.hpp
  ../include/State.hpp
  ../include/StateManager.hpp
- /home/f85/crfred/Desktop/testboy/collision/src/ControlsState.cpp
+ /home/f85/blmonten/github/collision/collision/src/ControlsState.cpp
 CMakeFiles/collision_core.dir/src/Enemy.cpp.o
  ../include/Enemy.hpp
- /home/f85/crfred/Desktop/testboy/collision/src/Enemy.cpp
+ /home/f85/blmonten/github/collision/collision/src/Enemy.cpp
 CMakeFiles/collision_core.dir/src/GameApp.cpp.o
  ../include/Bullet.hpp
  ../include/Entity.hpp
@@ -38,10 +38,10 @@ CMakeFiles/collision_core.dir/src/GameApp.cpp.o
  ../include/State.hpp
  ../include/StateManager.hpp
  ../include/WinState.hpp
- /home/f85/crfred/Desktop/testboy/collision/src/GameApp.cpp
+ /home/f85/blmonten/github/collision/collision/src/GameApp.cpp
 CMakeFiles/collision_core.dir/src/GameLogic.cpp.o
  ../include/GameLogic.hpp
- /home/f85/crfred/Desktop/testboy/collision/src/GameLogic.cpp
+ /home/f85/blmonten/github/collision/collision/src/GameLogic.cpp
 CMakeFiles/collision_core.dir/src/GameState.cpp.o
  ../include/Bullet.hpp
  ../include/Entity.hpp
@@ -59,7 +59,7 @@ CMakeFiles/collision_core.dir/src/GameState.cpp.o
  ../include/State.hpp
  ../include/StateManager.hpp
  ../include/WinState.hpp
- /home/f85/crfred/Desktop/testboy/collision/src/GameState.cpp
+ /home/f85/blmonten/github/collision/collision/src/GameState.cpp
 CMakeFiles/collision_core.dir/src/GameState2.cpp.o
  ../include/Bullet.hpp
  ../include/Entity.hpp
@@ -76,7 +76,7 @@ CMakeFiles/collision_core.dir/src/GameState2.cpp.o
  ../include/State.hpp
  ../include/StateManager.hpp
  ../include/WinState.hpp
- /home/f85/crfred/Desktop/testboy/collision/src/GameState2.cpp
+ /home/f85/blmonten/github/collision/collision/src/GameState2.cpp
 CMakeFiles/collision_core.dir/src/Goomba.cpp.o
  ../include/Entity.hpp
  ../include/GameApp.hpp
@@ -85,7 +85,7 @@ CMakeFiles/collision_core.dir/src/Goomba.cpp.o
  ../include/ResourceManager.hpp
  ../include/State.hpp
  ../include/StateManager.hpp
- /home/f85/crfred/Desktop/testboy/collision/src/Goomba.cpp
+ /home/f85/blmonten/github/collision/collision/src/Goomba.cpp
 CMakeFiles/collision_core.dir/src/Koopa.cpp.o
  ../include/Entity.hpp
  ../include/GameApp.hpp
@@ -94,7 +94,7 @@ CMakeFiles/collision_core.dir/src/Koopa.cpp.o
  ../include/ResourceManager.hpp
  ../include/State.hpp
  ../include/StateManager.hpp
- /home/f85/crfred/Desktop/testboy/collision/src/Koopa.cpp
+ /home/f85/blmonten/github/collision/collision/src/Koopa.cpp
 CMakeFiles/collision_core.dir/src/LoseState.cpp.o
  ../include/Bullet.hpp
  ../include/GameApp.hpp
@@ -106,7 +106,7 @@ CMakeFiles/collision_core.dir/src/LoseState.cpp.o
  ../include/ResourceManager.hpp
  ../include/State.hpp
  ../include/StateManager.hpp
- /home/f85/crfred/Desktop/testboy/collision/src/LoseState.cpp
+ /home/f85/blmonten/github/collision/collision/src/LoseState.cpp
 CMakeFiles/collision_core.dir/src/MenuState.cpp.o
  ../include/Bullet.hpp
  ../include/ControlsState.hpp
@@ -119,7 +119,7 @@ CMakeFiles/collision_core.dir/src/MenuState.cpp.o
  ../include/State.hpp
  ../include/StateManager.hpp
  ../include/StoryState.hpp
- /home/f85/crfred/Desktop/testboy/collision/src/MenuState.cpp
+ /home/f85/blmonten/github/collision/collision/src/MenuState.cpp
 CMakeFiles/collision_core.dir/src/PauseState.cpp.o
  ../include/Bullet.hpp
  ../include/GameApp.hpp
@@ -131,7 +131,7 @@ CMakeFiles/collision_core.dir/src/PauseState.cpp.o
  ../include/ResourceManager.hpp
  ../include/State.hpp
  ../include/StateManager.hpp
- /home/f85/crfred/Desktop/testboy/collision/src/PauseState.cpp
+ /home/f85/blmonten/github/collision/collision/src/PauseState.cpp
 CMakeFiles/collision_core.dir/src/Player.cpp.o
  ../include/GameApp.hpp
  ../include/Global.hpp
@@ -139,10 +139,10 @@ CMakeFiles/collision_core.dir/src/Player.cpp.o
  ../include/ResourceManager.hpp
  ../include/State.hpp
  ../include/StateManager.hpp
- /home/f85/crfred/Desktop/testboy/collision/src/Player.cpp
+ /home/f85/blmonten/github/collision/collision/src/Player.cpp
 CMakeFiles/collision_core.dir/src/ResourceManager.cpp.o
  ../include/ResourceManager.hpp
- /home/f85/crfred/Desktop/testboy/collision/src/ResourceManager.cpp
+ /home/f85/blmonten/github/collision/collision/src/ResourceManager.cpp
 CMakeFiles/collision_core.dir/src/SplashState.cpp.o
  ../include/GameApp.hpp
  ../include/Global.hpp
@@ -154,15 +154,16 @@ CMakeFiles/collision_core.dir/src/SplashState.cpp.o
  ../include/StateManager.hpp
  ../include/StoryState.hpp
  ../include/WinState.hpp
- /home/f85/crfred/Desktop/testboy/collision/src/SplashState.cpp
+ /home/f85/blmonten/github/collision/collision/src/SplashState.cpp
 CMakeFiles/collision_core.dir/src/StateManager.cpp.o
  ../include/State.hpp
  ../include/StateManager.hpp
- /home/f85/crfred/Desktop/testboy/collision/src/StateManager.cpp
+ /home/f85/blmonten/github/collision/collision/src/StateManager.cpp
 CMakeFiles/collision_core.dir/src/StoryState.cpp.o
  ../include/Bullet.hpp
  ../include/Entity.hpp
  ../include/GameApp.hpp
+ ../include/GameState.hpp
  ../include/GameState2.hpp
  ../include/Global.hpp
  ../include/Goomba.hpp
@@ -176,7 +177,7 @@ CMakeFiles/collision_core.dir/src/StoryState.cpp.o
  ../include/StateManager.hpp
  ../include/StoryState.hpp
  ../include/WinState.hpp
- /home/f85/crfred/Desktop/testboy/collision/src/StoryState.cpp
+ /home/f85/blmonten/github/collision/collision/src/StoryState.cpp
 CMakeFiles/collision_core.dir/src/WinState.cpp.o
  ../include/Bullet.hpp
  ../include/GameApp.hpp
@@ -188,4 +189,4 @@ CMakeFiles/collision_core.dir/src/WinState.cpp.o
  ../include/State.hpp
  ../include/StateManager.hpp
  ../include/WinState.hpp
- /home/f85/crfred/Desktop/testboy/collision/src/WinState.cpp
+ /home/f85/blmonten/github/collision/collision/src/WinState.cpp
