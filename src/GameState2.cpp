@@ -33,16 +33,16 @@ void GameState2::init() {
 
     enemytext.setFont(this->gameData->resourceManager.getFont("font"));
     enemytext.setFillColor(sf::Color::Red);
-    enemytext.setCharacterSize(70);
-    enemytext.setString("Enemies Destroyed: ");
-    enemytext.setPosition(WINDOW_WIDTH - 300, WINDOW_HEIGHT - 100);
+    enemytext.setCharacterSize(50);
+    enemytext.setString("Ships Destroyed: ");
+    enemytext.setPosition(WINDOW_WIDTH - 625, WINDOW_HEIGHT - 75);
 
     killcountstring = "0";
     killcount.setFont(this->gameData->resourceManager.getFont("font"));
     killcount.setFillColor(sf::Color::Red);
-    killcount.setCharacterSize(70);
+    killcount.setCharacterSize(50);
     killcount.setString(killcountstring);
-    killcount.setPosition(WINDOW_WIDTH - 100, WINDOW_HEIGHT - 100);
+    killcount.setPosition(WINDOW_WIDTH - 165, WINDOW_HEIGHT - 75);
 
 
 	// initialize player, bullet, and enemies
