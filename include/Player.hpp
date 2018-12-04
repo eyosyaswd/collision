@@ -37,10 +37,9 @@ class Player {
 		GameDataRef gameData;
 		sf::Texture texture;
 		sf::Clock clock;
-		sf::Clock move;
 		sf::Sprite ship;
 		sf::IntRect boxSprite;
-		std::vector<sf::Texture> frames;
-		int shipState;
+
+
 
 };
