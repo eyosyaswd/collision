@@ -95,6 +95,9 @@ class GameState2 : public State {
     bool shieldfollow;
     bool bigbool;
 
+    std::string killcountstring;
+    sf::Text killcount;
+
 };
 
 

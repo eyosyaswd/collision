@@ -31,6 +31,13 @@ void GameState2::init() {
     shieldfollow = false;
     backbool = false;
 
+    killcountstring = "0";
+    killcount.setFont(this->gameData->resourceManager.getFont("font"));
+    killcount.setFillColor(sf::Color::White);
+    killcount.setCharacterSize(70);
+    killcount.setString(killcountstring);
+    killcount.setPosition(WINDOW_WIDTH - 100, WINDOW_HEIGHT - 100);
+
 
 	// initialize player, bullet, and enemies
   spaceship = new Player(gameData);
@@ -347,6 +354,11 @@ void GameState2::update(float dt) {
       if (bullet->getShape().getGlobalBounds().intersects(goombas[i].getShape().getGlobalBounds())) {
         goombas[i].hit();
 
+        int killint = std::stoi(killcountstring);
+        killint++;
+        killcountstring = std::to_string(killint);
+        killcount.setString(killcountstring);
+
         // TODO: erase bullet
         goombas.erase(goombas.begin() + i);
         if(piercing == false){
@@ -436,6 +448,7 @@ void GameState2::draw(float dt) {
   this->gameData->window.draw(powerup);
   this->gameData->window.draw(powerup);
   this->gameData->window.draw(shotcount);
+  this->gameData->window.draw(killcount);
   this->gameData->window.draw(shield);
   this->gameData->window.display();
 }

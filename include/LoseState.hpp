@@ -26,7 +26,7 @@ class LoseState : public State {
 		void draw(float dt);
 
     void moveUp();
-	  void moveDown();
+    void moveDown();
     int getPressedItem() { return selectedItem; }
 
 	private:
