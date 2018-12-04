@@ -35,6 +35,7 @@ class LoseState : public State {
         std::string scorestring;
 		int finalscoreint;
 		sf::Text finalscore;
+		sf::Text finaltext;
 
 
     sf::Texture backgroundTexture;
