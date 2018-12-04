@@ -13,7 +13,8 @@ LoseState::LoseState(GameDataRef data) : gameData(data)
 
 LoseState::LoseState(GameDataRef data, int score) : gameData(data)
 {
-    this->finalscoreint = score;
+        this->finalscoreint = score;
+
 }
 
 	void LoseState::init()
@@ -24,16 +25,15 @@ LoseState::LoseState(GameDataRef data, int score) : gameData(data)
         finaltext.setFont(this->gameData->resourceManager.getFont("font"));
         finaltext.setFillColor(sf::Color::Red);
         finaltext.setCharacterSize(70);
-        finaltext.setString("Game Over! \n"
-                            "Final Score:");
-        finalscore.setPosition(WINDOW_WIDTH / 3, 75);
+        finaltext.setString("Game Over! Final Score:");
+        finaltext.setPosition((WINDOW_WIDTH / 8) - 40, 65);
 
         finalscore.setFont(this->gameData->resourceManager.getFont("font"));
         finalscore.setFillColor(sf::Color::Red);
         finalscore.setCharacterSize(70);
         scorestring = std::to_string(finalscoreint);
         finalscore.setString(scorestring);
-        finalscore.setPosition(WINDOW_WIDTH / 2, 175);
+        finalscore.setPosition(WINDOW_WIDTH / 2, 150);
 
 
 		if (!switch_Buffer.loadFromFile("../res/sounds/switch.wav"))

@@ -43,7 +43,7 @@
 #define SPLASH_STATE_BACKGROUND_FILEPATH "../res/images/collision_logo.jpg"
 #define MENU_STATE_BACKGROUND_FILEPATH "../res/images/menuBackground.png"
 #define WIN_STATE_BACKGROUND_FILEPATH "../res/images/WinBackground.png"
-#define LOSE_STATE_BACKGROUND_FILEPATH "../res/images/loseBackground2.png"
+#define LOSE_STATE_BACKGROUND_FILEPATH "../res/images/loseBackground2.jpg"
 #define CONTROLS_STATE_BACKGROUND_FILEPATH "../res/images/controlsBackground.png"
 #define PAUSE_STATE_BACKGROUND_FILEPATH "../res/images/pauseBackground.png"
 

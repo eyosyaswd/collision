@@ -39,6 +39,7 @@ void GameState2::init() {
     enemytext.setString("Ships Destroyed: ");
     enemytext.setPosition(WINDOW_WIDTH - 625, WINDOW_HEIGHT - 75);
 
+    killint = 0;
     killcountstring = "0";
     killcount.setFont(this->gameData->resourceManager.getFont("font"));
     killcount.setFillColor(sf::Color::Red);
