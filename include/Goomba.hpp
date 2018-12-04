@@ -34,6 +34,7 @@ class Goomba : public Entity{
     void setPosition(sf::Vector2f);
     sf::Vector2f getPosition();
     sf::Vector2f getSize();
+    std::string getDirection();
 
   private:
     sf::Sprite goomba;
@@ -41,7 +42,7 @@ class Goomba : public Entity{
     float velocity = 3.0;
     GameDataRef gameData;
     sf::Vector2f position;
-
+    std::string direction;
     sf::Clock clock;
 
 };

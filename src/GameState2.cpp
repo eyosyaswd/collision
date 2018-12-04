@@ -11,53 +11,52 @@ GameState2::GameState2(GameDataRef data) : gameData(data) {}
 
 void GameState2::init() {
   currGameTime = 0.0f;
+
 	// load background
   this->gameData->resourceManager.loadTexture("GameState1 Background", GAME_STATE1_BACKGROUND_FILEPATH);
   this->gameData->resourceManager.loadTexture("GameState2 Background", GAME_STATE2_BACKGROUND_FILEPATH);
-this->gameData->resourceManager.loadTexture("GameState3 Background", GAME_STATE3_BACKGROUND_FILEPATH);
-backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState1 Background"));
+  this->gameData->resourceManager.loadTexture("GameState3 Background", GAME_STATE3_BACKGROUND_FILEPATH);
+  backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState1 Background"));
 
 
-    //draws shot count in bottom left
-    shotcountstring = "";
-    shotcount.setFont(this->gameData->resourceManager.getFont("font"));
-    shotcount.setFillColor(sf::Color::White);
-    shotcount.setCharacterSize(70);
-    shotcount.setString(shotcountstring);
-    shotcount.setPosition(150, WINDOW_HEIGHT-100);
+  //draws shot count in bottom left
+  shotcountstring = "";
+  shotcount.setFont(this->gameData->resourceManager.getFont("font"));
+  shotcount.setFillColor(sf::Color::White);
+  shotcount.setCharacterSize(70);
+  shotcount.setString(shotcountstring);
+  shotcount.setPosition(150, WINDOW_HEIGHT-100);
 
-    shield.setRadius(50);
-    shield.setPosition(-400,-400);
-    shieldfollow = false;
-    backbool = false;
-    bigbool = false;
+  shield.setRadius(50);
+  shield.setPosition(-400,-400);
+  shieldfollow = false;
+  backbool = false;
+  bigbool = false;
 
 
 	// initialize player, bullet, and enemies
   spaceship = new Player(gameData);
 	bullet = new Bullet(gameData);
-    backbullet = new Bullet(gameData);
-    backbullet->setFillColor();
+  backbullet = new Bullet(gameData);
+  backbullet->setFillColor();
   goombaSpawnTimer = 0;
   goombaSpawnSpeed = 60;
 
-    //TODO: uncomment music later, only turned it off for testing
+  //Initializes sounds for the game
+  if (!play_Theme.loadFromFile("../res/sounds/wave1.wav"))
+     std::cout << "Error occured while loading music " << std::endl;
+  else {
+     playTheme.setBuffer(play_Theme);
+     playTheme.setLoop(true);
+     playTheme.play();
+  }
 
-    //Initializes sounds for the game
-     if (!play_Theme.loadFromFile("../res/sounds/wave1.wav"))
-         std::cout << "Error occured while loading music " << std::endl;
-     else {
-         playTheme.setBuffer(play_Theme);
-         playTheme.setLoop(true);
-         playTheme.play();
-     }
-
-    if (!laser_Buffer.loadFromFile("../res/sounds/laser.wav"))
-        std::cout << "Error occured while loading music " << std::endl;
-    else
-    {
-        laser.setBuffer(laser_Buffer);
-    }
+  if (!laser_Buffer.loadFromFile("../res/sounds/laser.wav"))
+      std::cout << "Error occured while loading music " << std::endl;
+  else
+  {
+      laser.setBuffer(laser_Buffer);
+  }
 
   // sets up weapon toggle
   std::string weapontoggle = "selectsecondary";
@@ -114,16 +113,13 @@ void GameState2::handleEvents() {
           if(bigbool == true){
                 bullet->modify("big");
           }
-        
       }
       else{
 	      defaultWeapon.setRadius(24);
 	      secondaryWeapon.setRadius(12);
 	      secondaryWeapon.setPosition(100, 750);
 	      weapontoggle = "selectsecondary";
-          bullet->modify("default");
-          
-
+        bullet->modify("default");
       }
 		}
 
@@ -161,7 +157,6 @@ void GameState2::handleEvents() {
 	}
 
 
-
 	// "Mouse Left-Click" pressed (player shoots bullets)
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)){
     if(bullet->position.y > 850 || bullet->position.y < 0 || bullet->position.x > 1100 || bullet->position.x < 0) {
@@ -172,15 +167,14 @@ void GameState2::handleEvents() {
 
 	    float cleanshot = atan2(sf::Mouse::getPosition(this->gameData->window).y - bullet->position.y, sf::Mouse::getPosition(this->gameData->window).x - bullet->position.x);
 	    newshot = cleanshot;
-        
-        
+
+
 
         if(backbool == true and weapontoggle == "selectprimary"){
-        backbullet->set(spaceship->position.x,spaceship->position.y);
+          backbullet->set(spaceship->position.x,spaceship->position.y);
         }
 
         if(weapontoggle == "selectprimary" and shotcountstring != ""){
-
 
             int shotint = std::stoi(shotcountstring);
             shotint = shotint - 1;
@@ -215,11 +209,10 @@ void GameState2::update(float dt) {
   spaceship->update(dt);
   bullet->update(dt);
 
-  if(backbool == true){
-  backbullet->backmove(newshot);
-  backbullet->update(dt);
+  if(backbool == true) {
+    backbullet->backmove(newshot);
+    backbullet->update(dt);
   }
-
 
 
   elapsedpowertime += powerclock.getElapsedTime();
@@ -299,7 +292,7 @@ void GameState2::update(float dt) {
 
 
       }
-      
+
           defaultWeapon.setRadius(12);
 	      secondaryWeapon.setRadius(24);
 	      secondaryWeapon.setPosition(80,750);
@@ -313,13 +306,20 @@ void GameState2::update(float dt) {
 
   // determine how fast goombas can spawn
   if (goombaSpawnTimer < goombaSpawnSpeed) {
-     goombaSpawnTimer++;
-  }
+    goombaSpawnTimer++;
+ }
 
-  // spawn goombas that move down
-  if ((currGameTime > 5.0 && currGameTime < 60.0) ||
-      (currGameTime > 65.0 && currGameTime < 120.0) ||
-      (currGameTime > 185.0)) {
+ // spawn goombas that move up
+ if ((currGameTime > 70.0 && currGameTime < 120.0) || (currGameTime > 185.0)) {
+   if (goombaSpawnTimer >= goombaSpawnSpeed) {
+     goombas.push_back(Goomba(this->gameData, "up"));
+   }
+ }
+
+ // spawn goombas that move down
+ if ((currGameTime > 5.0 && currGameTime < 60.0) ||
+     (currGameTime > 70.0 && currGameTime < 120.0) ||
+     (currGameTime > 185.0)) {
     if (goombaSpawnTimer >= goombaSpawnSpeed) {
       goombas.push_back(Goomba(this->gameData, "down"));
       goombaSpawnTimer = 0;
@@ -327,14 +327,26 @@ void GameState2::update(float dt) {
   }
 
   // move goombas down
+
+  // move goombas
   for (size_t i = 0; i < goombas.size(); i++) {
-    goombas[i].moveDown();
+    if (goombas[i].getDirection() == "down") {
+      goombas[i].moveDown();
+      // delete goombas if they go below the screen
+      if (goombas[i].getPosition().y > this->gameData->window.getSize().y) {
+        goombas.erase(goombas.begin() + i);
+      }
+    }
+    else if (goombas[i].getDirection() == "up") {
+      goombas[i].moveUp();
+      // delete goombas if they go above the screen
+      if (goombas[i].getPosition().y < 0) {
+        goombas.erase(goombas.begin() + i);
+      }
+    }
+
     goombas[i].update(dt);
 
-    // delete goombas if they go off the screen
-    if (goombas[i].getPosition().y > this->gameData->window.getSize().y) {
-      goombas.erase(goombas.begin() + i);
-    }
   }
 
   //Testing for Koopas
@@ -427,18 +439,6 @@ void GameState2::draw(float dt) {
 	this->gameData->window.clear(sf::Color::White);
   this->gameData->window.draw(backgroundSprite);
 
-  spaceship->draw();
-  bullet->draw();
-
-  if(backbool == true){
-  backbullet->draw();
-  }
-
-  for (size_t i = 0; i < goombas.size(); i++) {
-    goombas[i].draw();
-  }
-
-
   this->gameData->window.draw(defaultWeapon);
   this->gameData->window.draw(secondaryWeapon);
   this->gameData->window.draw(heart1);
@@ -448,5 +448,17 @@ void GameState2::draw(float dt) {
   this->gameData->window.draw(powerup);
   this->gameData->window.draw(shotcount);
   this->gameData->window.draw(shield);
+
+  if(backbool == true){
+    backbullet->draw();
+  }
+
+  spaceship->draw();
+  bullet->draw();
+
+  for (size_t i = 0; i < goombas.size(); i++) {
+    goombas[i].draw();
+  }
+
   this->gameData->window.display();
 }
