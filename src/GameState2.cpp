@@ -30,12 +30,14 @@ backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameStat
     shield.setPosition(-400,-400);
     shieldfollow = false;
     backbool = false;
+    bigbool = false;
 
 
 	// initialize player, bullet, and enemies
   spaceship = new Player(gameData);
 	bullet = new Bullet(gameData);
     backbullet = new Bullet(gameData);
+    backbullet->setFillColor();
   goombaSpawnTimer = 0;
   goombaSpawnSpeed = 60;
 
@@ -103,12 +105,25 @@ void GameState2::handleEvents() {
 	      secondaryWeapon.setRadius(24);
 	      secondaryWeapon.setPosition(80,750);
 	      weapontoggle = "selectprimary";
+          if (piercing == true){
+            bullet->modify("pierce");
+          }
+          if (backbool == true){
+            bullet->modify("double");
+          }
+          if(bigbool == true){
+                bullet->modify("big");
+          }
+        
       }
       else{
 	      defaultWeapon.setRadius(24);
 	      secondaryWeapon.setRadius(12);
 	      secondaryWeapon.setPosition(100, 750);
 	      weapontoggle = "selectsecondary";
+          bullet->modify("default");
+          
+
       }
 		}
 
@@ -155,12 +170,14 @@ void GameState2::handleEvents() {
 
 	    float cleanshot = atan2(sf::Mouse::getPosition(this->gameData->window).y - bullet->position.y, sf::Mouse::getPosition(this->gameData->window).x - bullet->position.x);
 	    newshot = cleanshot;
+        
+        
 
-        if(backbool == true){
+        if(backbool == true and weapontoggle == "selectprimary"){
         backbullet->set(spaceship->position.x,spaceship->position.y);
         }
 
-        if(weapontoggle == "selectprimary" && shotcountstring != ""){
+        if(weapontoggle == "selectprimary" and shotcountstring != ""){
 
 
             int shotint = std::stoi(shotcountstring);
@@ -171,6 +188,10 @@ void GameState2::handleEvents() {
                 shotcountstring = "";
                 shotcount.setString(shotcountstring);
                 secondaryWeapon.setFillColor(sf::Color::White);
+                bullet->modify("default");
+                piercing = false;
+                backbool = false;
+                bigbool = false;
             }
         }
 
@@ -206,7 +227,7 @@ void GameState2::update(float dt) {
   currGameTime = gameTime.asSeconds();
   std::cout << currGameTime << std::endl;
 
-  if (elapsedpowertime.asSeconds() > 5) {
+  if (elapsedpowertime.asSeconds() > 17) {
     powercolor = rand() % 5 + 1;
     int powerx = rand() % 800 + 100;
     int powery = rand() % 700 + 100;
@@ -241,6 +262,7 @@ void GameState2::update(float dt) {
             shotcount.setString(shotcountstring);
             piercing = false;
             backbool = true;
+            bigbool = false;
       }
       if(powercolor == 5){
             secondaryWeapon.setFillColor(sf::Color::Yellow);
@@ -249,6 +271,7 @@ void GameState2::update(float dt) {
             shotcount.setString(shotcountstring);
             piercing = false;
             backbool = false;
+            bigbool = true;
       }
       if(powercolor == 4){
             secondaryWeapon.setFillColor(sf::Color::Green);
@@ -257,6 +280,7 @@ void GameState2::update(float dt) {
             shotcount.setString(shotcountstring);
             piercing = true;
             backbool = false;
+            bigbool = false;
       }
       if(powercolor==2){
             shieldfollow = true;
@@ -273,6 +297,11 @@ void GameState2::update(float dt) {
 
 
       }
+      
+          defaultWeapon.setRadius(12);
+	      secondaryWeapon.setRadius(24);
+	      secondaryWeapon.setPosition(80,750);
+	      weapontoggle = "selectprimary";
   }
 
   if(shieldfollow == true){
@@ -329,11 +358,14 @@ void GameState2::update(float dt) {
   // collision of bullets and goombas
   if (!goombas.empty()) {
     for (size_t i = 0; i < goombas.size(); i++) {
-      if (bullet->getShape().getGlobalBounds().intersects(goombas[i].getShape().getGlobalBounds())) {
+      if (bullet->getShape().getGlobalBounds().intersects(goombas[i].getShape().getGlobalBounds()) || backbullet->getShape().getGlobalBounds().intersects(goombas[i].getShape().getGlobalBounds()) ) {
         // TODO: erase bullet
         goombas.erase(goombas.begin() + i);
-        if(piercing == false){
-        bullet->set(-10000000,-100000000);
+        if(piercing == true and weapontoggle == "selectprimary"){
+        }
+        else{
+                    bullet->set(-10000000,-100000000);
+
         }
         break;
       }
