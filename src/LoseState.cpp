@@ -3,7 +3,7 @@
 #include "Global.hpp"
 #include "LoseState.hpp"
 #include "MenuState.hpp"
-#include "GameState.hpp"
+#include "GameState2.hpp"
 
 
 LoseState::LoseState(GameDataRef data) : gameData(data)
@@ -21,7 +21,6 @@ LoseState::LoseState(GameDataRef data, int score) : gameData(data)
 		this->gameData->resourceManager.loadTexture("LoseState Background", LOSE_STATE_BACKGROUND_FILEPATH);
     backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("LoseState Background"));
 
-
         finaltext.setFont(this->gameData->resourceManager.getFont("font"));
         finaltext.setFillColor(sf::Color::Red);
         finaltext.setCharacterSize(70);
@@ -34,7 +33,8 @@ LoseState::LoseState(GameDataRef data, int score) : gameData(data)
         finalscore.setCharacterSize(70);
         scorestring = std::to_string(finalscoreint);
         finalscore.setString(scorestring);
-        finalscore.setPosition(WINDOW_WIDTH / 3, 75);
+        finalscore.setPosition(WINDOW_WIDTH / 2, 175);
+
 
 		if (!switch_Buffer.loadFromFile("../res/sounds/switch.wav"))
 				std::cout << "Error occured while loading music " << std::endl;
@@ -107,7 +107,7 @@ LoseState::LoseState(GameDataRef data, int score) : gameData(data)
             case 0:
 						select.play();
 						defeatTheme.stop();
-            this->gameData->stateManager.pushState(StateRef(new GameState(gameData)), true);
+            this->gameData->stateManager.pushState(StateRef(new GameState2(gameData)), true);
             break;
             case 1:
 						select.play();
@@ -137,13 +137,16 @@ LoseState::LoseState(GameDataRef data, int score) : gameData(data)
 		this->gameData->window.clear(sf::Color::Black);
 
 		this->gameData->window.draw(backgroundSprite);
+        this->gameData->window.draw(finalscore);
 
     for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
     	{
     		this->gameData->window.draw(menu[i]);
     	}
+
         this->gameData->window.draw(finaltext);
         this->gameData->window.draw(finalscore);
+
 		this->gameData->window.display();
 	}
 

@@ -16,9 +16,11 @@ Player::Player(GameDataRef data) : gameData(data)
 
   ship.setTextureRect(boxSprite);
 
-  position.x = ship.getPosition().x;
-  position.y = ship.getPosition().y;
+  // position.x = ship.getPosition().x;
+  // position.y = ship.getPosition().y;
 
+  position.x = WINDOW_WIDTH / 2.f;
+  position.y = WINDOW_HEIGHT / 2.f;
   ship.setPosition(position);
 
 }
