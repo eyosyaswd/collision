@@ -111,11 +111,17 @@ void Bullet::modify(std::string power){
                 bullet.setFillColor(sf::Color::Green);
                 bullet.setRadius(7);
         }
+        if(power == "default"){
+                bullet.setFillColor(sf::Color::White);
+                bullet.setRadius(7);
+        }
 }
 
 
 
-
+void Bullet::setFillColor(){
+        bullet.setFillColor(sf::Color::Blue);
+}
 
 
 
@@ -130,3 +136,6 @@ sf::CircleShape Bullet::getShape() {
   return bullet;
 }
 
+std::string Bullet::getType() {
+        return power;
+}
