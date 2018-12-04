@@ -73,12 +73,12 @@ LoseState::LoseState(GameDataRef data) : gameData(data)
         {
           case sf::Keyboard::Up:
           moveUp();
-					menuSwitch.play();
+          menuSwitch.play();
           break;
 
           case sf::Keyboard::Down:
           moveDown();
-					menuSwitch.play();
+          menuSwitch.play();
           break;
 
           case sf::Keyboard::Return:

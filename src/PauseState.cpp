@@ -26,6 +26,13 @@ PauseState::PauseState(GameDataRef data) : gameData(data)
             select.setBuffer(select_Buffer);
         }
 
+        if (!play_Theme.loadFromFile("../res/sounds/splash.wav"))
+            std::cout << "Error occured while loading music " << std::endl;
+        else {
+            playTheme.setBuffer(play_Theme);
+            playTheme.play();
+        }
+
 
 
 		this->gameData->resourceManager.loadTexture("GameState Background", GAME_STATE1_BACKGROUND_FILEPATH);

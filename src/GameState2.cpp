@@ -117,6 +117,8 @@ void GameState2::handleEvents() {
   /* proccess key inputs */
 	// "Space" key pressed (pauses game)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+	    //Fix music on pause screen
+	    playTheme.stop();
 		this->gameData->stateManager.pushState(StateRef(new PauseState(gameData)), false);
 	}
 
@@ -414,6 +416,5 @@ void GameState2::draw(float dt) {
   this->gameData->window.draw(powerup);
   this->gameData->window.draw(shotcount);
   this->gameData->window.draw(shield);
-
-	this->gameData->window.display();
+  this->gameData->window.display();
 }
