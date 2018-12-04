@@ -30,6 +30,8 @@ class Bullet {
     void modify(std::string power);
     std::string getType();
     void backmove(float shot);
+    void setFillColor();
+    std::string power;
 
 	private:
 		sf::CircleShape bullet;

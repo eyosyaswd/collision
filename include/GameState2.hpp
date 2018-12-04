@@ -93,6 +93,7 @@ class GameState2 : public State {
     bool piercing;
     bool backbool;
     bool shieldfollow;
+    bool bigbool;
 
 };
 

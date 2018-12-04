@@ -354,9 +354,15 @@ StoryState.hpp
 MenuState.hpp
 /home/f85/blmonten/github/collision/collision/src/MenuState.hpp
 GameState2.hpp
+<<<<<<< HEAD
 /home/f85/blmonten/github/collision/collision/src/GameState2.hpp
 GameState.hpp
 /home/f85/blmonten/github/collision/collision/src/GameState.hpp
+=======
+/home/f85/crfred/Desktop/testboy/collision/src/GameState2.hpp
+GameState.hpp
+/home/f85/crfred/Desktop/testboy/collision/src/GameState.hpp
+>>>>>>> 18b38c44b1d43119fd0cd2ffcfbed1fda15bc7de
 
 /home/f85/blmonten/github/collision/collision/src/WinState.cpp
 iostream
