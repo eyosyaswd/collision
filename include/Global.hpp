@@ -61,4 +61,9 @@
 #define PINK_SHEET_FILEPATH "../res/images/pinkShipSheet400.png"
 #define PINK_SHEET_FILEPATH2 "../res/images/otherPinkShipSheet400.png"
 
+
+//mouse
+#define TARGET_CURSOR "../res/images/mouse_target.png"
+
+
 #endif

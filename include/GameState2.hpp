@@ -102,6 +102,9 @@ class GameState2 : public State {
     sf::Text killcount;
     int killint;
 
+		//mouse cursor
+		sf::Sprite mouseSprite;
+
 };
 
 

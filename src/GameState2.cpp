@@ -12,6 +12,13 @@ GameState2::GameState2(GameDataRef data) : gameData(data) {}
 void GameState2::init() {
   currGameTime = 0.0f;
 
+  // change mouse cursor
+
+  this->gameData->resourceManager.loadTexture("Target Cursor", TARGET_CURSOR);
+  mouseSprite.setTexture(this->gameData->resourceManager.getTexture("Target Cursor"));
+  // mouseSprite.setOrigin(mouseSprite.getScale().x / 2, mouseSprite.getScale().y / 2);
+  // mouseSprite.setScale(20.f, 20.f);
+
 	// load background
   this->gameData->resourceManager.loadTexture("GameState1 Background", GAME_STATE1_BACKGROUND_FILEPATH);
   this->gameData->resourceManager.loadTexture("GameState2 Background", GAME_STATE2_BACKGROUND_FILEPATH);
@@ -229,6 +236,8 @@ void GameState2::handleEvents() {
 
 
 void GameState2::update(float dt) {
+  mouseSprite.setPosition(sf::Mouse::getPosition(this->gameData->window).x - 50, sf::Mouse::getPosition(this->gameData->window).y - 50);
+
   spaceship->animate(dt);
 
   bullet->move(newshot);
@@ -250,7 +259,7 @@ void GameState2::update(float dt) {
   powerclock.restart();
   gameTime = gameClock.getElapsedTime();
   currGameTime = gameTime.asSeconds();
-  std::cout << currGameTime << std::endl;
+  // std::cout << currGameTime << std::endl;
 
   if (elapsedpowertime.asSeconds() > 17) {
     powercolor = rand() % 5 + 1;
@@ -615,6 +624,8 @@ void GameState2::draw(float dt) {
   for (size_t i = 0; i < koopas.size(); i++) {
     koopas[i].draw();
   }
+
+  this->gameData->window.draw(mouseSprite);
 
   this->gameData->window.display();
 }
