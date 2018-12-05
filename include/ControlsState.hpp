@@ -8,10 +8,13 @@
 #define CONTROLSSTATE_HPP
 
 
+#include <iostream>
 #include <SFML/Graphics.hpp>
 
+#include "Global.hpp"
 #include "GameApp.hpp"
 #include "State.hpp"
+#include "MenuState.hpp"
 
 #define MAX_NUMBER_OF_ITEMS 3
 
@@ -34,7 +37,7 @@ class ControlsState : public State {
 
 		sf::Texture backgroundTexture;
     sf::Sprite backgroundSprite;
-		
+
     int selectedItem;
 	  sf::Font font;
 	  sf::Text menu[MAX_NUMBER_OF_ITEMS];

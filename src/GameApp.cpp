@@ -19,7 +19,6 @@ GameApp::~GameApp() {}
 void GameApp::init() {
   this->gameData->window.create(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT, BITS_PER_PIXEL), GAME_TITLE, sf::Style::Titlebar | sf::Style::Close);
   this->gameData->stateManager.pushState(StateRef(new SplashState(this->gameData)));
-  // this->gameData->stateManager.pushState(StateRef(new GameState2(this->gameData)));
 }
 
 
@@ -51,7 +50,5 @@ void GameApp::mainLoop() {
 
     interpolation = accumulator / dt;
     this->gameData->stateManager.getActiveState()->draw(interpolation);
-
   }
-
 }

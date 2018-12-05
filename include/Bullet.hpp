@@ -9,7 +9,6 @@
 
 
 #include <math.h>
-#include <iostream>
 #include <SFML/Graphics.hpp>
 
 #include "GameApp.hpp"
@@ -17,6 +16,7 @@
 
 
 class Bullet {
+	
 	public:
     Bullet(GameDataRef data);
     ~Bullet();
@@ -39,7 +39,7 @@ class Bullet {
     sf::Clock clock;
 		Player *spaceship;
 
-
 };
+
 
 #endif

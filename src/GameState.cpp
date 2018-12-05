@@ -9,13 +9,11 @@
 #include "WinState.hpp"
 #include "LoseState.hpp"
 
-GameState::GameState(GameDataRef data) : gameData(data)
-{
+GameState::GameState(GameDataRef data) : gameData(data) {
   bullet = new Bullet(gameData);
 }
 
-void GameState::init()
-{
+void GameState::init() {
 	this->gameData->resourceManager.loadTexture("GameState1 Background", GAME_STATE1_BACKGROUND_FILEPATH);
   backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameState1 Background"));
 
@@ -36,16 +34,12 @@ void GameState::init()
 
   spaceship = new Player(gameData);
 
-  // goomba = new Goomba(gameData);
-
   //sets up weapon toggle
   std::string weapontoggle = "selectsecondary";
   defaultWeapon.setRadius(24);
   defaultWeapon.setPosition(50, 750);
   secondaryWeapon.setRadius(12);
   secondaryWeapon.setPosition(100, 750);
-
-
 
   this->gameData->resourceManager.loadTexture("heart", "../res/images/heart.png"); //having trouble getting it to recognize HEART_PATH in global, help would be great
   heart1.setTexture(this->gameData->resourceManager.getTexture("heart"));
@@ -67,6 +61,7 @@ void GameState::init()
   sf::Time  elapsedpowertime;
   sf::Clock powerclock;
 }
+
 
 void GameState::handleEvents() {
 	sf::Event event;
