@@ -431,7 +431,7 @@ void GameState2::update(float dt) {
   // collision of bullets and goombas
   if (!goombas.empty()) {
     for (size_t i = 0; i < goombas.size(); i++) {
-      if (bullet->getShape().getGlobalBounds().intersects(goombas[i].getShape().getGlobalBounds())) {
+      if (bullet->getShape().getGlobalBounds().intersects(goombas[i].getShape().getGlobalBounds()) or backbullet->getShape().getGlobalBounds().intersects(goombas[i].getShape().getGlobalBounds())) {
         goombas[i].hit();
 
         killint = std::stoi(killcountstring);
@@ -446,6 +446,7 @@ void GameState2::update(float dt) {
         }
         else{
           bullet->set(-10000000,-100000000);
+          backbullet->set(-100000000,-10000000);
         }
         break;
       }
@@ -455,7 +456,7 @@ void GameState2::update(float dt) {
   // collision of bullets and koopas
   if (!koopas.empty()) {
     for (size_t i = 0; i < koopas.size(); i++) {
-      if (bullet->getShape().getGlobalBounds().intersects(koopas[i].getShape().getGlobalBounds())) {
+      if (bullet->getShape().getGlobalBounds().intersects(koopas[i].getShape().getGlobalBounds()) or backbullet->getShape().getGlobalBounds().intersects(koopas[i].getShape().getGlobalBounds())) {
         koopas[i].hit();
 
         killint = std::stoi(killcountstring);
@@ -470,6 +471,7 @@ void GameState2::update(float dt) {
         }
         else{
           bullet->set(-10000000,-100000000);
+          backbullet->set(-100000000,-10000000);
         }
         break;
       }
