@@ -1,5 +1,5 @@
 /**
-	* Filename: LoseState.hpp
+	* Filename: GameOverState.hpp
 	*
 	* This is the screen that shows up when you lose the game.
 **/
@@ -16,11 +16,11 @@
 #define MAX_NUMBER_OF_ITEMS 3
 
 
-class LoseState : public State {
+class GameOverState : public State {
 
 	public:
-		LoseState(GameDataRef data);
-		LoseState(GameDataRef data, int score);
+		GameOverState(GameDataRef data);
+		GameOverState(GameDataRef data, int score);
 		void init();
 		void handleEvents();
 		void update(float dt);

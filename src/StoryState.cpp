@@ -3,7 +3,7 @@
 #include "Global.hpp"
 #include "StoryState.hpp"
 #include "MenuState.hpp"
-#include "GameState2.hpp"
+#include "GameState.hpp"
 #include "GameState.hpp"
 
 
@@ -52,7 +52,7 @@ StoryState::StoryState(GameDataRef data) : gameData(data)
             count = count + 1;
             if(count > 3)
 						{
-              this -> gameData->stateManager.pushState(StateRef(new GameState2(gameData)), true);
+              this -> gameData->stateManager.pushState(StateRef(new GameState(gameData)), true);
             }
             if (count == 1)
 						{

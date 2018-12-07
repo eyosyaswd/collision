@@ -1,31 +1,64 @@
 #include <iostream>
 
 #include "Global.hpp"
-#include "WinState.hpp"
+#include "GameOverState.hpp"
 #include "MenuState.hpp"
 #include "GameState.hpp"
 
 
-WinState::WinState(GameDataRef data) : gameData(data) {}
-
-	void WinState::init()
+GameOverState::GameOverState(GameDataRef data) : gameData(data)
 	{
-		this->gameData->resourceManager.loadTexture("WinState Background", WIN_STATE_BACKGROUND_FILEPATH);
-    backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("WinState Background"));
 
+	}
+
+GameOverState::GameOverState(GameDataRef data, int score) : gameData(data)
+{
+        this->finalscoreint = score;
+
+}
+
+	void GameOverState::init()
+	{
+		this->gameData->resourceManager.loadTexture("GameOverState Background", LOSE_STATE_BACKGROUND_FILEPATH);
+    backgroundSprite.setTexture(this->gameData->resourceManager.getTexture("GameOverState Background"));
+
+        finaltext.setFont(this->gameData->resourceManager.getFont("font"));
+        finaltext.setFillColor(sf::Color::Red);
+        finaltext.setCharacterSize(70);
+        finaltext.setString("Game Over! Final Score:");
+        finaltext.setPosition((WINDOW_WIDTH / 8) - 40, 65);
+
+        finalscore.setFont(this->gameData->resourceManager.getFont("font"));
+        finalscore.setFillColor(sf::Color::Red);
+        finalscore.setCharacterSize(70);
+        scorestring = std::to_string(finalscoreint);
+        finalscore.setString(scorestring);
+        finalscore.setPosition(WINDOW_WIDTH / 2, 150);
+
+
+		if (!switch_Buffer.loadFromFile("../res/sounds/switch.wav"))
+				std::cout << "Error occured while loading music " << std::endl;
+		else {
+				menuSwitch.setBuffer(switch_Buffer);
+		}
+
+		if (!select_Buffer.loadFromFile("../res/sounds/select.wav"))
+				std::cout << "Error occured while loading music " << std::endl;
+		else {
+				select.setBuffer(select_Buffer);
+		}
 
 		this->gameData->resourceManager.loadFont("font", MAIN_FONT_FILEPATH);
-        if (!victory_Theme.loadFromFile("../res/sounds/victoryTheme.wav"))
+        if (!defeat_Theme.loadFromFile("../res/sounds/defeatTheme.wav"))
             std::cout << "Error occured while loading music " << std::endl;
         else {
-            victoryTheme.setBuffer(victory_Theme);
-            victoryTheme.play();
+            defeatTheme.setBuffer(defeat_Theme);
+            defeatTheme.play();
         }
-
     menu[0].setFont(this->gameData->resourceManager.getFont("font"));
     menu[0].setFillColor(sf::Color::Red);
     menu[0].setCharacterSize(70);
-    menu[0].setString("Play Again");
+    menu[0].setString("Try Again");
     menu[0].setPosition(sf::Vector2f(WINDOW_WIDTH / 3,WINDOW_HEIGHT / (MAX_NUMBER_OF_ITEMS + 1) + 60));
     	//width/2.1
     menu[1].setFont(this->gameData->resourceManager.getFont("font"));
@@ -43,7 +76,7 @@ WinState::WinState(GameDataRef data) : gameData(data) {}
     selectedItem = 0;
 	}
 
-	void WinState::handleEvents()
+	void GameOverState::handleEvents()
 	{
 		sf::Event event;
 
@@ -60,22 +93,29 @@ WinState::WinState(GameDataRef data) : gameData(data) {}
         {
           case sf::Keyboard::Up:
           moveUp();
+          menuSwitch.play();
           break;
 
           case sf::Keyboard::Down:
           moveDown();
+          menuSwitch.play();
           break;
 
           case sf::Keyboard::Return:
           switch (getPressedItem() )
           {
             case 0:
+						select.play();
+						defeatTheme.stop();
             this->gameData->stateManager.pushState(StateRef(new GameState(gameData)), true);
             break;
             case 1:
+						select.play();
+						defeatTheme.stop();
             this -> gameData->stateManager.pushState(StateRef(new MenuState(gameData)), true);
             break;
             case 2:
+						select.play();
             this->gameData->window.close();
             break;
           }
@@ -87,26 +127,30 @@ WinState::WinState(GameDataRef data) : gameData(data) {}
 		}
 	}
 
-	void WinState::update(float dt)
+	void GameOverState::update(float dt)
 	{
 
 	}
 
-	void WinState::draw(float dt)
+	void GameOverState::draw(float dt)
 	{
 		this->gameData->window.clear(sf::Color::Black);
 
 		this->gameData->window.draw(backgroundSprite);
+        this->gameData->window.draw(finalscore);
 
     for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
     	{
     		this->gameData->window.draw(menu[i]);
     	}
 
+        this->gameData->window.draw(finaltext);
+        this->gameData->window.draw(finalscore);
+
 		this->gameData->window.display();
 	}
 
-  void WinState::moveUp()
+  void GameOverState::moveUp()
   {
 	   if (selectedItem - 1 >= 0)
 	    {
@@ -116,7 +160,7 @@ WinState::WinState(GameDataRef data) : gameData(data) {}
       }
     }
 
-    void WinState::moveDown()
+    void GameOverState::moveDown()
     {
       if (selectedItem + 1 < MAX_NUMBER_OF_ITEMS)
       {

@@ -7,7 +7,7 @@
 #include "Global.hpp"
 #include "GameApp.hpp"
 #include "SplashState.hpp"
-#include "GameState2.hpp"
+#include "GameState.hpp"
 
 
 GameApp::GameApp() {}
